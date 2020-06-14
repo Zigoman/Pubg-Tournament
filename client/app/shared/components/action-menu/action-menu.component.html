@@ -1,0 +1,19 @@
+<div class="action-menu" *ngIf="actions?.length > 0">
+  <pubg-input *ngIf="applyFilter"
+             [emitOnAnyKey]="true"
+             (text)="filterTerm = $event"></pubg-input>
+  <div class="action-menu__wrapper action-menu__wrapper--{{long ? 'long' : 'short'}}">
+    <div *ngIf="mainTitle" class="action-menu__wrapper__title">
+      {{mainTitle}}
+    </div>
+    <div class="action-menu__wrapper__actions">
+      <pubg-action-item *ngFor="let action of actions | filterBy : 'text' : filterTerm"
+                   [action]="action"
+                   [multi]="multi"
+                   [filterTerm]="filterTerm"
+                   [disabled]="(!multiIsEmpty && actionEnabled) ? actionEnabled !== action.id : false"
+                   (selectedAction)="actionSelected($event)">
+      </pubg-action-item>
+    </div>
+  </div>
+</div>

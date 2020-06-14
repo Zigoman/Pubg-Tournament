@@ -1,0 +1,21 @@
+html body {
+
+  .centerOverlayPanel {
+    border: none;
+  }
+
+  .ui-overlaypanel {
+    margin-top: 30px;
+
+    .ui-overlaypanel-content {
+      padding: 0;
+    }
+
+    &:before, &:after {
+      display: none;
+      border: none;
+    }
+  }
+}
+
+

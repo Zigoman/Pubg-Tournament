@@ -1,0 +1,15 @@
+<div class="pubg-dropdown">
+<pubg-opener #opener [title]="viewText" [bold]="bold" (click)="switchToggle($event)"
+            (BeforeHidePanel)="BeforeHidePanel()">
+  <pubg-action-menu
+               [long]="long"
+               [multi]="multi"
+               [multiIsEmpty]="multiActions.length === 0 || !hasSubActions"
+               [actions]="actions"
+               [applyFilter]="applyFilter"
+               (actionSelect)="actionSelected($event)"></pubg-action-menu>
+  <pubg-button *ngIf="multi && actions?.actions.length > 0" [text]="'Select Actions'" [prime]="true"
+              [action]="'Select Actions'" (buttonClicked)="multiActionsSelected()">
+  </pubg-button>
+</pubg-opener>
+</div>

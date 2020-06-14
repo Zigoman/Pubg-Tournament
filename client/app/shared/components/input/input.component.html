@@ -1,0 +1,7 @@
+<div class="pubg-input">
+  <label for="{{elementID}}" class="pubg-input__label" *ngIf="label">{{label}} :</label>
+  <input id="{{elementID}}" (keyup)="sendTextByKeyPress($event, input.value)"
+         (focusout)="useFocusedOut && sendText(input.value)" #input
+         class='pubg-input__input'
+         placeholder="{{placeholder}}" type="text">
+</div>

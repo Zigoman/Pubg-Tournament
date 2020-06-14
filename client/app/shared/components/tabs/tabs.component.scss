@@ -1,0 +1,40 @@
+@import "config";
+
+:host {
+
+  .tabs {
+
+    & {
+      display: flex;
+    }
+
+    &__tab {
+      & {
+        cursor: pointer;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 0;
+        flex-wrap: wrap;
+      }
+
+      &--active {
+        background-color: $pubg-main;
+        color: $def-fonts;
+      }
+
+      i {
+        @include pubg-font(20, icon);
+      }
+
+      &__text {
+        @include pubg-font(20, bold);
+        padding: 0 10px;
+        text-align: center;
+        user-select: none;
+      }
+    }
+  }
+}
+

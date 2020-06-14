@@ -1,0 +1,4 @@
+<div class='context-menu' *ngIf="actions" [ngClass]="{'context-menu--open' : open}" [style.top.px]="top" [style.left.px]="left">
+  <pubg-action-menu #actionMenu (actionSelect)="actionSelected($event)" [actions]="actions"></pubg-action-menu>
+</div>
+

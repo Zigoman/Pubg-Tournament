@@ -1,0 +1,33 @@
+@import "config";
+
+:host {
+
+  .check-box {
+    & {
+      width: 100%;
+      padding: 5px;
+      display: flex;
+    }
+
+    &__container {
+      & {
+        @include pubg-font(15, icon);
+        cursor: pointer;
+        padding: 0 5px;
+      }
+
+    }
+
+    &__label {
+      & {
+        flex: 1;
+        display: flex;
+      }
+
+      &__text {
+        cursor: pointer;
+        @include pubg-font(14, regular);
+      }
+    }
+  }
+}

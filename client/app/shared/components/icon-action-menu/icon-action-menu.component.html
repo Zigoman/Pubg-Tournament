@@ -1,0 +1,7 @@
+<div class="icon-action-menu" teamsClickOutside (clickOutsideEmit)="showActions = false">
+  <div class="icon-action-menu__menu" *ngIf="showActions">
+    <pubg-action-menu (actionSelect)="actionSelected($event)"
+                 [actions]="actionIcon.actionMenu"></pubg-action-menu>
+  </div>
+  <pubg-icon-button [icon]="actionIcon.icon" [action]="" (buttonClicked)="showActions = !showActions"></pubg-icon-button>
+</div>

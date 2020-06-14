@@ -1,0 +1,930 @@
+@font-face {
+	font-family: "svg-icons";
+	src: url("client/assets/fonts/svg-icons.eot?996df9d98ccfefb4cb1710daa1993743?#iefix") format("embedded-opentype"),
+url("client/assets/fonts/svg-icons.woff2?996df9d98ccfefb4cb1710daa1993743") format("woff2"),
+url("client/assets/fonts/svg-icons.woff?996df9d98ccfefb4cb1710daa1993743") format("woff");
+}
+
+.svg-icons {
+	line-height: 1;
+}
+
+.svg-icons:before {
+	font-family: svg-icons !important;
+	font-style: normal;
+	font-weight: normal !important;
+	vertical-align: top;
+}
+
+.svg-icons-add-button-with-plus-symbol-in-a-black-circle:before {
+	content: "\f101";
+}
+.svg-icons-arrow-circle:before {
+	content: "\f102";
+}
+.svg-icons-arrow-curve-pointing-left:before {
+	content: "\f103";
+}
+.svg-icons-arrow-curving-around-a-circle:before {
+	content: "\f104";
+}
+.svg-icons-arrow-down-left:before {
+	content: "\f105";
+}
+.svg-icons-arrow-down-sign-to-navigate:before {
+	content: "\f106";
+}
+.svg-icons-arrow-down:before {
+	content: "\f107";
+}
+.svg-icons-arrow-fork:before {
+	content: "\f108";
+}
+.svg-icons-arrow-from:before {
+	content: "\f109";
+}
+.svg-icons-arrow-in-u-shape-to-turn:before {
+	content: "\f10a";
+}
+.svg-icons-arrow-into-drive-symbol:before {
+	content: "\f10b";
+}
+.svg-icons-arrow-join:before {
+	content: "\f10c";
+}
+.svg-icons-arrow-junction-one-to-the-left:before {
+	content: "\f10d";
+}
+.svg-icons-arrow-loop-1:before {
+	content: "\f10e";
+}
+.svg-icons-arrow-loop-symbol:before {
+	content: "\f10f";
+}
+.svg-icons-arrow-loop:before {
+	content: "\f110";
+}
+.svg-icons-arrow-merge-symbol:before {
+	content: "\f111";
+}
+.svg-icons-arrow-navigate-close:before {
+	content: "\f112";
+}
+.svg-icons-arrow-of-large-size-turning-to-the-left:before {
+	content: "\f113";
+}
+.svg-icons-arrow-out:before {
+	content: "\f114";
+}
+.svg-icons-arrow-over-a-rectangular-element:before {
+	content: "\f115";
+}
+.svg-icons-arrow-point-to-down:before {
+	content: "\f116";
+}
+.svg-icons-arrow-point-to-right:before {
+	content: "\f117";
+}
+.svg-icons-arrow-pointing-down-right-in-a-circle:before {
+	content: "\f118";
+}
+.svg-icons-arrow-pointing-right-down:before {
+	content: "\f119";
+}
+.svg-icons-arrow-pointing-to-right:before {
+	content: "\f11a";
+}
+.svg-icons-arrow-pointing-up-left:before {
+	content: "\f11b";
+}
+.svg-icons-arrow-shuffle:before {
+	content: "\f11c";
+}
+.svg-icons-arrow-spread-symbol:before {
+	content: "\f11d";
+}
+.svg-icons-arrow-squiggly:before {
+	content: "\f11e";
+}
+.svg-icons-arrow-through:before {
+	content: "\f11f";
+}
+.svg-icons-arrow-to-the-left-silhouette:before {
+	content: "\f120";
+}
+.svg-icons-arrow-to-the-right-navigation:before {
+	content: "\f121";
+}
+.svg-icons-arrow-to:before {
+	content: "\f122";
+}
+.svg-icons-arrow-up-in-a-circle:before {
+	content: "\f123";
+}
+.svg-icons-arrow-up-right:before {
+	content: "\f124";
+}
+.svg-icons-arrow-up:before {
+	content: "\f125";
+}
+.svg-icons-arrow-upward-to-rectangle-shape:before {
+	content: "\f126";
+}
+.svg-icons-arrowhead-thin-outline-to-the-left:before {
+	content: "\f127";
+}
+.svg-icons-arrowheads-of-thin-outline-to-the-left:before {
+	content: "\f128";
+}
+.svg-icons-arrows-circle:before {
+	content: "\f129";
+}
+.svg-icons-arrows-group-interface-symbol-to-expand:before {
+	content: "\f12a";
+}
+.svg-icons-arrows-merge-pointing-to-right:before {
+	content: "\f12b";
+}
+.svg-icons-arrows-mix:before {
+	content: "\f12c";
+}
+.svg-icons-back-navigational-arrow-button-pointing-to-left:before {
+	content: "\f12d";
+}
+.svg-icons-barrier-closed:before {
+	content: "\f12e";
+}
+.svg-icons-barrier-open:before {
+	content: "\f12f";
+}
+.svg-icons-basic-text-format:before {
+	content: "\f130";
+}
+.svg-icons-basic-window-appearance:before {
+	content: "\f131";
+}
+.svg-icons-bell-black-shape:before {
+	content: "\f132";
+}
+.svg-icons-biohazard-sign-inside-a-triangle-outline:before {
+	content: "\f133";
+}
+.svg-icons-blank-window-with-key:before {
+	content: "\f134";
+}
+.svg-icons-book-closed-with-black-cover:before {
+	content: "\f135";
+}
+.svg-icons-book-of-black-cover-closed:before {
+	content: "\f136";
+}
+.svg-icons-book-open-in-the-middle:before {
+	content: "\f137";
+}
+.svg-icons-book-with-headphones-symbol:before {
+	content: "\f138";
+}
+.svg-icons-book-with-white-bookmark:before {
+	content: "\f139";
+}
+.svg-icons-bookmark-silhouette-variant:before {
+	content: "\f13a";
+}
+.svg-icons-bookmarks:before {
+	content: "\f13b";
+}
+.svg-icons-books-overlapping-arrangement:before {
+	content: "\f13c";
+}
+.svg-icons-braille-text:before {
+	content: "\f13d";
+}
+.svg-icons-broken-heart-silhouette-shape:before {
+	content: "\f13e";
+}
+.svg-icons-buoy:before {
+	content: "\f13f";
+}
+.svg-icons-calibration-mark:before {
+	content: "\f140";
+}
+.svg-icons-candle-burning:before {
+	content: "\f141";
+}
+.svg-icons-candle-holder-with-candle:before {
+	content: "\f142";
+}
+.svg-icons-cd-burning-application:before {
+	content: "\f143";
+}
+.svg-icons-cd-case:before {
+	content: "\f144";
+}
+.svg-icons-cd-drive:before {
+	content: "\f145";
+}
+.svg-icons-cd-pirated-interface-symbol-for-piracy:before {
+	content: "\f146";
+}
+.svg-icons-cd-window:before {
+	content: "\f147";
+}
+.svg-icons-cd-with-open-window:before {
+	content: "\f148";
+}
+.svg-icons-check-mark-black-outline:before {
+	content: "\f149";
+}
+.svg-icons-check:before {
+	content: "\f14a";
+}
+.svg-icons-checkbox-off:before {
+	content: "\f14b";
+}
+.svg-icons-checkbox-on:before {
+	content: "\f14c";
+}
+.svg-icons-checkered-racing-flag-variant:before {
+	content: "\f14d";
+}
+.svg-icons-circle-outline-with-exclamation-point:before {
+	content: "\f14e";
+}
+.svg-icons-circle-outline:before {
+	content: "\f14f";
+}
+.svg-icons-clipboard-empty-in-black:before {
+	content: "\f150";
+}
+.svg-icons-clipboard-paste-option:before {
+	content: "\f151";
+}
+.svg-icons-clipboard-paste-with-no-format:before {
+	content: "\f152";
+}
+.svg-icons-clipboard-variant-with-lists-and-checks:before {
+	content: "\f153";
+}
+.svg-icons-clipboard-variant-with-pencil-and-check-mark-variant:before {
+	content: "\f154";
+}
+.svg-icons-clipboard:before {
+	content: "\f155";
+}
+.svg-icons-close:before {
+	content: "\f156";
+}
+.svg-icons-closed-door-with-border-silhouette:before {
+	content: "\f157";
+}
+.svg-icons-compact-disc-variant-with-border:before {
+	content: "\f158";
+}
+.svg-icons-copy-documents-option:before {
+	content: "\f159";
+}
+.svg-icons-cross-variant-with-arrow-edges:before {
+	content: "\f15a";
+}
+.svg-icons-crosshair-variant-with-navigation-arrows:before {
+	content: "\f15b";
+}
+.svg-icons-curved-arrow-to-the-right:before {
+	content: "\f15c";
+}
+.svg-icons-cut:before {
+	content: "\f15d";
+}
+.svg-icons-delete-symbol-option:before {
+	content: "\f15e";
+}
+.svg-icons-delete:before {
+	content: "\f15f";
+}
+.svg-icons-dictionary-book-with-letters-a-to-z:before {
+	content: "\f160";
+}
+.svg-icons-document-center:before {
+	content: "\f161";
+}
+.svg-icons-document-centering-horizontally:before {
+	content: "\f162";
+}
+.svg-icons-document-empty-horizontal-page:before {
+	content: "\f163";
+}
+.svg-icons-document-empty:before {
+	content: "\f164";
+}
+.svg-icons-document-file-with-line:before {
+	content: "\f165";
+}
+.svg-icons-document-footer:before {
+	content: "\f166";
+}
+.svg-icons-document-header:before {
+	content: "\f167";
+}
+.svg-icons-document-height-adjustment:before {
+	content: "\f168";
+}
+.svg-icons-document-landscape-orientation:before {
+	content: "\f169";
+}
+.svg-icons-document-page-number:before {
+	content: "\f16a";
+}
+.svg-icons-document-pinned:before {
+	content: "\f16b";
+}
+.svg-icons-document-size:before {
+	content: "\f16c";
+}
+.svg-icons-document-tag-interface-symbol:before {
+	content: "\f16d";
+}
+.svg-icons-document-vertical-center-alignment:before {
+	content: "\f16e";
+}
+.svg-icons-document-width:before {
+	content: "\f16f";
+}
+.svg-icons-document-with-a-cup:before {
+	content: "\f170";
+}
+.svg-icons-document-with-gear:before {
+	content: "\f171";
+}
+.svg-icons-document-with-irregular-line:before {
+	content: "\f172";
+}
+.svg-icons-document-with-line-chart:before {
+	content: "\f173";
+}
+.svg-icons-document-with-paper-clip:before {
+	content: "\f174";
+}
+.svg-icons-document-with-selection-box:before {
+	content: "\f175";
+}
+.svg-icons-document-with-speaker:before {
+	content: "\f176";
+}
+.svg-icons-documents-empty:before {
+	content: "\f177";
+}
+.svg-icons-documents-exchange:before {
+	content: "\f178";
+}
+.svg-icons-documents-with-a-heart-symbol:before {
+	content: "\f179";
+}
+.svg-icons-door-exit:before {
+	content: "\f17a";
+}
+.svg-icons-double-curve-arrow-to-the-right:before {
+	content: "\f17b";
+}
+.svg-icons-edit:before {
+	content: "\f17c";
+}
+.svg-icons-equalizer-tool-on-open-window:before {
+	content: "\f17d";
+}
+.svg-icons-escalator-down:before {
+	content: "\f17e";
+}
+.svg-icons-escalator-silhouette-symbol:before {
+	content: "\f17f";
+}
+.svg-icons-escalator-up-sign:before {
+	content: "\f180";
+}
+.svg-icons-female-symbol:before {
+	content: "\f181";
+}
+.svg-icons-find-again-option:before {
+	content: "\f182";
+}
+.svg-icons-find-and-replace:before {
+	content: "\f183";
+}
+.svg-icons-find-text:before {
+	content: "\f184";
+}
+.svg-icons-first-aid-cross-in-black-inside-a-circle:before {
+	content: "\f185";
+}
+.svg-icons-fit-to-height:before {
+	content: "\f186";
+}
+.svg-icons-fit-to-width:before {
+	content: "\f187";
+}
+.svg-icons-flag-signal-in-black-cloth-on-a-pole:before {
+	content: "\f188";
+}
+.svg-icons-floppy-disk-digital-data-storage-or-save-interface-symbol:before {
+	content: "\f189";
+}
+.svg-icons-floppy-diskette-with-open-window:before {
+	content: "\f18a";
+}
+.svg-icons-floppy-diskette-with-pen:before {
+	content: "\f18b";
+}
+.svg-icons-floppy-disks-pair:before {
+	content: "\f18c";
+}
+.svg-icons-floppy-drive:before {
+	content: "\f18d";
+}
+.svg-icons-folder-and-window:before {
+	content: "\f18e";
+}
+.svg-icons-folder-into:before {
+	content: "\f18f";
+}
+.svg-icons-folder-network-option:before {
+	content: "\f190";
+}
+.svg-icons-folder-out-interface-symbol:before {
+	content: "\f191";
+}
+.svg-icons-folder-shared:before {
+	content: "\f192";
+}
+.svg-icons-folder-with-a-document-page:before {
+	content: "\f193";
+}
+.svg-icons-folder-with-information:before {
+	content: "\f194";
+}
+.svg-icons-folder-with-label-of-large-size:before {
+	content: "\f195";
+}
+.svg-icons-folder-zip:before {
+	content: "\f196";
+}
+.svg-icons-folders-of-large-size-arranged:before {
+	content: "\f197";
+}
+.svg-icons-folders-with-information:before {
+	content: "\f198";
+}
+.svg-icons-font-style-bold:before {
+	content: "\f199";
+}
+.svg-icons-font-style-subscript:before {
+	content: "\f19a";
+}
+.svg-icons-font-style-superscript:before {
+	content: "\f19b";
+}
+.svg-icons-font-style-underline:before {
+	content: "\f19c";
+}
+.svg-icons-font-window:before {
+	content: "\f19d";
+}
+.svg-icons-font:before {
+	content: "\f19e";
+}
+.svg-icons-forbidden-sign:before {
+	content: "\f19f";
+}
+.svg-icons-four-arrows-meeting-at-the-center:before {
+	content: "\f1a0";
+}
+.svg-icons-garbage-can-half-full-with-recycle-symbol:before {
+	content: "\f1a1";
+}
+.svg-icons-garbage-can-with-recycling-symbol:before {
+	content: "\f1a2";
+}
+.svg-icons-garbage-can:before {
+	content: "\f1a3";
+}
+.svg-icons-garbage-container:before {
+	content: "\f1a4";
+}
+.svg-icons-garbage-full:before {
+	content: "\f1a5";
+}
+.svg-icons-garbage-with-recycle-sign-overflowing-with-trash:before {
+	content: "\f1a6";
+}
+.svg-icons-hard-drive-computer-part:before {
+	content: "\f1a7";
+}
+.svg-icons-hard-drive-network:before {
+	content: "\f1a8";
+}
+.svg-icons-heart-simple-shape-silhouette:before {
+	content: "\f1a9";
+}
+.svg-icons-history:before {
+	content: "\f1aa";
+}
+.svg-icons-indent-decrease-symbol:before {
+	content: "\f1ab";
+}
+.svg-icons-indent-increase-interface-symbol:before {
+	content: "\f1ac";
+}
+.svg-icons-information:before {
+	content: "\f1ad";
+}
+.svg-icons-italics-font-style-variant:before {
+	content: "\f1ae";
+}
+.svg-icons-justified-text-alignment:before {
+	content: "\f1af";
+}
+.svg-icons-key-with-cross-sign:before {
+	content: "\f1b0";
+}
+.svg-icons-led-light-lamp:before {
+	content: "\f1b1";
+}
+.svg-icons-letter-n-lower-case-font:before {
+	content: "\f1b2";
+}
+.svg-icons-letters-abc-in-pixelated-form:before {
+	content: "\f1b3";
+}
+.svg-icons-lifebelt:before {
+	content: "\f1b4";
+}
+.svg-icons-light-bulb-off:before {
+	content: "\f1b5";
+}
+.svg-icons-lightbulb-on:before {
+	content: "\f1b6";
+}
+.svg-icons-lighthouse-with-flashing-lights:before {
+	content: "\f1b7";
+}
+.svg-icons-line-break-symbol:before {
+	content: "\f1b8";
+}
+.svg-icons-line-spacing-adjustment-in-a-paragraph:before {
+	content: "\f1b9";
+}
+.svg-icons-line-spacing-text:before {
+	content: "\f1ba";
+}
+.svg-icons-list-in-bullet-form:before {
+	content: "\f1bb";
+}
+.svg-icons-list-roman-style-numbers:before {
+	content: "\f1bc";
+}
+.svg-icons-locator-on-an-open-folded-map:before {
+	content: "\f1bd";
+}
+.svg-icons-log-in:before {
+	content: "\f1be";
+}
+.svg-icons-magazine-folder:before {
+	content: "\f1bf";
+}
+.svg-icons-magic-wand:before {
+	content: "\f1c0";
+}
+.svg-icons-magnifying-lens-with-plus-sign:before {
+	content: "\f1c1";
+}
+.svg-icons-male-gender-symbol-variant:before {
+	content: "\f1c2";
+}
+.svg-icons-map-location:before {
+	content: "\f1c3";
+}
+.svg-icons-map-of-roads:before {
+	content: "\f1c4";
+}
+.svg-icons-map-route:before {
+	content: "\f1c5";
+}
+.svg-icons-map:before {
+	content: "\f1c6";
+}
+.svg-icons-maximize-size-option:before {
+	content: "\f1c7";
+}
+.svg-icons-microsoft-word-document-file:before {
+	content: "\f1c8";
+}
+.svg-icons-minimize:before {
+	content: "\f1c9";
+}
+.svg-icons-minus-sign-of-a-line-in-horizontal-position:before {
+	content: "\f1ca";
+}
+.svg-icons-minus-sign:before {
+	content: "\f1cb";
+}
+.svg-icons-music-cd:before {
+	content: "\f1cc";
+}
+.svg-icons-music-document:before {
+	content: "\f1cd";
+}
+.svg-icons-music-folder:before {
+	content: "\f1ce";
+}
+.svg-icons-navigate-arrow-button-to-beginning:before {
+	content: "\f1cf";
+}
+.svg-icons-navigate-arrows-pointing-to-down:before {
+	content: "\f1d0";
+}
+.svg-icons-navigate-to-end:before {
+	content: "\f1d1";
+}
+.svg-icons-navigate-up-arrow:before {
+	content: "\f1d2";
+}
+.svg-icons-navigate-up-arrows:before {
+	content: "\f1d3";
+}
+.svg-icons-navigation-arrow-down-button:before {
+	content: "\f1d4";
+}
+.svg-icons-navigation-history-interface-symbol-of-a-clock-with-an-arrow:before {
+	content: "\f1d5";
+}
+.svg-icons-navigation-up-arrow-to-the-left:before {
+	content: "\f1d6";
+}
+.svg-icons-navigational-arrow-pointing-down-left-in-a-circle:before {
+	content: "\f1d7";
+}
+.svg-icons-numbered-list-style:before {
+	content: "\f1d8";
+}
+.svg-icons-open-door-with-border:before {
+	content: "\f1d9";
+}
+.svg-icons-open-folder-black-and-white-variant:before {
+	content: "\f1da";
+}
+.svg-icons-open-folder-with-document:before {
+	content: "\f1db";
+}
+.svg-icons-open-scroll-outline:before {
+	content: "\f1dc";
+}
+.svg-icons-open-window-with-gear-sign:before {
+	content: "\f1dd";
+}
+.svg-icons-open-window-with-height-adjustment:before {
+	content: "\f1de";
+}
+.svg-icons-open-window-with-star-symbol:before {
+	content: "\f1df";
+}
+.svg-icons-open-window-with-timer:before {
+	content: "\f1e0";
+}
+.svg-icons-plus-sign:before {
+	content: "\f1e1";
+}
+.svg-icons-plus-symbol-button:before {
+	content: "\f1e2";
+}
+.svg-icons-portfolio-folder-with-button-lock:before {
+	content: "\f1e3";
+}
+.svg-icons-printer-of-network:before {
+	content: "\f1e4";
+}
+.svg-icons-printer-with-document-coming-out-of-machine:before {
+	content: "\f1e5";
+}
+.svg-icons-question-mark-in-a-circle:before {
+	content: "\f1e6";
+}
+.svg-icons-quotation-mark:before {
+	content: "\f1e7";
+}
+.svg-icons-quotation-marks:before {
+	content: "\f1e8";
+}
+.svg-icons-quotation-right-mark:before {
+	content: "\f1e9";
+}
+.svg-icons-radiation-warning-sign:before {
+	content: "\f1ea";
+}
+.svg-icons-recycle-symbol-made-of-arrows-with-selection-box:before {
+	content: "\f1eb";
+}
+.svg-icons-redo-navigational-arrow-in-a-circle:before {
+	content: "\f1ec";
+}
+.svg-icons-refresh-arrows-couple:before {
+	content: "\f1ed";
+}
+.svg-icons-refresh-navigational-arrows-interface-symbol-inside-a-circle:before {
+	content: "\f1ee";
+}
+.svg-icons-refresh-selection-arrows-couple-inside-a-square-of-broken-line:before {
+	content: "\f1ef";
+}
+.svg-icons-resize-arrow-inside-a-square-interface-symbol:before {
+	content: "\f1f0";
+}
+.svg-icons-right-text-alignment-option:before {
+	content: "\f1f1";
+}
+.svg-icons-right-thin-arrowheads:before {
+	content: "\f1f2";
+}
+.svg-icons-route-sign:before {
+	content: "\f1f3";
+}
+.svg-icons-scroll-variant-with-seal:before {
+	content: "\f1f4";
+}
+.svg-icons-selection-find-interface-symbol-of-binoculars-with-eyes-in-a-square-of-broken-line:before {
+	content: "\f1f5";
+}
+.svg-icons-selection-symbol-for-interface-of-a-square-of-broken-line:before {
+	content: "\f1f6";
+}
+.svg-icons-selection-view-interface-symbol-of-a-magnifying-glass-inside-a-broken-line-square:before {
+	content: "\f1f7";
+}
+.svg-icons-service-bell:before {
+	content: "\f1f8";
+}
+.svg-icons-ships-wheel:before {
+	content: "\f1f9";
+}
+.svg-icons-signaling-disc-tool:before {
+	content: "\f1fa";
+}
+.svg-icons-signpost-1:before {
+	content: "\f1fb";
+}
+.svg-icons-signpost-with-three-arrows:before {
+	content: "\f1fc";
+}
+.svg-icons-signpost:before {
+	content: "\f1fd";
+}
+.svg-icons-speech-balloon-outline-for-conversation:before {
+	content: "\f1fe";
+}
+.svg-icons-speech-balloon-outline-with-exclamation-mark:before {
+	content: "\f1ff";
+}
+.svg-icons-speech-balloon-outline-with-question-mark:before {
+	content: "\f200";
+}
+.svg-icons-spell-check-interface-symbol:before {
+	content: "\f201";
+}
+.svg-icons-split-type-window:before {
+	content: "\f202";
+}
+.svg-icons-square-root-of-x-math-formula:before {
+	content: "\f203";
+}
+.svg-icons-ssd-drive-part:before {
+	content: "\f204";
+}
+.svg-icons-stairs-down:before {
+	content: "\f205";
+}
+.svg-icons-stairs-up:before {
+	content: "\f206";
+}
+.svg-icons-star-in-black-of-five-points-shape:before {
+	content: "\f207";
+}
+.svg-icons-star-outline:before {
+	content: "\f208";
+}
+.svg-icons-stop-sign-variant:before {
+	content: "\f209";
+}
+.svg-icons-strikethrough-font-variant:before {
+	content: "\f20a";
+}
+.svg-icons-sum-sign:before {
+	content: "\f20b";
+}
+.svg-icons-tag-black:before {
+	content: "\f20c";
+}
+.svg-icons-tags-black-couple-with-rings:before {
+	content: "\f20d";
+}
+.svg-icons-text-align-left:before {
+	content: "\f20e";
+}
+.svg-icons-text-alignment-at-the-center:before {
+	content: "\f20f";
+}
+.svg-icons-text-document:before {
+	content: "\f210";
+}
+.svg-icons-ticket:before {
+	content: "\f211";
+}
+.svg-icons-toxic-warning-sign:before {
+	content: "\f212";
+}
+.svg-icons-traffic-light-in-red-signal:before {
+	content: "\f213";
+}
+.svg-icons-traffic-light-silhouette-variant:before {
+	content: "\f214";
+}
+.svg-icons-traffic-light:before {
+	content: "\f215";
+}
+.svg-icons-trafficlight-in-green:before {
+	content: "\f216";
+}
+.svg-icons-trafficlight-in-yellow:before {
+	content: "\f217";
+}
+.svg-icons-trafficlight-off:before {
+	content: "\f218";
+}
+.svg-icons-triangular-warning-sign:before {
+	content: "\f219";
+}
+.svg-icons-triple-arrow-merging-to-one:before {
+	content: "\f21a";
+}
+.svg-icons-undo-arrow:before {
+	content: "\f21b";
+}
+.svg-icons-undo-navigational-arrow-in-a-circle:before {
+	content: "\f21c";
+}
+.svg-icons-up-right-arrow-in-a-circle:before {
+	content: "\f21d";
+}
+.svg-icons-view-11:before {
+	content: "\f21e";
+}
+.svg-icons-warning-flammable-sign:before {
+	content: "\f21f";
+}
+.svg-icons-warning-harmful-sign:before {
+	content: "\f220";
+}
+.svg-icons-warning-voltage-sign-of-a-bolt-inside-a-triangle:before {
+	content: "\f221";
+}
+.svg-icons-warning-window-with-exclamation-sign-inside-a-triangle:before {
+	content: "\f222";
+}
+.svg-icons-window-close:before {
+	content: "\f223";
+}
+.svg-icons-window-networking-option:before {
+	content: "\f224";
+}
+.svg-icons-window-of-dialog:before {
+	content: "\f225";
+}
+.svg-icons-window-of-test-card:before {
+	content: "\f226";
+}
+.svg-icons-window-size:before {
+	content: "\f227";
+}
+.svg-icons-window-split-vertical:before {
+	content: "\f228";
+}
+.svg-icons-window-width:before {
+	content: "\f229";
+}
+.svg-icons-window-with-earth-image:before {
+	content: "\f22a";
+}
+.svg-icons-window-with-side-bar-selection:before {
+	content: "\f22b";
+}
+.svg-icons-windows-close:before {
+	content: "\f22c";
+}
+.svg-icons-windows-couple:before {
+	content: "\f22d";
+}
+.svg-icons-yield-sign:before {
+	content: "\f22e";
+}
+.svg-icons-zip-file-document-variant:before {
+	content: "\f22f";
+}
+.svg-icons-zoom-out-option:before {
+	content: "\f230";
+}

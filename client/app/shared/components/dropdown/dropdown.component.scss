@@ -1,0 +1,14 @@
+:host {
+  & {
+    overflow: hidden;
+  }
+
+  .pubg-dropdown {
+    position: relative;
+    padding: 5px;
+
+    pubg-button {
+      padding: 5px;
+    }
+  }
+}
