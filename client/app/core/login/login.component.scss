@@ -61,11 +61,14 @@
         @include pubg-font(14, bold);
         display: flex;
         flex-direction: column;
+        overflow: hidden;
 
         &__form {
           flex: 1;
           display: flex;
           flex-direction: column;
+          overflow: auto;
+          height: 100%;
 
           pubg-input {
             padding: 5px 0;
@@ -75,11 +78,13 @@
             padding-top: 10px;
             display: block;
           }
+
+          pubg-button {
+            @include pubg-font(20, bold);
+          }
         }
 
-        pubg-button {
-          @include pubg-font(20, bold);
-        }
+
       }
     }
   }
