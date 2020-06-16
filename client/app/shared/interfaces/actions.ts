@@ -13,7 +13,7 @@ export interface IAction {
   tooltip?: string;
   typeId?: any;
   subActions?: ISubAction[];
-  onClick?: () => void;
+  onClick?(): void;
 }
 
 export interface ISubAction {
@@ -43,7 +43,7 @@ export interface IButton {
   action?: string;
   text: string;
   primary?: boolean;
-  onClick?: () => void;
+  onClick?(): void;
 }
 
 export interface ITab {
@@ -53,4 +53,3 @@ export interface ITab {
 }
 
 export declare type ITabs = ITab[];
-

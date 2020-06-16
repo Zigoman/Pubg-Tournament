@@ -9,9 +9,8 @@
     "npm": "6.13.4"
   },
   "scripts": {
-    "ng": "ng",
     "build": "ng build",
-    "build:deploy": "ng build && firebase ",
+    "build:deploy": "ng build && firebase deploy",
     "start": "node dist/server/app.js",
     "predev": "tsc -p server",
     "dev": "concurrently \"mongod\" \"ng serve --host 0.0.0.0 --proxy-config proxy.conf.json --open\" \"tsc -w -p server\" \"nodemon dist/server/app.js\"",
@@ -19,8 +18,7 @@
     "test": "ng test",
     "testbe": "tsc -p server && mocha dist/server/test --exit",
     "lint": "ng lint",
-    "linthtml": "htmlhint \"client/**/*.html\"",
-    "lintscss": "sass-lint \"client/**/*.scss\" -v",
+    "precommit": "ng lint --fix && pretty-quick --staged",
     "lintbe": "tslint server/**/**.ts{,x}",
     "e2e": "ng e2e",
     "postinstall": "cd ./node_modules/protractor && npm i webdriver-manager@latest",
@@ -28,7 +26,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "npm run precommit"
     }
   },
   "private": true,
@@ -72,7 +70,6 @@
     "@types/node": "^14.0.5",
     "codelyzer": "^5.1.2",
     "concurrently": "^5.1.0",
-    "htmlhint": "^0.13.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.2",
     "karma": "~5.0.9",
@@ -85,9 +82,9 @@
     "prettier": "2.0.5",
     "pretty-quick": "^2.0.1",
     "protractor": "^7.0.0",
-    "sass-lint": "^1.13.1",
     "ts-node": "~8.10.1",
     "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "3.8.3",
     "webfonts-generator": "^0.4.0",
     "webpack": "^4.43.0",
