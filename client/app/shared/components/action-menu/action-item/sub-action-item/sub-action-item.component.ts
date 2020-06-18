@@ -7,7 +7,6 @@ import { ISubAction } from '../../../../interfaces/actions';
   styleUrls: ['./sub-action-item.component.scss']
 })
 export class SubActionItemComponent implements OnInit {
-
   @Input() subAction: ISubAction;
   @Input() multi: boolean;
   @Input() disabled: boolean;
@@ -22,8 +21,7 @@ export class SubActionItemComponent implements OnInit {
     this.parentId = null;
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   public actionClicked(action: ISubAction) {
     if (!this.disabled) {
@@ -33,10 +31,6 @@ export class SubActionItemComponent implements OnInit {
   }
 
   private toggle() {
-    if (this.multi ) {
-      this.selectedItem = !this.selectedItem;
-    } else {
-      this.selectedItem = false;
-    }
+    this.selectedItem = this.multi ? !this.selectedItem : false;
   }
 }

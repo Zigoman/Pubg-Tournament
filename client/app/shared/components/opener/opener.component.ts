@@ -1,59 +1,52 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  ViewChild,
-} from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'pubg-opener',
   templateUrl: './opener.component.html',
-  styleUrls: ['./opener.component.scss'],
+  styleUrls: ['./opener.component.scss']
 })
 export class OpenerComponent implements OnInit {
-  public title: string
-  public text: string
+  public title: string;
+  public text: string;
 
-  @Input() bold: boolean
+  @Input() bold: boolean;
 
-  @Output() BeforeHidePanel: EventEmitter<any> = new EventEmitter()
+  @Output() beforeHidePanel: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('op1', { static: true }) overlayPanel
+  @ViewChild('op1', { static: true }) overlayPanel;
 
   constructor() {
-    this.bold = false
+    this.bold = false;
   }
 
   @Input('title')
   set inputTitle(inputTitle: string) {
-    this.title = inputTitle
-    this.text = this.title
+    this.title = inputTitle;
+    this.text = this.title;
   }
 
   ngOnInit() {
-    this.reset()
+    this.reset();
   }
 
   public reset() {
-    this.text = this.title
-    this.toggleOff()
+    this.text = this.title;
+    this.toggleOff();
   }
 
   public switchToggle(event) {
-    this.overlayPanel.toggle(event)
+    this.overlayPanel.toggle(event);
   }
 
   public toggleOff() {
-    this.overlayPanel.hide()
+    this.overlayPanel.hide();
   }
 
   public toggleOn() {
-    this.overlayPanel.show()
+    this.overlayPanel.show();
   }
 
-  public BeforeHide() {
-    this.BeforeHidePanel.emit()
+  public beforeHide() {
+    this.beforeHidePanel.emit();
   }
 }

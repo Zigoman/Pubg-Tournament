@@ -9,7 +9,6 @@ import Cat from '../models/cat';
 chai.use(chaiHttp).should();
 
 describe('Cats', () => {
-
   beforeEach(done => {
     Cat.remove({}, () => {
       done();
@@ -17,9 +16,9 @@ describe('Cats', () => {
   });
 
   describe('Backend tests for cats', () => {
-
     it('should get all the cats', done => {
-      chai.request(app)
+      chai
+        .request(app)
         .get('/api/cats')
         .end((err, res) => {
           res.should.have.status(200);
@@ -30,7 +29,8 @@ describe('Cats', () => {
     });
 
     it('should get cats count', done => {
-      chai.request(app)
+      chai
+        .request(app)
         .get('/api/cats/count')
         .end((err, res) => {
           res.should.have.status(200);
@@ -42,7 +42,8 @@ describe('Cats', () => {
 
     it('should create new cat', done => {
       const cat = new Cat({ name: 'Fluffy', weight: 4, age: 2 });
-      chai.request(app)
+      chai
+        .request(app)
         .post('/api/cat')
         .send(cat)
         .end((err, res) => {
@@ -58,7 +59,8 @@ describe('Cats', () => {
     it('should get a cat by its id', done => {
       const cat = new Cat({ name: 'Cat', weight: 2, age: 4 });
       cat.save((error, newCat) => {
-        chai.request(app)
+        chai
+          .request(app)
           .get(`/api/cat/${newCat.id}`)
           .end((err, res) => {
             res.should.have.status(200);
@@ -75,7 +77,8 @@ describe('Cats', () => {
     it('should update a cat by its id', done => {
       const cat = new Cat({ name: 'Cat', weight: 2, age: 4 });
       cat.save((error, newCat) => {
-        chai.request(app)
+        chai
+          .request(app)
           .put(`/api/cat/${newCat.id}`)
           .send({ weight: 5 })
           .end((err, res) => {
@@ -88,7 +91,8 @@ describe('Cats', () => {
     it('should delete a cat by its id', done => {
       const cat = new Cat({ name: 'Cat', weight: 2, age: 4 });
       cat.save((error, newCat) => {
-        chai.request(app)
+        chai
+          .request(app)
           .del(`/api/cat/${newCat.id}`)
           .end((err, res) => {
             res.should.have.status(200);
@@ -97,7 +101,4 @@ describe('Cats', () => {
       });
     });
   });
-
 });
-
-

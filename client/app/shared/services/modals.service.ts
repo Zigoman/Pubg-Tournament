@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 
 export interface IAlert {
   title: string;
@@ -13,7 +13,6 @@ export interface IModal {
 
 @Injectable()
 export class ModalsService {
-
   public handler: Subject<IModal> = new Subject();
   public alertHandler: Subject<IAlert> = new Subject();
 
@@ -24,5 +23,4 @@ export class ModalsService {
   public openAlert(alert: IAlert) {
     this.alertHandler.next(alert);
   }
-
 }

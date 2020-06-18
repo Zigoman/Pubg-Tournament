@@ -1,35 +1,36 @@
-@import "helpers/reset";
-@import "config";
-@import "styles/sprite";
-@import "styles/svg-icons";
+@import 'helpers/reset';
+@import 'config';
+@import 'styles/sprite';
+@import 'styles/svg-icons';
 
 @include sprites($spritesheet-sprites);
 
-[class*="svg-icons-"] {
+[class*='svg-icons-'] {
   display: inline-block;
-  font-family: svg-icons;
+  font-family: svg-icons, sans-serif;
   font-style: normal;
 
   i:before {
-    font-family: svg-icons !important;
+    font-family: svg-icons, sans-serif !important;
     font-style: normal;
     font-weight: normal !important;
     vertical-align: top;
   }
 }
 
-html, body {
+html,
+body {
   font-size: 12px;
   direction: ltr;
   height: 100%;
   overflow: hidden;
-  font-family: "Assistant", sans-serif;
+  font-family: 'Assistant', sans-serif;
   background-color: $def-background;
   color: $def-fonts;
   position: relative;
 
   input {
-    font-family: "Assistant", sans-serif;
+    font-family: 'Assistant', sans-serif;
   }
 }
 
@@ -41,8 +42,8 @@ html, body {
   }
 
   &::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
+    width: 3px;
+    height: 0;
   }
 
   &::-webkit-scrollbar-button {
@@ -50,33 +51,9 @@ html, body {
     height: 40px;
   }
 
-  &::-webkit-scrollbar-thumb {
-
-    border-left: 2px solid white;
-    border-right: 2px solid white;
-    border-radius: 3px;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    /*background: lighten($prime-green, 10%);*/
-  }
-
-  &::-webkit-scrollbar-thumb:active {
-    /* background: darken($prime-green, 10%);*/
-  }
-
   &::-webkit-scrollbar-track {
-    /*background: $light-grey;
-    border: 3px solid $white;*/
+    border: 3px solid $pubg-main;
     border-radius: 5px;
-  }
-
-  &::-webkit-scrollbar-track:hover {
-    /* background: lighten($light-grey, 10%);;*/
-  }
-
-  &::-webkit-scrollbar-track:active {
-    /*background: darken($light-grey, 10%);*/
   }
 
   &::-webkit-scrollbar-corner {
@@ -84,7 +61,6 @@ html, body {
   }
 
   /* --------------------------------*/
-
 }
 
 /* The container */
@@ -131,7 +107,7 @@ html, body {
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .check-mark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }

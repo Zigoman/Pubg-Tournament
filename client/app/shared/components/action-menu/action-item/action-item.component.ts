@@ -7,7 +7,6 @@ import { IAction, ISubAction } from '../../../interfaces/actions';
   styleUrls: ['./action-item.component.scss']
 })
 export class ActionItemComponent implements OnInit {
-
   @Input() multi: boolean;
   @Input() disabled: boolean;
   @Input() filterTerm: string;
@@ -47,20 +46,8 @@ export class ActionItemComponent implements OnInit {
     }
   }
 
-  public SubActionClicked(action: ISubAction) {
-    this.selectedAction.emit({
-      id: this.action.id, action: {},
-      subAction: action, attributes: this.action.attributes, text: action.text, typeId: this.action.typeId
-    });
-  }
-
   public toggle() {
-    if (this.multi) {
-      this.selectedItem = !this.selectedItem;
-    } else {
-      this.selectedItem = false;
-    }
-    // this._CD.markForCheck();
+    this.selectedItem = this.multi ? !this.selectedItem : false;
   }
 
   public insertSelectedItem() {

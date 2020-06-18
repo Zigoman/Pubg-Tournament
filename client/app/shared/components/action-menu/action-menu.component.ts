@@ -1,90 +1,69 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  QueryList,
-  ViewChild,
-  ViewChildren,
-} from '@angular/core'
-import {
-  IAction,
-  IActionMenu,
-  ISubAction,
-} from '../../interfaces/actions'
-import { ActionItemComponent } from './action-item/action-item.component'
-import { InputTextComponent } from '../input/input.component'
+import { Component, EventEmitter, Input, OnInit, Output, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { IAction, IActionMenu, ISubAction } from '../../interfaces/actions';
+import { ActionItemComponent } from './action-item/action-item.component';
+import { InputTextComponent } from '../input/input.component';
 
 @Component({
   selector: 'pubg-action-menu',
   templateUrl: './action-menu.component.html',
-  styleUrls: ['./action-menu.component.scss'],
+  styleUrls: ['./action-menu.component.scss']
 })
 export class ActionMenuComponent implements OnInit {
-  public mainTitle: string
-  public actions: IAction[]
-  public filterTerm: string
-  public actionEnabled: any
+  public mainTitle: string;
+  public actions: IAction[];
+  public filterTerm: string;
+  public actionEnabled: any;
 
-  @Input() long: boolean
-  @Input() multi: boolean
-  @Input() applyFilter: boolean
-  @Input() multiIsEmpty: boolean
-  @Output() actionSelect: EventEmitter<IAction> = new EventEmitter()
+  @Input() long: boolean;
+  @Input() multi: boolean;
+  @Input() applyFilter: boolean;
+  @Input() multiIsEmpty: boolean;
+  @Output() actionSelect: EventEmitter<IAction> = new EventEmitter();
 
-  @ViewChild(InputTextComponent) public teamsInput: InputTextComponent
-  @ViewChildren(ActionItemComponent) ActionItems: QueryList<ActionItemComponent>
+  @ViewChild(InputTextComponent) public teamsInput: InputTextComponent;
+  @ViewChildren(ActionItemComponent) ActionItems: QueryList<ActionItemComponent>;
 
   constructor() {
-    this.long = false
-    this.multi = false
-    this.applyFilter = false
-    this.multiIsEmpty = true
+    this.long = false;
+    this.multi = false;
+    this.applyFilter = false;
+    this.multiIsEmpty = true;
   }
 
   @Input('actions')
   set inputActions(inputActions: IActionMenu) {
     if (inputActions) {
-      this.actions = inputActions.actions
+      this.actions = inputActions.actions;
       if (this.actions && this.actions.length > 2) {
         this.actions.sort((actionA, actionB) => {
-          const actionAName = !inputActions.numbersOnly
-            ? actionA.text
-            : parseInt(actionA.text, 10)
-          const actionBName = !inputActions.numbersOnly
-            ? actionB.text
-            : parseInt(actionB.text, 10)
+          const actionAName = !inputActions.numbersOnly ? actionA.text : parseInt(actionA.text, 10);
+          const actionBName = !inputActions.numbersOnly ? actionB.text : parseInt(actionB.text, 10);
           if (actionAName < actionBName) {
-            return -1
+            return -1;
           }
           if (actionAName > actionBName) {
-            return 1
+            return 1;
           }
           // names must be equal
-          return 0
-        })
-        this.actions.forEach((action) => {
+          return 0;
+        });
+        this.actions.forEach(action => {
           if (action.subActions && action.subActions.length > 2) {
             action.subActions.sort((actionA, actionB) => {
-              const actionAName = !inputActions.numbersOnly
-                ? actionA.text
-                : parseInt(actionA.text, 10)
-              const actionBName = !inputActions.numbersOnly
-                ? actionB.text
-                : parseInt(actionB.text, 10)
+              const actionAName = !inputActions.numbersOnly ? actionA.text : parseInt(actionA.text, 10);
+              const actionBName = !inputActions.numbersOnly ? actionB.text : parseInt(actionB.text, 10);
               if (actionAName < actionBName) {
-                return -1
+                return -1;
               }
               if (actionAName > actionBName) {
-                return 1
+                return 1;
               }
               // names must be equal
-              return 0
-            })
+              return 0;
+            });
           }
-        })
-        this.mainTitle = inputActions.mainTitle
+        });
+        this.mainTitle = inputActions.mainTitle;
       }
     }
   }
@@ -92,39 +71,31 @@ export class ActionMenuComponent implements OnInit {
   ngOnInit() {}
 
   public actionSelected(action: IAction | ISubAction) {
-    this.actionSelect.emit(action)
-    if (
-      action.hasOwnProperty('subAction') ||
-      action.hasOwnProperty('subActions')
-    ) {
-      this.actionEnabled = action.id
-    } else {
-      this.actionEnabled = undefined
-    }
+    this.actionSelect.emit(action);
+    const checkSub = action.hasOwnProperty('subAction') || action.hasOwnProperty('subActions');
+    this.actionEnabled = checkSub ? action.id : null;
   }
 
   public reset() {
     if (this.ActionItems) {
-      this.ActionItems.forEach((ActionItem) => {
-        ActionItem.reset()
-      })
+      this.ActionItems.forEach(ActionItem => {
+        ActionItem.reset();
+      });
     }
-    this.actionEnabled = undefined
+    this.actionEnabled = undefined;
     if (this.teamsInput) {
-      this.teamsInput.reset()
-      this.filterTerm = ''
+      this.teamsInput.reset();
+      this.filterTerm = '';
     }
   }
 
   public enterSelectedItems(selectedItems: any) {
     if (this.ActionItems) {
-      this.ActionItems.forEach((ActionItem) => {
-        if (
-          selectedItems.find((item) => item.action === ActionItem.action.action)
-        ) {
-          ActionItem.insertSelectedItem()
+      this.ActionItems.forEach(ActionItem => {
+        if (selectedItems.find(item => item.action === ActionItem.action.action)) {
+          ActionItem.insertSelectedItem();
         }
-      })
+      });
     }
   }
 }
