@@ -2,14 +2,15 @@ import * as bcrypt from 'bcryptjs'
 import * as mongoose from 'mongoose'
 
 const userSchema = new mongoose.Schema({
-  username: String,
+  username: { type: String, required: true },
   email: { type: String, unique: true, lowercase: true, trim: true },
   password: String,
-  role: String,
-  pubgID: String,
+  isSquadLeader: Boolean,
+  pubgID: { type: String, trim: true },
   pubgName: String,
   facebookURL: String,
-  clan: String,
+  squad: { type: mongoose.Schema.Types.ObjectId, trim: true },
+  isAdmin: { type: Boolean, default: false },
 })
 
 // Before saving the user, hash the password
