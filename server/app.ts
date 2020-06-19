@@ -3,12 +3,13 @@ import * as express from 'express';
 import * as morgan from 'morgan';
 import * as path from 'path';
 
-import setMongo from './mongo';
-import setRoutes from './routes';
+import { setMongo } from './mongo';
+import { setRoutes } from './routes';
 
 const app = express();
 dotenv.config();
-app.set('port', (process.env.PORT || 3000));
+const port = 3000;
+app.set('port', process.env.PORT || port);
 app.use('/', express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -28,6 +29,6 @@ async function main() {
   }
 }
 
-main();
+main().then(() => console.log('app connected'));
 
 export { app };
