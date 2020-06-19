@@ -37,5 +37,3 @@ export function setRoutes(app) {
   // Apply the routes to our application with the prefix /api
   app.use('/api/data', router);
 }
-
-module.exports = setRoutes;
