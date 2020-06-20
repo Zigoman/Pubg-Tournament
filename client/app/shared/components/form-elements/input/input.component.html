@@ -1,0 +1,26 @@
+<div class="input" [formGroup]="group">
+  <input
+    [formControlName]="config.name"
+    [value]="config.value || ''"
+    id="{{ elementID }}"
+    class="input__element"
+    type="{{ config.inputType || 'text' }}"
+    size="50"
+    pInputText
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+  />
+  <label
+    class="input__label"
+    [ngClass]="{ 'input__label--upper': formControl.value !== '' || (formControl.value === '' && onFocusInput) }"
+    for="{{ elementID }}"
+  >
+    {{ formControl.value !== '' || (formControl.value === '' && onFocusInput) ? '' : 'Enter ' }}{{ config.label }}
+  </label>
+  <i
+    *ngIf="formControl.value !== '' && (formControl.dirty || formControl.touched)"
+    class="input__icon input__icon--{{ formControl.valid ? 'valid' : 'invalid' }} svg-icons-{{
+      formControl.valid ? 'check' : 'delete'
+    }}"
+  ></i>
+</div>

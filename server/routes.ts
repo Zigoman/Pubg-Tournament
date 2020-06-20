@@ -9,7 +9,6 @@ export function setRoutes(app) {
 
   // Users
   router.route('/login').post(userCtrl.login);
-  router.route('/getData').get(userCtrl.getAll);
 
   // Add User
   router.route('/add-user').post(userCtrl.addUser);
