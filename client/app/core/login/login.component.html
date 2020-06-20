@@ -10,16 +10,12 @@
     </div>
     <div class="login__main__container">
       <div class="login__main__container__form">
-        <pubg-input [placeholder]="'Enter Name'" [label]="'Full Name'"></pubg-input>
-        <pubg-input [placeholder]="'Enter Email'" [label]="'Email'"></pubg-input>
-        <pubg-input [placeholder]="'Enter Password'" [label]="'Password'"></pubg-input>
-        <pubg-input [placeholder]="'Enter ID'" [label]="'PUBG ID'"></pubg-input>
-        <pubg-input [placeholder]="'Enter PUBG Name'" [label]="'PUBG Name'"></pubg-input>
-        <pubg-input [placeholder]="'Enter Facebook URL'" [label]="'Facebook URL'"></pubg-input>
-        <pubg-checkbox [label]="'Do you Have A Clan ?'" [checkBox]="haveAClan" (checkBoxChanged)="gutAClan($event)"></pubg-checkbox>
-        <pubg-dropdown *ngIf="haveAClan" [actions]="clans" [text]="'Select A Clan'"></pubg-dropdown>
+        <pubg-form
+          [config]="selectedTab.action === 'login' ? configLogin : configSignUp"
+          (formSubmit)="submit($event)"
+          (formValueChanges)="formValueChanges($event)"
+        ></pubg-form>
       </div>
-      <pubg-button [action]="'signUp'" [prime]="true" [text]="'Sign Up'"></pubg-button>
     </div>
   </div>
 </div>

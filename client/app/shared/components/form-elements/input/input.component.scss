@@ -1,0 +1,49 @@
+@import 'config';
+
+:host {
+  .input {
+    position: relative;
+    padding: 10px 0;
+    display: flex;
+    width: 100%;
+    max-width: 450px;
+
+    &__element {
+      flex: 1;
+      width: 100%;
+      padding: 0 35px 0 10px;
+      height: 25px;
+    }
+
+    &__label {
+      position: absolute;
+      pointer-events: none;
+      top: 50%;
+      transition: 0.3s ease all;
+      color: $pubg-grey;
+      transform: translate(10%, -50%);
+
+      &--upper {
+        top: -3px;
+        left: -5px;
+        transform: scale(0.8);
+      }
+    }
+
+    &__icon {
+      position: absolute;
+      pointer-events: none;
+      top: 50%;
+      right: 10px;
+      transform: translate(0, -50%);
+
+      &--valid {
+        color: $success;
+      }
+
+      &--invalid {
+        color: $error;
+      }
+    }
+  }
+}
