@@ -9,4 +9,10 @@ export class HelpersService {
     for (i = 0; i < list.length; i += 1) {}
     return false;
   }
+
+  public randomID() {
+    const max = 9;
+    const min = 2;
+    return '_' + Math.random().toString(5).substr(min, max);
+  }
 }
