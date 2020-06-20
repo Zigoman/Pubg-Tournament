@@ -43,6 +43,7 @@
     "@auth0/angular-jwt": "^4.0.0",
     "@fullcalendar/core": "^4.4.2",
     "@webdev-tools/tslint-airbnb-styleguide": "^1.3.0",
+    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",

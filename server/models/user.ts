@@ -1,54 +1,42 @@
-import * as bcrypt from 'bcryptjs';
-import * as mongoose from 'mongoose';
+import { Schema } from 'mongoose';
+import { Auth } from '../Auth/auth';
+import { IUser } from '../Interface/Interface';
 
-const userSchema = new mongoose.Schema({
-  username: { type: String, required: true },
-  email: { type: String, unique: true, lowercase: true, trim: true },
-  password: String,
-  isSquadLeader: Boolean,
-  pubgID: { type: String, trim: true },
-  pubgName: String,
-  facebookURL: String,
-  squad: { type: mongoose.Schema.Types.ObjectId, trim: true },
-  isAdmin: { type: Boolean, default: false }
-});
+export const userSchema = new Schema<IUser>(
+  {
+    username: { type: String, required: true },
+    email: { type: String, unique: true, lowercase: true, trim: true },
+    password: String,
+    isSquadLeader: Boolean,
+    pubgID: { type: String, trim: true },
+    pubgName: String,
+    facebookURL: String,
+    squad: { type: String, trim: true },
+    isAdmin: { type: Boolean, default: false }
+  },
+  {
+    collection: 'users'
+  }
+);
 
 // Before saving the user, hash the password
-userSchema.pre('save', next => {
-  const rounds = 10;
+userSchema.pre('save', function (next) {
+  const saltRounds = 10;
 
   if (!this.isModified('password')) {
     return next();
   }
-  bcrypt.genSalt(rounds, (err, salt) => {
-    if (err) {
-      return next(err);
-    }
-    bcrypt.hash(this.password, salt, (error, hash) => {
-      if (error) {
-        return next(error);
-      }
-      this.password = hash;
-      next();
-    });
+  Auth.hashPassword(this.password, saltRounds, (err, hash) => {
+    if (err) return next(err);
+    this.password = hash;
+    next();
   });
 });
 
-userSchema.methods.comparePassword = (candidatePassword, callback) => {
-  bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
-    if (err) {
-      return callback(err);
-    }
-    callback(null, isMatch);
-  });
-};
-
-// Omit the password when returning a user
+// Hide the password when returning a user
 userSchema.set('toJSON', {
   transform: (doc, ret) => {
     delete ret.password;
     return ret;
   }
 });
-
-export const User = mongoose.model('User', userSchema);

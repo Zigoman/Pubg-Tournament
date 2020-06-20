@@ -1,21 +1,25 @@
 import * as jwt from 'jsonwebtoken';
-import { User } from '../models/user';
+import * as mongoose from 'mongoose';
+
 import { BaseCtrl } from './base';
+import { Auth } from '../Auth/auth';
+import { userSchema } from '../models/user';
+import { IUser } from '../Interface/Interface';
 
 export class UserCtrl extends BaseCtrl {
-  model = User;
+  model = mongoose.model<IUser>('', userSchema);
 
   login = (req, res) => {
     this.model.findOne({ email: req.body.email }, (err, user) => {
       if (!user) {
-        return res.sendStatus(this.errorForbidden);
+        res.sendStatus(this.badRequest);
       }
-      user.comparePassword(req.body.password, (error, isMatch) => {
+      Auth.compare(req.body.password, user.password, (error, isMatch) => {
         if (!isMatch) {
-          return res.sendStatus(this.errorForbidden);
+          return res.status(this.errorForbidden).send(error);
         }
-        const token = jwt.sign({ user }, process.env.SECRET_TOKEN); // , { expiresIn: 10 } seconds
-        res.status(this.statusOk).json({ token });
+        const token = jwt.sign({ user }, process.env.SECRET_TOKEN);
+        res.status(this.statusOk).send(token);
       });
     });
   };
@@ -24,29 +28,28 @@ export class UserCtrl extends BaseCtrl {
   getAllUsers = (req, res) => {
     this.model.find((err, users) => {
       if (err) {
-        res.json(err);
+        res.send(err);
       }
-      res.json(users);
+      res.send(users);
     });
   };
 
   // Add User
   addUser = (req, res) => {
-    const addUser = new User(req.body);
-
+    const addUser = new this.model(req.body);
     addUser
       .save()
       .then(user => {
-        res.status(this.statusOk).json({ 'user added': user });
+        res.status(this.statusOk).send(user);
       })
       .catch(err => {
-        res.status(this.errorForbidden).send('Unable to add user', err);
+        res.status(this.errorForbidden).send(err);
       });
   };
 
   // Get Single User By ID
   getSingleUser = (req, res) => {
-    User.findById({ _id: req.params.id }, (err, user) => {
+    this.model.findById({ _id: req.params.id }, (err, user) => {
       if (err) {
         res.json(err);
       }
@@ -57,7 +60,7 @@ export class UserCtrl extends BaseCtrl {
   // Update User
   updateUser = (req, res) => {
     const id = req.params.id;
-    User.findById(id, (err, userToUpdate) => {
+    this.model.findById(id, (err, userToUpdate) => {
       if (!userToUpdate) {
         res.json(err);
       } else {
@@ -83,7 +86,7 @@ export class UserCtrl extends BaseCtrl {
 
   // Delete User
   deleteUser = (req, res) => {
-    User.findByIdAndDelete({ _id: req.params.id }, err => {
+    this.model.findByIdAndDelete({ _id: req.params.id }, err => {
       if (err) res.json(err);
       res.json('User Removed');
     });

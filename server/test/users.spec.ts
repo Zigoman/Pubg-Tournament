@@ -1,15 +1,18 @@
 import * as chai from 'chai';
 import chaiHttp = require('chai-http');
 import { describe, it } from 'mocha';
+import * as mongoose from 'mongoose';
 
 process.env.NODE_ENV = 'test';
 import { app } from '../app';
-import { User } from '../models/user';
+import { userSchema } from '../models/user';
 
 chai.use(chaiHttp).should();
 
 const statusOk = 200;
 const statusCreated = 201;
+
+const User = mongoose.model('', userSchema);
 
 describe('Users', () => {
   beforeEach(done => {

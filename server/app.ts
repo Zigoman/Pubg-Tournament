@@ -29,6 +29,8 @@ async function main() {
   }
 }
 
-main().then(() => console.log('app connected'));
+main()
+  .then(() => console.log('app connected'))
+  .catch(error => console.log(error));
 
 export { app };

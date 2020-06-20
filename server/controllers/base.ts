@@ -50,9 +50,9 @@ export abstract class BaseCtrl {
         }
       ];
 
-      res.status(this.statusOk).json(docs);
+      res.status(this.statusOk).json('found', { docs });
     } catch (err) {
-      return res.status(this.badRequest).json({ error: err.message });
+      return res.status(this.badRequest).json(err.message);
     }
   };
 }
