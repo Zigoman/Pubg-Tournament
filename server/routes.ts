@@ -5,8 +5,8 @@ import { SquadCtrl } from './controllers/squad';
 export function setRoutes(app) {
   const router = express.Router();
   const userCtrl = new UserCtrl();
-  const squadCtrl = new SquadCtrl();
-
+  // const squadCtrl = new SquadCtrl();
+  const squadControl = new SquadCtrl();
   // Users
   router.route('/login').post(userCtrl.login);
 
@@ -23,15 +23,17 @@ export function setRoutes(app) {
 
   // Squad
   // Add Squad
-  router.route('/add-squad').post(squadCtrl.addSquad);
+  router.route('/add-squad').post(squadControl.addSquad);
   // Get All Squads
-  router.route('/getSquads').get(squadCtrl.getAllSquads);
+  router.route('/getSquads').get(squadControl.getAllSquads);
   // Get Single Squad
-  router.route('/get-squad/:id').get(squadCtrl.getSingleSquad);
-  // Update Squad
-  router.route('/updateSquad/:id').post(squadCtrl.updateSquad);
+  router.route('/get-squad/:id').get(squadControl.getSingleSquad);
+  // Update Squad Name
+  router.route('/updateSquad/:id').post(squadControl.updateSquadName);
+  // Add Squad Member
+  router.route('/addMember/:id').post(squadControl.addSquadMember);
   // Delete Squad
-  router.route('/s-delete/:id').get(squadCtrl.deleteSquad);
+  router.route('/s-delete/:id').get(squadControl.deleteSquad);
 
   // Apply the routes to our application with the prefix /api
   app.use('/api/data', router);
