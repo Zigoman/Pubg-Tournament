@@ -7,7 +7,11 @@ export class Auth {
     });
   }
 
-  public static compare(password: string, dbHash: string, callback: (err: string | null, match: boolean | null) => void) {
+  public static compare(
+    password: string,
+    dbHash: string,
+    callback: (err: string | null, match: boolean | null) => void
+  ) {
     bcrypt.compare(password, dbHash, (error: Error, match: boolean) => {
       if (match) {
         callback(null, true);

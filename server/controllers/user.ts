@@ -39,8 +39,10 @@ export class UserCtrl extends BaseCtrl {
     const addUser = new this.model(req.body);
     addUser
       .save()
-      .then(user => {
-        res.status(this.statusOk).send(user);
+      .then(() => {
+        const token = jwt.sign({ addUser }, process.env.SECRET_TOKEN);
+        res.status(this.statusOk).json({ myToken: token });
+        // res.status(this.statusOk).send(JSON.stringify(token));
       })
       .catch(err => {
         res.status(this.errorForbidden).send(err);

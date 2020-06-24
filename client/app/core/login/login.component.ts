@@ -4,6 +4,9 @@ import { Validators } from '@angular/forms';
 import { FormComponent } from '../../shared/components/form-elements/form.component';
 import { IFieldConfig } from '../../shared/interfaces/field.interface';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'pubg-login',
@@ -19,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   @ViewChild(FormComponent) form: FormComponent;
 
-  constructor() {}
+  constructor(private http$: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.tabs = [
@@ -32,6 +35,8 @@ export class LoginComponent implements OnInit {
     const onlyNumbersReg = '^[0-9]*$';
     const minValid = 5;
     const maxValid = 12;
+
+    this.getTeams().subscribe(x => console.log('x ', x));
 
     this.configSignUp = [
       {
@@ -149,7 +154,26 @@ export class LoginComponent implements OnInit {
 
   public submit(value: { [name: string]: any }) {
     if (this.form.valid) {
-      console.log(value);
+      const form = {
+        fullName: value.fullName,
+        email: value.signUpEmail,
+        password: value.password,
+        isSquadLeader: false,
+        pubgID: value.pubgID,
+        pubgName: value.pubgName,
+        facebookURL: value.facebookURL,
+        squad: null,
+        isAdmin: false
+      };
+
+      this.http$
+        .post<any>(`${environment.api}/add-user`, form, {
+          headers: { 'Content-Type': 'application/json' }
+        })
+        .subscribe(x => {
+          localStorage.setItem('token', JSON.parse(JSON.stringify(x)).myToken);
+          this.router.navigate(['/']);
+        });
     }
   }
 
@@ -164,7 +188,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  // private getTeams(): Observable<any> {
-  //   return this.http$.get(`${environment.api}/getSquads`).subscribe(result => (result ? result : []));
-  // }
+  private getTeams(): Observable<any> {
+    return this.http$.get(`${environment.api}/getSquads`);
+  }
 }

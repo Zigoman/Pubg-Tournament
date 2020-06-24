@@ -4,7 +4,7 @@ import { IUser } from '../Interface/Interface';
 
 export const userSchema = new Schema<IUser>(
   {
-    username: { type: String, required: true },
+    fullName: { type: String, required: true },
     email: { type: String, unique: true, lowercase: true, trim: true },
     password: String,
     isSquadLeader: Boolean,
