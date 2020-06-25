@@ -154,10 +154,10 @@ export class LoginComponent implements OnInit {
 
   public submit(value: { [name: string]: any }) {
     if (this.form.valid) {
-      const form = {
+      const user = {
         fullName: value.fullName,
         email: value.signUpEmail,
-        password: value.password,
+        password: value.signUpPassword,
         isSquadLeader: false,
         pubgID: value.pubgID,
         pubgName: value.pubgName,
@@ -166,14 +166,26 @@ export class LoginComponent implements OnInit {
         isAdmin: false
       };
 
-      this.http$
-        .post<any>(`${environment.api}/add-user`, form, {
-          headers: { 'Content-Type': 'application/json' }
-        })
-        .subscribe(x => {
-          localStorage.setItem('token', JSON.parse(JSON.stringify(x)).myToken);
-          this.router.navigate(['/']);
-        });
+      if (this.selectedTab.text === 'SignUp') {
+        this.http$
+          .post<any>(`${environment.api}/add-user`, user, {
+            headers: { 'Content-Type': 'application/json' }
+          })
+          .subscribe(x => {
+            localStorage.setItem('token', x.myToken);
+            // JSON.parse(JSON.stringify(x)).myToken);
+            this.router.navigate(['/']);
+          });
+      } else if (this.selectedTab.text === 'Login') {
+        this.http$
+          .post(`${environment.api}/login`, value, {
+            headers: { 'Content-Type': 'application/json' }
+          })
+          .subscribe((token: any) => {
+            localStorage.setItem('token', token.myToken);
+            this.router.navigate(['/']);
+          });
+      }
     }
   }
 

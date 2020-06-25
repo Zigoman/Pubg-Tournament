@@ -4,7 +4,7 @@ import { IUser } from '../Interface/Interface';
 
 export const userSchema = new Schema<IUser>(
   {
-    fullName: { type: String, required: true },
+    fullName: { type: String, required: true, lowercase: true },
     email: { type: String, unique: true, lowercase: true, trim: true },
     password: String,
     isSquadLeader: Boolean,
@@ -22,10 +22,6 @@ export const userSchema = new Schema<IUser>(
 // Before saving the user, hash the password
 userSchema.pre('save', function (next) {
   const saltRounds = 10;
-
-  if (!this.isModified('password')) {
-    return next();
-  }
   Auth.hashPassword(this.password, saltRounds, (err, hash) => {
     if (err) return next(err);
     this.password = hash;
