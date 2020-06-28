@@ -20,7 +20,7 @@ export const userSchema = new Schema<IUser>(
 );
 
 // Before saving the user, hash the password
-userSchema.pre('save', function (next) {
+userSchema.pre('save', next => {
   const saltRounds = 10;
   Auth.hashPassword(this.password, saltRounds, (err, hash) => {
     if (err) return next(err);
