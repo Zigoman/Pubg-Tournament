@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ITab } from '../../shared/interfaces/actions.interface';
 
 @Component({
   selector: 'pubg-main',
@@ -12,15 +13,20 @@ export class MainComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
+    // this.tabs = [
+    //   { action: 'dashboard', text: 'Dashboard' },
+    //   { action: 'groups', text: 'Groups' },
+    //   { action: 'results', text: 'Results' },
+    //   { action: 'scoring', text: 'Scoring' }
+    // ];
+
     this.tabs = [
-      { action: 'dashboard', name: 'Dashboard' },
-      { action: 'groups', name: 'Groups' },
-      { action: 'results', name: 'Results' },
-      { action: 'scoring', name: 'Scoring' }
+      { action: 'schedules', text: 'Games Schedules' },
+      { action: 'squad', text: 'My Squad' }
     ];
   }
 
-  public changeMain($event: string) {
-    this.router.navigate([$event]);
+  public changeMain(event: ITab) {
+    this.router.navigate([event.action]);
   }
 }

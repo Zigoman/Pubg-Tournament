@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalComponent } from './components/modal/modal.component';
-import { ExternalService } from './services/external.service';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { ExpendNodeComponent } from './components/modal/expend-node/expend-node.component';
 import { IconButtonComponent } from './components/icon-button/icon-button.component';
@@ -32,6 +31,6 @@ const components = [
   imports: [CommonModule, OverlayPanelModule, TableModule, PubgFormModule],
   declarations: [components, TabsComponent, TabComponent],
   exports: [CommonModule, PubgFormModule, ...components],
-  providers: [ExternalService, ModalsService, ClickOutsideService, HelpersService]
+  providers: [ModalsService, ClickOutsideService, HelpersService]
 })
 export class SharedModule {}

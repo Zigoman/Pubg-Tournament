@@ -1,12 +1,11 @@
 import { Schema } from 'mongoose';
 import { Auth } from '../Auth/auth';
-import { userSchema } from './user';
 
 export const squadSchema = new Schema(
   {
     name: { type: String, required: true },
     password: { type: String, default: null },
-    members: { type: [userSchema], default: undefined },
+    members: { type: Array, default: null },
     roomNumber: { type: Number, min: 1, max: 25 },
     protected: { type: Boolean, default: false },
     updated: { type: Date, default: Date.now }
@@ -17,7 +16,7 @@ export const squadSchema = new Schema(
 );
 
 // Before saving the squad, hash the password
-squadSchema.pre('save', function (next) {
+squadSchema.pre('save', next => {
   const saltRounds = 10;
   if (!this.isModified('password')) {
     return next();

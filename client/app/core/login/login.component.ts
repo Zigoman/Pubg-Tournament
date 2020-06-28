@@ -1,12 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ITab, ITabs } from '../../shared/interfaces/actions';
+import { ITab, ITabs } from '../../shared/interfaces/actions.interface';
 import { Validators } from '@angular/forms';
 import { FormComponent } from '../../shared/components/form-elements/form.component';
 import { IFieldConfig } from '../../shared/interfaces/field.interface';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Login, SignUp } from '../../store/actions/app.actions';
 
 @Component({
   selector: 'pubg-login',
@@ -16,13 +15,12 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   public tabs: ITabs;
   public selectedTab: ITab;
-  public haveAClan: boolean;
   public configLogin: IFieldConfig[];
   public configSignUp: IFieldConfig[];
 
   @ViewChild(FormComponent) form: FormComponent;
 
-  constructor(private http$: HttpClient, private router: Router) {}
+  constructor(private router: Router, private store: Store) {}
 
   ngOnInit() {
     this.tabs = [
@@ -31,12 +29,10 @@ export class LoginComponent implements OnInit {
     ];
     this.selectedTab = this.tabs[0];
     const faceBookValidReg = /^(https?:\/\/)?((w{3}\.)?)facebook.com\/.*/i;
-    const emailReg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const emailReg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const onlyNumbersReg = '^[0-9]*$';
     const minValid = 5;
     const maxValid = 12;
-
-    this.getTeams().subscribe(x => console.log('x ', x));
 
     this.configSignUp = [
       {
@@ -148,43 +144,28 @@ export class LoginComponent implements OnInit {
     this.selectedTab = $event;
   }
 
-  gutAClan(event: boolean) {
-    this.haveAClan = event;
-  }
-
   public submit(value: { [name: string]: any }) {
     if (this.form.valid) {
-      const user = {
-        fullName: value.fullName,
-        email: value.signUpEmail,
-        password: value.signUpPassword,
-        isSquadLeader: false,
-        pubgID: value.pubgID,
-        pubgName: value.pubgName,
-        facebookURL: value.facebookURL,
-        squad: null,
-        isAdmin: false
-      };
+      if (this.selectedTab.action === 'signUp') {
+        const user = {
+          fullName: value.fullName,
+          email: value.signUpEmail,
+          password: value.signUpPassword,
+          isSquadLeader: false,
+          pubgID: value.pubgID,
+          pubgName: value.pubgName,
+          facebookURL: value.facebookURL,
+          squad: null,
+          isAdmin: false
+        };
 
-      if (this.selectedTab.text === 'SignUp') {
-        this.http$
-          .post<any>(`${environment.api}/add-user`, user, {
-            headers: { 'Content-Type': 'application/json' }
-          })
-          .subscribe(x => {
-            localStorage.setItem('token', x.myToken);
-            // JSON.parse(JSON.stringify(x)).myToken);
-            this.router.navigate(['/']);
-          });
-      } else if (this.selectedTab.text === 'Login') {
-        this.http$
-          .post(`${environment.api}/login`, value, {
-            headers: { 'Content-Type': 'application/json' }
-          })
-          .subscribe((token: any) => {
-            localStorage.setItem('token', token.myToken);
-            this.router.navigate(['/']);
-          });
+        this.store.dispatch(SignUp({ payload: user }));
+      } else if (this.selectedTab.action === 'login') {
+        const user = {
+          email: value.LoginEmail,
+          password: value.loginPassword
+        };
+        this.store.dispatch(Login({ payload: user }));
       }
     }
   }
@@ -198,9 +179,5 @@ export class LoginComponent implements OnInit {
     } else {
       this.form.setDisabled('submit', true);
     }
-  }
-
-  private getTeams(): Observable<any> {
-    return this.http$.get(`${environment.api}/getSquads`);
   }
 }

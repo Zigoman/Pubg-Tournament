@@ -1,9 +1,11 @@
-import {Routes} from '@angular/router';
-import {MainComponent} from './main.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {GroupsComponent} from './groups/groups.component';
-import {ResultsComponent} from './results/results.component';
-import {ScoringComponent} from './scoring/scoring.component';
+import { Routes } from '@angular/router';
+import { MainComponent } from './main.component';
+// import { DashboardComponent } from './dashboard/dashboard.component';
+// import { GroupsComponent } from './groups/groups.component';
+// import { ResultsComponent } from './results/results.component';
+// import { ScoringComponent } from './scoring/scoring.component';
+import { SquadComponent } from './squad/squad.component';
+import { SchedulesComponent } from './schedules/schedules.component';
 
 export const mainRoutes: Routes = [
   {
@@ -13,11 +15,9 @@ export const mainRoutes: Routes = [
         path: '',
         component: MainComponent,
         children: [
-          {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-          {path: 'dashboard', component: DashboardComponent},
-          {path: 'groups', component: GroupsComponent},
-          {path: 'results', component: ResultsComponent},
-          {path: 'scoring', component: ScoringComponent}
+          { path: '', redirectTo: 'schedules', pathMatch: 'full' },
+          { path: 'schedules', component: SchedulesComponent },
+          { path: 'squad', component: SquadComponent }
         ]
       }
     ]

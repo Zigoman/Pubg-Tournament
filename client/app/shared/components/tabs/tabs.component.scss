@@ -1,35 +1,33 @@
-@import "config";
+@import 'config';
 
 :host {
-
   .tabs {
-
     & {
       display: flex;
     }
 
     &__tab {
       & {
+        color: $font-disable;
         cursor: pointer;
         flex: 1;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 15px 0;
+        padding: 5px 0;
         flex-wrap: wrap;
       }
 
       &--active {
-        background-color: $pubg-main;
-        color: $def-fonts;
+        color: $pubg-font-nav;
       }
 
       i {
-        @include pubg-font(20, icon);
+        @include pubg-font(10, icon);
       }
 
       &__text {
-        @include pubg-font(20, bold);
+        @include pubg-font(10, bold);
         padding: 0 10px;
         text-align: center;
         user-select: none;
@@ -37,4 +35,3 @@
     }
   }
 }
-

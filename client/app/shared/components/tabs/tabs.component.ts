@@ -1,16 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
-import { ITab, ITabs } from '../../interfaces/actions'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ITab, ITabs } from '../../interfaces/actions.interface';
 
 @Component({
   selector: 'pubg-tabs',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.scss'],
+  styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent implements OnInit {
-
-  public tabs: ITabs
-  @Input() currentTab: ITab
-  @Output() selectedTab: EventEmitter<ITab> = new EventEmitter<ITab>()
+  public tabs: ITabs;
+  @Input() currentTab: ITab;
+  @Output() selectedTab: EventEmitter<ITab> = new EventEmitter<ITab>();
 
   @Input()
   public set tabsData(tabs: ITabs) {
@@ -24,8 +23,7 @@ export class TabsComponent implements OnInit {
     this.tabs = [];
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   public changeTab(tab: ITab) {
     this.currentTab = tab;
