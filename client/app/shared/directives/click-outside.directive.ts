@@ -1,10 +1,9 @@
-import {Directive, ElementRef, EventEmitter, HostListener, Input, Output} from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
 @Directive({
   selector: '[teamsClickOutside]'
 })
 export class ClickOutsideDirective {
-
   @Output() clickOutsideEmit = new EventEmitter();
   @Input() clickOutsideExcludes: ElementRef;
 
@@ -14,8 +13,7 @@ export class ClickOutsideDirective {
     const clickedInside = this.elementRef.nativeElement.contains(targetElement);
 
     if (!clickedInside) {
-
-      for (const Exc of  overlayPanelExcludes[Symbol.iterator]) {
+      for (const Exc of overlayPanelExcludes[Symbol.iterator]) {
         if (Exc.contains(targetElement)) {
           return true;
         }
@@ -25,9 +23,5 @@ export class ClickOutsideDirective {
     }
   }
 
-  constructor(private elementRef: ElementRef) {
-
-  }
-
-
+  constructor(private elementRef: ElementRef) {}
 }

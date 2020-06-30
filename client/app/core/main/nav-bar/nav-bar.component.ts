@@ -19,4 +19,8 @@ export class NavBarComponent implements OnInit {
   public selectedTab($event: ITab) {
     this.selectedMain.emit($event);
   }
+
+  public logout() {
+    console.log('test');
+  }
 }

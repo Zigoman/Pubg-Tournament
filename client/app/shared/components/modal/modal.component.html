@@ -1,18 +1,22 @@
-<div *ngIf='isActive' class="modal">
-  <div class="modal__header" [ngClass]="{'modal__header__project': modalType === modalTypes.generic }">
+<div *ngIf="isActive" class="modal">
+  <div class="modal__header" [ngClass]="{ modal__header__project: modalType === modalTypes.generic }">
     <div class="modal__header__toolbar">
-      <pubg-icon-button [action]="'cancel'" [icon]="'cancel'"
-                   (buttonClicked)="close()"></pubg-icon-button>
+      <pubg-icon-button [action]="'cancel'" [icon]="'cancel'" (buttonClicked)="close()"></pubg-icon-button>
     </div>
-    <div class="modal__header__title">{{modalTitle}}</div>
+    <div class="modal__header__title">{{ modalTitle }}</div>
   </div>
-  <div class="modal__content" [ngClass]="{'modal__content__project': modalType === modalTypes.generic }">
+  <div class="modal__content" [ngClass]="{ modal__content__project: modalType === modalTypes.generic }">
     <ng-content></ng-content>
   </div>
-  <div class="modal__footer" [ngClass]="{'modal__footer--centered': !actionButtonText || !Submit , 'modal__footer__project': modalType === modalTypes.generic }">
-  <!--  <pubg-button class="modal__footer__btn" [ngClass]="{'modal__footer__btn__project': modalType === modalTypes.generic }" [text]="'Cancel'" (click)="close()"></pubg-button>
+  <div
+    class="modal__footer"
+    [ngClass]="{
+      'modal__footer--centered': !actionButtonText || !Submit,
+      modal__footer__project: modalType === modalTypes.generic
+    }"
+  >
+    <!--  <pubg-button class="modal__footer__btn" [ngClass]="{'modal__footer__btn__project': modalType === modalTypes.generic }" [text]="'Cancel'" (click)="close()"></pubg-button>
     <pubg-button *ngIf="actionButtonText && onSubmit" class="modal__footer__btn" [text]="actionButtonText"
                 [prime]="true" (click)="submit()"></pubg-button>-->
   </div>
 </div>
-

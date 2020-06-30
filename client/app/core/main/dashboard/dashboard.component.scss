@@ -1,5 +1,4 @@
 :host {
-
   .dashboard {
     & {
       display: flex;
@@ -14,7 +13,6 @@
     &__main {
       flex: 12;
       background-color: #cbb144;
-
     }
   }
 }

@@ -1,17 +1,15 @@
-@import "config";
-
+@import 'config';
 
 :host {
   .icon-button-container {
     & {
       cursor: pointer;
       text-align: center;
-      transition: color .2s $cubic-bezier;
+      transition: color 0.2s $cubic-bezier;
     }
 
     &--disable {
       cursor: not-allowed;
-
 
       &:hover {
       }

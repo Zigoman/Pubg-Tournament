@@ -6,7 +6,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./icon-button.component.scss']
 })
 export class IconButtonComponent {
-
   public disable: boolean;
 
   @Input() icon: string;
@@ -26,7 +25,7 @@ export class IconButtonComponent {
 
   public actionClicked(disable: boolean, event: Event): void {
     if (!disable) {
-      this.buttonClicked.emit({action: this.action, originalEvent: event});
+      this.buttonClicked.emit({ action: this.action, originalEvent: event });
     }
   }
 }

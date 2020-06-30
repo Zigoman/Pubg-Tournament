@@ -1,14 +1,12 @@
-import {Component, EventEmitter, HostListener, Input, Output} from '@angular/core';
-import {ModalType} from '../../enums/modal-types.enum';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { ModalType } from '../../enums/modal-types.enum';
 
 @Component({
   selector: 'pubg-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-
 export class ModalComponent {
-
   public isActive = false;
 
   @Input() public modalType: ModalType;
@@ -23,7 +21,6 @@ export class ModalComponent {
   @Output() Hide: EventEmitter<any> = new EventEmitter();
 
   @Output() buttonClicked: EventEmitter<any> = new EventEmitter<any>();
-
 
   @HostListener('document:keydown', ['$event']) onKeyUpHandler(event: KeyboardEvent) {
     if (event.key === 'Escape' && this.isActive) {
@@ -48,5 +45,4 @@ export class ModalComponent {
     this.Submit.emit();
     this.close();
   }
-
 }

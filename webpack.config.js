@@ -13,7 +13,7 @@ const plugins = [
       css: path.resolve(__dirname, 'client/styles/_sprite.scss')
     },
     apiOptions: {
-      cssImageRef: "client\/assets\/images\/sprite.png",
+      cssImageRef: 'client/assets/images/sprite.png',
       generateSpriteName: function (sprite) {
         return 'icon-' + path.basename(sprite, '.png');
       }
@@ -24,7 +24,7 @@ const plugins = [
 module.exports = {
   context: __dirname,
   mode: 'development',
-  entry: {'doNotTouch': './doNotTouch.ts'},
+  entry: { doNotTouch: './doNotTouch.ts' },
 
   output: {
     path: __dirname,

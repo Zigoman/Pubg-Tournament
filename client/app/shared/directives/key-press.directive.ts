@@ -5,13 +5,11 @@ import { KEY_CODE } from '../enums/key-type.enum';
   selector: '[teamsKeyPress]'
 })
 export class KeyPressDirective {
-
-  constructor() { }
+  constructor() {}
 
   @HostListener('keydown', ['$event']) onKeyDown(e) {
     if (e.key === KEY_CODE.CTRL) {
       console.log(e.key);
     }
   }
-
 }

@@ -1,9 +1,13 @@
 <div class="tabs">
-    <div *ngFor="let tab of tabs" class="tabs__tab" (click)="changeTab(tab)"
-         [ngClass]="{'tabs__tab--active': tab.action === currentTab.action}">
-        <i *ngIf="tab.icon" class="ui-icons-{{tab.icon}}"></i>
-        <div class="tabs__tab__text">
-            {{tab.text}}
-        </div>
+  <div
+    *ngFor="let tab of tabs"
+    class="tabs__tab"
+    (click)="changeTab(tab)"
+    [ngClass]="{ 'tabs__tab--active': tab.action === currentTab.action }"
+  >
+    <i *ngIf="tab.icon" class="ui-icons-{{ tab.icon }}"></i>
+    <div class="tabs__tab__text">
+      {{ tab.text }}
     </div>
+  </div>
 </div>
