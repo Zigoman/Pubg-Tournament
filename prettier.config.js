@@ -6,12 +6,13 @@ module.exports = {
   singleQuote: true,
   trailingComma: 'none',
   bracketSpacing: true,
-  jsxBracketSameLine: false,
+  jsxBracketSameLine: true,
   arrowParens: 'avoid',
   rangeStart: 0,
   rangeEnd: Infinity,
   requirePragma: false,
   insertPragma: false,
   proseWrap: 'preserve',
-  lintStaged: true
+  lintStaged: true,
+  endOfLine: 'crlf'
 };
