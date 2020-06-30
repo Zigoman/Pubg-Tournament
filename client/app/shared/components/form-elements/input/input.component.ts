@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Field, IFieldConfig } from '../../../interfaces/field.interface';
 import { HelpersService } from '../../../services/helpers.service';
 

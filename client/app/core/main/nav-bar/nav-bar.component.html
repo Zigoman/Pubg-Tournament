@@ -4,6 +4,6 @@
     <pubg-tabs [tabsData]="tabs" (selectedTab)="selectedTab($event)"></pubg-tabs>
   </div>
   <div class="nav-bar__logout">
-    <i class="svg-icons-logout"></i>
+    <pubg-icon-button [action]="'logout'" [icon]="'logout'" (buttonClicked)="logout()"></pubg-icon-button>
   </div>
 </nav>

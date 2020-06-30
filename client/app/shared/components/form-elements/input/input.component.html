@@ -4,7 +4,7 @@
     [value]="config.value || ''"
     id="{{ elementID }}"
     class="input__element"
-    type="{{ config.inputType || 'text' }}"
+    [type]="config.inputType ? config.inputType : 'text'"
     size="50"
     pInputText
     (focus)="onFocus()"

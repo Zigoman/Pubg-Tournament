@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Field, IFieldConfig } from '../../../interfaces/field.interface';
-import { HelpersService } from '../../../services/helpers.service';
 
 @Component({
   selector: 'pubg-checkbox',
