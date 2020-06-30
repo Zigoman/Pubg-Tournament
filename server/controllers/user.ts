@@ -20,23 +20,23 @@ export class UserCtrl extends BaseCtrl {
         if (!isMatch) {
           return res.status(this.errorForbidden).send(error);
         }
-        const token = jwt.sign({ user }, process.env.SECRET_TOKEN);
-        res.status(this.statusOk).json({ myToken: token });
+        res.status(this.statusOk).send({ email: user.email, password: jwt.sign({ user }, process.env.SECRET_TOKEN) });
       });
     });
   };
   // Add User
   addUser = (req, res) => {
     const addUser = new this.model(req.body);
-    this.model.findOne({ fullName: req.body.fullName.toLowerCase() }, (err, user) => {
+    this.model.findOne({ email: req.body.email.toLowerCase() }, (err, user) => {
       if (user) {
         res.status(this.badRequest).json({ err: 'user name already exist' });
       } else {
         addUser
           .save()
           .then(() => {
-            const token = jwt.sign({ addUser }, process.env.SECRET_TOKEN);
-            res.status(this.statusOk).json({ myToken: token });
+            res
+              .status(this.statusOk)
+              .send({ email: addUser.email, password: jwt.sign(addUser.password, process.env.SECRET_TOKEN) });
           })
           .catch(error => {
             res.status(this.errorForbidden).send(error);

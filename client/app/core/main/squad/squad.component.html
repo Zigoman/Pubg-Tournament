@@ -1,0 +1,10 @@
+<div class="squad">
+  <ng-template *ngIf="squadID; else squadSelect">
+    <div class="squad__view"></div>
+  </ng-template>
+  <ng-template #squadSelect>
+    <div class="squad__select">
+      <div *ngFor="let squad of squadsList">{{ squad.name }}</div>
+    </div>
+  </ng-template>
+</div>

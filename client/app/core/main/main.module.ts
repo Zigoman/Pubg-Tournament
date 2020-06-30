@@ -9,10 +9,21 @@ import { SharedModule } from '../../shared/shared.module';
 import { GroupsComponent } from './groups/groups.component';
 import { ResultsComponent } from './results/results.component';
 import { ScoringComponent } from './scoring/scoring.component';
+import { SchedulesComponent } from './schedules/schedules.component';
+import { SquadComponent } from './squad/squad.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(mainRoutes), SharedModule],
   providers: [],
-  declarations: [MainComponent, DashboardComponent, NavBarComponent, GroupsComponent, ResultsComponent, ScoringComponent]
+  declarations: [
+    MainComponent,
+    DashboardComponent,
+    NavBarComponent,
+    GroupsComponent,
+    ResultsComponent,
+    ScoringComponent,
+    SchedulesComponent,
+    SquadComponent
+  ]
 })
 export class MainModule {}

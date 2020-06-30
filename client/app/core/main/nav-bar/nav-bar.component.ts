@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ITab } from '../../../shared/interfaces/actions.interface';
 
 @Component({
   selector: 'pubg-nav-bar',
@@ -6,18 +7,16 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-
   @Input() public tabs: any[];
-  @Output() selectedMain: EventEmitter<string> = new EventEmitter<string>();
+  @Output() selectedMain: EventEmitter<ITab> = new EventEmitter<ITab>();
 
   constructor() {
     this.tabs = [];
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  public selectedTab($event: string) {
+  public selectedTab($event: ITab) {
     this.selectedMain.emit($event);
   }
 }
