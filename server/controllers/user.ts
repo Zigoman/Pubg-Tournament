@@ -10,33 +10,69 @@ export class UserCtrl extends BaseCtrl {
   model = mongoose.model<IUser>('', userSchema);
 
   login = async (req, res) => {
-    await this.model.findOne({ email: req.body.LoginEmail }, (err, user) => {
+    await this.model.findOne({ email: req.body.email }, async (err, user) => {
       if (user === null) {
         process.on('uncaughtException', () => {
-          res.status(this.badRequest).json('No User Found');
+          res.status(this.badRequest).send({ LoginError: 'No User Found' });
+        });
+        res.status(this.badRequest).send({ LoginError: 'No User Found' });
+      } else if (user) {
+        await Auth.compare(req.body.password, user.password, (error, isMatch) => {
+          if (!isMatch) {
+            return res.status(this.errorForbidden).send({ LoginError: 'Password is incorrect' });
+          }
+          // this object gets sent as token to the client
+          const userForToken = {
+            email: user.email,
+            fullName: user.fullName
+          };
+          res
+            .status(this.statusOk)
+            // This Object is sent back to the client
+            .send({
+              email: user.email,
+              password: jwt.sign(userForToken, process.env.SECRET_TOKEN),
+              isSquadLeader: user.isSquadLeader,
+              pubgID: user.pubgID,
+              pubgName: user.pubgName,
+              facebookURL: user.facebookURL,
+              squad: user.squad
+            });
         });
       }
-      Auth.compare(req.body.loginPassword, user.password, (error, isMatch) => {
-        if (!isMatch) {
-          return res.status(this.errorForbidden).send(error);
-        }
-        res.status(this.statusOk).send({ email: user.email, password: jwt.sign({ user }, process.env.SECRET_TOKEN) });
-      });
     });
   };
+
   // Add User
   addUser = (req, res) => {
     const addUser = new this.model(req.body);
+    // Check if user already exist in DB
     this.model.findOne({ email: req.body.email.toLowerCase() }, (err, user) => {
       if (user) {
-        res.status(this.badRequest).json({ err: 'user name already exist' });
+        // Send back an Error if found user in DB
+        res.status(this.badRequest).send({ error: 'user name already exist' });
       } else {
+        // Save user to DB
         addUser
           .save()
           .then(() => {
+            // this object gets sent as token to the client
+            const userForToken = {
+              email: addUser.email,
+              fullName: addUser.fullName
+            };
             res
               .status(this.statusOk)
-              .send({ email: addUser.email, password: jwt.sign(addUser.password, process.env.SECRET_TOKEN) });
+              // This Object is sent back to the client
+              .send({
+                email: addUser.email,
+                password: jwt.sign(userForToken, process.env.SECRET_TOKEN),
+                isSquadLeader: addUser.isSquadLeader,
+                pubgID: addUser.pubgID,
+                pubgName: addUser.pubgName,
+                facebookURL: addUser.facebookURL,
+                squad: addUser.squad
+              });
           })
           .catch(error => {
             res.status(this.errorForbidden).send(error);
@@ -95,8 +131,8 @@ export class UserCtrl extends BaseCtrl {
   // Delete User
   deleteUser = (req, res) => {
     this.model.findByIdAndDelete({ _id: req.params.id }, err => {
-      if (err) res.json(err);
-      res.json('User Removed');
+      if (err) res.send({ DeleteError: 'Could Not Delete User' });
+      res.send({ Message: 'User Removed' });
     });
   };
 }
