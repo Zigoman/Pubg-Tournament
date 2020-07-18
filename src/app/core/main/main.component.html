@@ -1,0 +1,6 @@
+<div class="main">
+  <pubg-nav-bar [tabs]="tabs" (selectedMain)="changeMain($event)" (logOut)="logOut()"></pubg-nav-bar>
+  <div class="main__container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,169 @@
+html body {
+  .centerOverlayPanel {
+    border: none;
+  }
+
+  .ui-overlaypanel {
+    margin-top: 30px;
+
+    .ui-overlaypanel-content {
+      padding: 0;
+    }
+
+    &:before,
+    &:after {
+      display: none;
+      border: none;
+    }
+  }
+
+  .ui-inputtext {
+    color: $pubg-main;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $pubg-main;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    border-radius: 0;
+
+    &.ng-valid {
+      border-bottom: 1px solid $success;
+      color: $success;
+    }
+
+    &.ng-dirty {
+      &.ng-invalid {
+        border: none;
+        border-bottom: 1px solid $error;
+      }
+    }
+
+    &:enabled {
+      &:hover {
+        &:not(.ui-state-error) {
+          box-shadow: none;
+          border: none;
+          border-bottom: 1px solid $pubg-main;
+        }
+      }
+    }
+
+    &:focus,
+    &:focus {
+      outline: none;
+    }
+
+    &:enabled:focus:not(.ui-state-error) {
+      box-shadow: none;
+      border-color: $pubg-main;
+    }
+  }
+
+  .ui-chkbox {
+    .ui-chkbox-box {
+      border: 1px solid $pubg-main;
+      background-color: $def-background;
+      transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+
+      &.ui-state-focus {
+        box-shadow: none;
+        border-color: $pubg-main;
+      }
+
+      &:not(.ui-state-disabled):hover {
+        border-color: $pubg-main;
+      }
+
+      &.ui-state-active {
+        border-color: $pubg-main;
+        background-color: $def-background;
+        color: $pubg-main;
+
+        &:not(.ui-state-disabled):hover {
+          border-color: $pubg-main;
+          background-color: $def-background;
+          color: $pubg-main;
+        }
+      }
+    }
+  }
+
+  .ui-chkbox-label {
+    color: $pubg-main;
+
+    &.ui-label-disabled {
+      opacity: 0.5;
+    }
+  }
+
+  .ui-dropdown {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $pubg-main;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &:not(.ui-state-disabled).ui-state-focus {
+      box-shadow: none;
+      border-color: $pubg-main;
+    }
+
+    .ui-dropdown-trigger {
+      background-color: transparent;
+      color: $pubg-main;
+    }
+
+    .ui-dropdown-label-container {
+      width: 100%;
+
+      .ui-dropdown-label {
+        padding-left: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &.ui-placeholder {
+          color: #99c8c9;
+          @include pubg-font(14, bold);
+        }
+      }
+    }
+  }
+
+  .ui-dropdown-panel {
+    border: 1px solid $pubg-main;
+    background-color: $def-background;
+
+    .ui-dropdown-items {
+      .ui-dropdown-item {
+        color: $def-fonts;
+
+        &:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+          background-color: $pubg-main;
+        }
+
+        &.ui-state-highlight {
+          background-color: $pubg-main;
+        }
+      }
+    }
+  }
+
+  .ui-button {
+    color: $def-background;
+    background-color: $pubg-main;
+    border: 1px solid $pubg-main;
+
+    &:enabled {
+      &:hover {
+        color: $def-background;
+        background-color: $pubg-main;
+        border: 1px solid $pubg-main;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}

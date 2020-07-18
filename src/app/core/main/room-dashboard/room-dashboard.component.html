@@ -1,0 +1,26 @@
+<div class="room-dashboard">
+  <div class="room-dashboard__header">
+    <div class="room-dashboard__header__num">
+      <div>Number:</div>
+      <div>{{ roomInfo.number }}</div>
+    </div>
+    <div class="room-dashboard__header__pass">
+      <div>Password:</div>
+      <div>{{ roomInfo.password }}</div>
+    </div>
+    <div class="room-dashboard__header__map">
+      <div>Map:</div>
+      <div>{{ roomInfo.mapName }}</div>
+    </div>
+    <div class="room-dashboard__header__count">
+      <countdown [config]="config"></countdown>
+    </div>
+  </div>
+  <div class="room-dashboard__main">
+    <div class="room-dashboard__main__teams">
+      <div class="room-dashboard__main__teams__team" *ngFor="let team of roomInfo.teams">
+        <pubg-team [teamInfo]="team"></pubg-team>
+      </div>
+    </div>
+  </div>
+</div>

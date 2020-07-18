@@ -5,15 +5,15 @@ const SpritePlugin = require('webpack-spritesmith');
 const plugins = [
   new SpritePlugin({
     src: {
-      cwd: path.resolve(__dirname, 'client/styles/icons'),
+      cwd: path.resolve(__dirname, 'src/styles/icons'),
       glob: '*.png'
     },
     target: {
-      image: path.resolve(__dirname, 'client/assets/images/sprite.png'),
-      css: path.resolve(__dirname, 'client/styles/_sprite.scss')
+      image: path.resolve(__dirname, 'src/assets/images/sprite.png'),
+      css: path.resolve(__dirname, 'src/styles/_sprite.scss')
     },
     apiOptions: {
-      cssImageRef: 'client/assets/images/sprite.png',
+      cssImageRef: '/assets/images/sprite.png',
       generateSpriteName: function (sprite) {
         return 'icon-' + path.basename(sprite, '.png');
       }
@@ -24,7 +24,7 @@ const plugins = [
 module.exports = {
   context: __dirname,
   mode: 'development',
-  entry: { doNotTouch: './doNotTouch.ts' },
+  entry: { doNotTouch: './doNotTouch.js' },
 
   output: {
     path: __dirname,

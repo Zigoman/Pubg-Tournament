@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'svg-icons';
+  src: url('/assets/fonts/svg-icons.eot?17b7a4b90db021f937ff746bdd4a7a01?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/svg-icons.woff2?17b7a4b90db021f937ff746bdd4a7a01') format('woff2'),
+    url('/assets/fonts/svg-icons.woff?17b7a4b90db021f937ff746bdd4a7a01') format('woff');
+}
+
+.svg-icons {
+  line-height: 1;
+}
+
+.svg-icons:before {
+  font-family: svg-icons !important;
+  font-style: normal;
+  font-weight: normal !important;
+  vertical-align: top;
+}
+
+.svg-icons-check:before {
+  content: '\f101';
+}
+.svg-icons-delete:before {
+  content: '\f102';
+}
+.svg-icons-logout:before {
+  content: '\f103';
+}

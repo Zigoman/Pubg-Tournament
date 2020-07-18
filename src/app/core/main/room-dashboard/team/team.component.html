@@ -1,0 +1,19 @@
+<div class="team">
+  <div class="team__header">
+    <div class="team__header__number">
+      <div class="team__header__number__title">Team</div>
+      <div class="team__header__number__text">{{ teamInfo?.teamNumber }}</div>
+    </div>
+    <div class="team__header__squad">
+      <div class="team__header__squad__title">Squad</div>
+      <div class="team__header__squad__text">{{ teamInfo?.squadName }}</div>
+    </div>
+  </div>
+  <div class="team__main">
+    <div class="team__main__players">
+      <div class="team__main__players__player" *ngFor="let player of teamInfo?.squadActivePlayers">
+        <pubg-player [playerInfo]="player"></pubg-player>
+      </div>
+    </div>
+  </div>
+</div>

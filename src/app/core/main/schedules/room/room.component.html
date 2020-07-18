@@ -1,0 +1,25 @@
+<div
+  *ngIf="roomInfo"
+  class="room"
+  (click)="clickRoomID.emit(roomInfo.roomId)"
+  [ngStyle]="{
+    'background-image': 'linear-gradient(45deg, rgba(30, 51, 51, 1)30%, rgba(30, 51, 51, 0.5)60%), url(' + bgURL + ')'
+  }"
+>
+  <div class="room__info">
+    <div class="room__info__number">Number: {{ roomInfo.number ? roomInfo.number : 'TBD' }}</div>
+    <div class="room__info__password">Password: {{ roomInfo.password ? roomInfo.password : 'TBD' }}</div>
+  </div>
+  <div class="room__info__map">
+    <div class="room__info__map__label">Map:</div>
+    <div class="room__info__map__name">{{ roomInfo.mapName }}</div>
+  </div>
+  <div class="room__info__start">
+    <div *ngIf="lessThenDay; else fullDate" class="room__info__start__timer">
+      <countdown #countDown [config]="config"></countdown>
+    </div>
+    <ng-template #fullDate>
+      <div class="room__info__start__date">Time: {{ roomInfo.startAt | amDateFormat: 'HH:mm' }}</div>
+    </ng-template>
+  </div>
+</div>

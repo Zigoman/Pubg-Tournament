@@ -1,0 +1,8 @@
+<div class="checkbox" [formGroup]="group" *ngIf="config">
+  <p-checkbox
+    [formControlName]="config.name"
+    [binary]="true"
+    [value]="config.value"
+    [label]="config.label"
+  ></p-checkbox>
+</div>

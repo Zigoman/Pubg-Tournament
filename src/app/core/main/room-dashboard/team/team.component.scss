@@ -1,0 +1,48 @@
+@import 'config';
+
+:host {
+  .team {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 1px solid $pubg-main;
+
+    &__header {
+      justify-content: flex-start;
+      display: flex;
+
+      &__number,
+      &__squad {
+        padding: 0 10px;
+        display: flex;
+
+        &__title {
+          padding: 0 10px;
+        }
+
+        &__text {
+        }
+      }
+    }
+
+    &__main {
+      height: 80px;
+
+      &__players {
+        display: flex;
+        justify-content: space-around;
+        height: 100%;
+
+        &__player {
+          height: 100%;
+          flex: 1 1 25%;
+          padding: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
