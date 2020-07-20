@@ -1,13 +1,13 @@
 const dotenv = require('dotenv');
 const mongoConnect = require('./config/mongoose');
 
-process.on('uncaughtException', (err) => {
+process.on('uncaughtException', err => {
   console.log('Uncaught Exception occurred, Shutting Down');
   console.log(err.name, err.message, err.stack);
   process.exit(1);
 });
 
-dotenv.config({path: '../.env'});
+dotenv.config({ path: '../.env' });
 const app = require('./app');
 
 // CONNECT TO DATABASE
@@ -24,11 +24,10 @@ if (!module.parent) {
   });
 }
 
-process.on('unhandledRejection', (err) => {
+process.on('unhandledRejection', err => {
   console.log('Unhandled Rejection! Shutting Down...');
   console.log(err.name, ':', err.message);
   server.close(() => {
     process.exit(1);
   });
 });
-
