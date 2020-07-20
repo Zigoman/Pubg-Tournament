@@ -2,7 +2,6 @@ const User = require('../models/user.model');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
-
 exports.getAll = catchAsync(async (req, res, next) => {
   const users = await User.find();
   if (!users) {
@@ -11,5 +10,5 @@ exports.getAll = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     data: users
-  })
+  });
 });

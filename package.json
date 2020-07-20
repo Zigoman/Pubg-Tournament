@@ -19,6 +19,11 @@
     "precommit": "ng lint --fix && pretty-quick --staged",
     "icons": "node webfontGenerator.js && webpack"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^10.0.3",
