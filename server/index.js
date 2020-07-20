@@ -12,11 +12,12 @@ const app = require('./app');
 // CONNECT TO DATABASE
 // mongoConnect;
 
-const port = process.env.SERVER_PORT || 3000;
+const port = process.env.PORT || 3000;
 
 // module.parent check is required to support mocha watch
 // src: https://github.com/mochajs/mocha/issues/1912
 let server;
+app.set('port', port);
 if (!module.parent) {
   server = app.listen(port, () => {
     console.info(`server started on port ${port} (${process.env})`);
