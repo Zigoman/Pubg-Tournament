@@ -10,7 +10,7 @@
   "scripts": {
     "ng": "ng",
     "serve": "node server",
-    "start": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\" \"nodemon server\" \"ng build --watch\"",
+    "start": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\" \"ng build --watch\" \"nodemon server\"",
     "dev": "ng serve --proxy-config proxy.conf.json --open",
     "build": "ng build --prod",
     "test": "ng test",

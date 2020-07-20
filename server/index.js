@@ -1,5 +1,5 @@
-const dotenv = require('dotenv');
-const mongoConnect = require('./config/mongoose');
+require('dotenv').config();
+require('./config/mongoose');
 
 process.on('uncaughtException', err => {
   console.log('Uncaught Exception occurred, Shutting Down');
@@ -7,11 +7,10 @@ process.on('uncaughtException', err => {
   process.exit(1);
 });
 
-dotenv.config({ path: '../.env' });
 const app = require('./app');
 
 // CONNECT TO DATABASE
-mongoConnect;
+// mongoConnect;
 
 const port = process.env.SERVER_PORT || 3000;
 

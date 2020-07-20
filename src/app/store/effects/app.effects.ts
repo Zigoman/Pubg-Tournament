@@ -49,6 +49,7 @@ export class AppEffects {
       this.action$.pipe(
         ofType(SignUpSuccess),
         map(action => {
+          console.log('action', action);
           if (action?.payload?.password) {
             this.AuthSrv.setToken(action.payload.password);
             this.router.navigate(['']).then();

@@ -34,10 +34,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     squad: newUser.squad
   };
 
-  return res.status(201).json({
-    status: 'success',
-    user
-  });
+  return res.status(201).json(user);
 });
 
 exports.login = catchAsync(async (req, res, next) => {
@@ -56,17 +53,14 @@ exports.login = catchAsync(async (req, res, next) => {
   const token = generateToken({ email: user.email, id: user._id });
 
   res.status(200).json({
-    status: 'success',
-    data: {
-      fullName: user.fullName,
-      password: token,
-      email: user.email,
-      id: user._id,
-      pubgName: user.pubgName,
-      pubgID: user.pubgID,
-      facebookURL: user.facebookURL,
-      squad: user.squad
-    }
+    fullName: user.fullName,
+    password: token,
+    email: user.email,
+    id: user._id,
+    pubgName: user.pubgName,
+    pubgID: user.pubgID,
+    facebookURL: user.facebookURL,
+    squad: user.squad
   });
 });
 
