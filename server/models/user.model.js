@@ -1,38 +1,75 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
+const validator = require('validator')
 
 const UserSchema = new mongoose.Schema(
   {
-    fullname: {
+    fullName: {
       type: String,
-      required: true
+      required: [true, 'please provide your name'],
+      lowercase: true,
+      trim: true
     },
     email: {
       type: String,
-      required: true,
+      required: [true, 'please provide your email'],
       unique: true,
-      // Regexp to validate emails with more strict rules as added in tests/users.js which also conforms mostly with RFC2822 guide lines
-      match: [
-        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-        'Please enter a valid email'
-      ]
+      lowercase: true,
+      validate: [
+        validator.isEmail,
+        'please provide a valid email'
+      ],
+      trim: true,
     },
-    hashedPassword: {
+    password: {
       type: String,
-      required: true
+      required: [true, 'please provide a password'],
+      select: false
     },
-    createdAt: {
-      type: Date,
-      default: Date.now
+    pubgID: {
+      type: String,
+      trim: true
     },
-    roles: [
-      {
-        type: String
-      }
-    ]
+    pubgName: {
+      type: String,
+    },
+    facebookURL: {
+      type: String,
+      trim: true
+    },
+    role: {
+      type: String,
+      enum: ['user', 'squadLeader', 'admin'],
+      default: 'user',
+      select: false
+    },
+    active: {
+      type: Boolean,
+      default: true,
+      select: false
+    },
+    isSquadLeader: {
+      type: Boolean,
+      default: false
+    }
   },
   {
+    collection: 'users',
     versionKey: false
   }
 );
+
+UserSchema.pre('save', async function(next) {
+  if (!this.isModified('password')) {
+    return next();
+  }
+  this.password = await bcrypt.hash(this.password, 12);
+  next();
+});
+
+UserSchema.methods.correctPassword = function(candidatePassword, userPassword) {
+  return bcrypt.compare(candidatePassword, userPassword);
+}
+
 
 module.exports = mongoose.model('User', UserSchema);

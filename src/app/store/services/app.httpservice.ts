@@ -11,7 +11,7 @@ export class ApiHttpService {
   constructor(private http$: HttpClient) {}
 
   public addUser(payload: IUser): Observable<IUser> {
-    return this.http$.post<IUser>(`${environment.api}/add-user`, payload);
+    return this.http$.post<IUser>(`${environment.api}/auth/signup`, payload);
   }
 
   public userLogin(payload: IUser): Observable<IUser> {

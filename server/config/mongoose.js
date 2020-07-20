@@ -1,19 +1,20 @@
 const mongoose = require('mongoose');
-const util = require('util');
-const debug = require('debug')('express-mongoose-es6-rest-api:index');
+const dotenv = require('dotenv');
 
-const config = require('./config');
+// const config = require('./config');
+dotenv.config({path: '../.env'});
 
 // connect to mongo db
-const mongoUri = config.mongo.host;
-mongoose.connect(mongoUri, { keepAlive: 1 });
-mongoose.connection.on('error', () => {
-  throw new Error(`unable to connect to database: ${mongoUri}`);
-});
+const connectionString = process.env.MONGO_HOST
+  .replace('<password>', process.env.MONGO_PASSWORD);
 
-// print mongoose logs in dev env
-if (config.mongooseDebug) {
-  mongoose.set('debug', (collectionName, method, query, doc) => {
-    debug(`${collectionName}.${method}`, util.inspect(query, false, 20), doc);
-  });
-}
+// if connection fails -> replace connectionString with process.env.MONGO_HOST_LOCAL
+mongoose.connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+  }).then(() => {
+    console.log('Connected To MongoDB');
+  }).catch(err => console.log(err));
+
+module.exports = mongoose;
