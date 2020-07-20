@@ -1,47 +1,71 @@
 {
-  "$schema": "/node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "cli": {
+    "packageManager": "npm",
+    "analytics": "8ee8a936-f162-418a-b353-2731627f419e"
+  },
   "newProjectRoot": "projects",
   "projects": {
     "pubg": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
-      "sourceRoot": "client",
-      "prefix": "app",
+      "sourceRoot": "src",
+      "prefix": "pubg",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/public",
-            "index": "client/index.html",
-            "main": "client/main.ts",
-            "polyfills": "client/polyfills.ts",
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["client/assets"],
-            "styles": [
-              "client/styles.scss",
-              "client/styles/helpers/fonts.scss",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/nova-dark/theme.css",
-              "node_modules/primeng/resources/primeng.min.css"
-            ],
+            "assets": ["src/favicon.ico", "src/assets", "src/manifest.webmanifest"],
+            "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": ["client/styles"]
+              "includePaths": ["src/styles"]
             },
+            "allowedCommonJsDependencies": ["chart.js"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "client/environments/environment.ts",
-                  "with": "client/environments/environment.prod.ts"
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -55,15 +79,17 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
             }
           }
         },
@@ -87,21 +113,13 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "client/test.ts",
-            "polyfills": "client/polyfills.ts",
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css",
-              "client/styles.scss"
-            ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/tether/dist/js/tether.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ],
-            "assets": ["client/assets"]
+            "assets": ["src/favicon.ico", "src/assets", "src/manifest.webmanifest"],
+            "styles": ["src/styles.scss"],
+            "scripts": []
           }
         },
         "lint": {
@@ -126,8 +144,5 @@
       }
     }
   },
-  "defaultProject": "pubg",
-  "cli": {
-    "analytics": "12bffd55-336f-44fb-9004-93e12a726a70"
-  }
+  "defaultProject": "pubg"
 }

@@ -1,0 +1,63 @@
+@import 'helpers/reset';
+@import '~primeng/resources/themes/nova-dark/theme.css';
+@import '~primeng/resources/primeng.min.css';
+@import '~primeicons/primeicons.css';
+@import 'styles/helpers/fonts.scss';
+@import 'config';
+@import 'primNG-override';
+@import 'styles/sprite';
+@import 'styles/svg-icons';
+
+@include sprites($spritesheet-sprites);
+
+[class*='svg-icons-'] {
+  display: inline-block;
+  font-family: svg-icons, sans-serif;
+  font-style: normal;
+
+  i:before {
+    font-family: svg-icons, sans-serif !important;
+    font-style: normal;
+    font-weight: normal !important;
+    vertical-align: top;
+  }
+}
+
+html,
+body {
+  font-size: 12px;
+  direction: ltr;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Assistant', sans-serif;
+  background-color: $def-background;
+  color: $def-fonts;
+  position: relative;
+}
+
+* {
+  & {
+    box-sizing: border-box;
+    outline: none;
+    user-select: none;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-button {
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    border: 2px solid $pubg-main;
+    border-radius: $border-radius;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* --------------------------------*/
+}

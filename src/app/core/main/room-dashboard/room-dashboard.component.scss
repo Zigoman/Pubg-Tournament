@@ -1,0 +1,44 @@
+:host {
+  .room-dashboard {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+
+    &__header {
+      justify-content: space-between;
+      display: flex;
+      padding: 15px;
+
+      &__num,
+      &__pass,
+      &__map {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &__count {
+      }
+    }
+
+    &__main {
+      flex: 1;
+      overflow: hidden;
+
+      &__teams {
+        flex-wrap: wrap;
+        display: flex;
+        overflow: auto;
+        height: 100%;
+
+        &__team {
+          flex-wrap: wrap;
+          padding: 15px 5px;
+          flex: 1 1 50%;
+        }
+      }
+    }
+  }
+}

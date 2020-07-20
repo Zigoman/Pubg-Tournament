@@ -1,0 +1,16 @@
+:host {
+  .main {
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__container {
+      flex: 1;
+      overflow: hidden;
+      max-width: 900px;
+      width: 100%;
+    }
+  }
+}

@@ -1,13 +1,13 @@
-const webFontsGenerator = require('webfonts-generator');
+const webFontsGenerator = require('vusion-webfonts-generator');
 const path = require('path');
 const fs = require('fs');
 
 webFontsGenerator(
   {
-    files: recFindByExt(__dirname + '/client/styles/svg', 'svg'),
-    dest: path.resolve(__dirname, 'client/assets/fonts'),
+    files: recFindByExt(__dirname + '/src/styles/svg', 'svg'),
+    dest: path.resolve(__dirname, 'src/assets/fonts'),
     css: true,
-    cssTemplateFontPath: 'client/assets/fonts/',
+    cssTemplateFontPath: '/src/assets/fonts/',
     fontName: 'svg-icons',
     cssTemplateFontName: 'svg-icons',
     templateOptions: {
@@ -19,8 +19,8 @@ webFontsGenerator(
     normalize: true,
     verbose: true,
     fontStyle: 'normal !important',
-    cssDest: path.resolve(__dirname, 'client/styles/_svg-icons.scss'),
-    cssFontsUrl: 'client/assets/fonts/'
+    cssDest: path.resolve(__dirname, 'src/styles/_svg-icons.scss'),
+    cssFontsUrl: '/assets/fonts/'
   },
   function (error) {
     if (error) {

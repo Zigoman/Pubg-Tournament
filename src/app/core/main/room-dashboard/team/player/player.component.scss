@@ -1,0 +1,27 @@
+@import 'config';
+
+:host {
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100%;
+
+  .player {
+    height: 100%;
+    max-width: 75px;
+    flex: 1;
+    background: $pubg-grey;
+    display: flex;
+    align-items: flex-end;
+
+    &__name {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2px 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
