@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
     this.tabs = [
       { text: 'Login', icon: 'login', action: 'login' },
-      { text: 'SignUp', icon: 'sign-up', action: 'signUp' }
+      { text: 'Sign Up', icon: 'sign-up', action: 'signUp' }
     ];
     this.selectedTab = this.tabs[0];
 

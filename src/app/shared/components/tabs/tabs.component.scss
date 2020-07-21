@@ -8,7 +8,7 @@
 
     &__tab {
       & {
-        @include pubg-font(10, icon);
+        @include pubg-font(12, icon);
         color: $font-disable;
         cursor: pointer;
         flex: 1;
@@ -36,7 +36,7 @@
       .tabs {
         &__tab {
           & {
-            @include pubg-font(20, bold);
+            @include pubg-font(50, regular);
             padding: 15px 0;
           }
 

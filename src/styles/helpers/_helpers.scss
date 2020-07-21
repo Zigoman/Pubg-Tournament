@@ -11,8 +11,7 @@
 }
 
 @mixin pubg-font($sizeValue, $weightValue) {
-  font-size: ($sizeValue / 10) + rem;
-  line-height: ($sizeValue / 10) + rem;
+  font-size: ($sizeValue / 12) + rem;
   @if $weightValue == 'light' {
     font-weight: 300;
   } @else if $weightValue == 'bold' {

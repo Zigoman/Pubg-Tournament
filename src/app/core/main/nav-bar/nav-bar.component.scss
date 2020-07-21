@@ -23,7 +23,7 @@
     }
 
     &__logout {
-      @include pubg-font(16, icon);
+      @include pubg-font(18, icon);
       color: $font-disable;
       width: 22px;
       display: flex;

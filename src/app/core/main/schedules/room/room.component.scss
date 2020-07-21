@@ -14,7 +14,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    @include pubg-font(13, regular);
+    @include pubg-font(12, regular);
 
     &__info {
       padding: 0 5px;
