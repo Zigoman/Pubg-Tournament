@@ -26,6 +26,8 @@
     &__main {
       flex: 1;
       overflow: hidden;
+      background: rgb(165, 157, 136);
+      background: linear-gradient(204deg, #544f41 0%, #585240 35%, #0e0e0d 100%);
 
       &__teams {
         flex-wrap: wrap;
@@ -35,7 +37,7 @@
 
         &__team {
           flex-wrap: wrap;
-          padding: 15px 5px;
+          padding: 10px 5px;
           flex: 1 1 50%;
         }
       }

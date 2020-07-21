@@ -8,6 +8,8 @@
   height: 100%;
 
   .player {
+    border-radius: $border-radius;
+    overflow: hidden;
     height: 100%;
     max-width: 75px;
     flex: 1;

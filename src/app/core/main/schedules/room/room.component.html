@@ -19,7 +19,7 @@
       <countdown #countDown [config]="config"></countdown>
     </div>
     <ng-template #fullDate>
-      <div class="room__info__start__date">Time: {{ roomInfo.startAt | amDateFormat: 'HH:mm' }}</div>
+      <div class="room__info__start__date">At: {{ roomInfo.startAt | amDateFormat: 'H:mm A' }}</div>
     </ng-template>
   </div>
 </div>

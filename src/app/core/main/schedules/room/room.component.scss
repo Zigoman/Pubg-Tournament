@@ -14,7 +14,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    @include pubg-font(12, regular);
 
     &__info {
       padding: 0 5px;
@@ -27,17 +26,21 @@
 
         &__label,
         &__name {
-          padding: 5px 0;
+          padding: 2px 0;
         }
       }
 
       &__number,
       &__password {
-        padding: 5px 0;
+        padding: 2px 0;
       }
 
       &__start {
         padding: 0 5px;
+
+        &__timer {
+          @include pubg-font(18, regular);
+        }
       }
     }
   }

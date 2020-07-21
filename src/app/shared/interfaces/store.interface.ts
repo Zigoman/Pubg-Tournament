@@ -41,6 +41,7 @@ export interface IRoom {
 
 export interface ISchedule {
   date: moment.Moment;
+  name: string;
   roomList: IRoom[];
 }
 

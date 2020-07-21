@@ -2,6 +2,7 @@
   <div class="schedules__dates" *ngFor="let dates of schedules">
     <div class="schedules__dates__date">
       <div class="schedules__dates__date__text">{{ dates.date | amCalendar: HelperSrv.amCalendarConf }}</div>
+      <div class="schedules__dates__date__name">{{ dates.name }}</div>
       <div class="schedules__dates__date__rooms">
         <div class="schedules__dates__date__rooms__room" *ngFor="let room of dates.roomList">
           <pubg-room [roomInfo]="room" (clickRoomID)="routeToRoom($event)"></pubg-room>

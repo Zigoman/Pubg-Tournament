@@ -19,24 +19,25 @@ export class SchedulesComponent implements OnInit {
   ngOnInit(): void {
     this.schedules = [
       {
-        date: moment('2020-07-01'),
+        date: moment('2020-07-29'),
+        name: 'Summer League',
         roomList: [
           {
-            startAt: moment('2020-07-01 21:30:00'),
+            startAt: moment('2020-07-29 21:30:00'),
             number: 58424,
             password: 12345,
             mapName: 'Miramar',
             roomId: 1
           },
           {
-            startAt: moment('2020-07-01 22:30:00'),
+            startAt: moment('2020-07-29 22:30:00'),
             number: null,
             password: null,
             mapName: 'Vikendi',
             roomId: 2
           },
           {
-            startAt: moment('2020-07-01 23:30:00'),
+            startAt: moment('2020-07-29 23:30:00'),
             number: null,
             password: null,
             mapName: 'Erangel',
@@ -45,24 +46,25 @@ export class SchedulesComponent implements OnInit {
         ]
       },
       {
-        date: moment('2020-07-08'),
+        date: moment('2020-08-05'),
+        name: 'Summer League',
         roomList: [
           {
-            startAt: moment('2020-07-08 21:30:00'),
+            startAt: moment('2020-08-05 21:30:00'),
             number: null,
             password: null,
             mapName: 'Sanhok',
             roomId: 4
           },
           {
-            startAt: moment('2020-07-08 22:30:00'),
+            startAt: moment('2020-08-05 22:30:00'),
             number: null,
             password: null,
             mapName: 'Miramar',
             roomId: 5
           },
           {
-            startAt: moment('2020-07-08 23:30:00'),
+            startAt: moment('2020-08-05 23:30:00'),
             number: null,
             password: null,
             mapName: 'Vikendi',
@@ -71,24 +73,25 @@ export class SchedulesComponent implements OnInit {
         ]
       },
       {
-        date: moment('2020-07-15'),
+        date: moment('2020-08-12'),
+        name: 'Summer League',
         roomList: [
           {
-            startAt: moment('2020-07-15 21:30:00'),
+            startAt: moment('2020-08-12 21:30:00'),
             number: null,
             password: null,
             mapName: 'Sanhok',
             roomId: 7
           },
           {
-            startAt: moment('2020-07-15 22:30:00'),
+            startAt: moment('2020-08-12 22:30:00'),
             number: null,
             password: null,
             mapName: 'Miramar',
             roomId: 8
           },
           {
-            startAt: moment('2020-07-15 23:30:00'),
+            startAt: moment('2020-08-12 23:30:00'),
             number: null,
             password: null,
             mapName: 'Vikendi',
@@ -97,24 +100,140 @@ export class SchedulesComponent implements OnInit {
         ]
       },
       {
-        date: moment('2020-07-22'),
+        date: moment('2020-08-19'),
+        name: 'Summer League',
         roomList: [
           {
-            startAt: moment('2020-07-22 21:30:00'),
+            startAt: moment('2020-08-19 21:30:00'),
             number: null,
             password: null,
             mapName: 'Sanhok',
             roomId: 10
           },
           {
-            startAt: moment('2020-07-22 22:30:00'),
+            startAt: moment('2020-08-19 22:30:00'),
             number: null,
             password: null,
             mapName: 'Miramar',
             roomId: 11
           },
           {
-            startAt: moment('2020-07-22 23:30:00'),
+            startAt: moment('2020-08-19 23:30:00'),
+            number: null,
+            password: null,
+            mapName: 'Vikendi',
+            roomId: 12
+          }
+        ]
+      },
+      {
+        date: moment('2020-08-26'),
+        name: 'Summer League',
+        roomList: [
+          {
+            startAt: moment('2020-08-26 21:30:00'),
+            number: null,
+            password: null,
+            mapName: 'Sanhok',
+            roomId: 10
+          },
+          {
+            startAt: moment('2020-08-26 22:30:00'),
+            number: null,
+            password: null,
+            mapName: 'Miramar',
+            roomId: 11
+          },
+          {
+            startAt: moment('2020-08-26 23:30:00'),
+            number: null,
+            password: null,
+            mapName: 'Vikendi',
+            roomId: 12
+          }
+        ]
+      },
+      {
+        date: moment('2020-09-02'),
+        name: 'Summer League',
+        roomList: [
+          {
+            startAt: moment('2020-09-02 21:30:00'),
+            number: null,
+            password: null,
+            mapName: 'Sanhok',
+            roomId: 10
+          },
+          {
+            startAt: moment('2020-09-02 22:30:00'),
+            number: null,
+            password: null,
+            mapName: 'Miramar',
+            roomId: 11
+          },
+          {
+            startAt: moment('2020-09-02 23:30:00'),
+            number: null,
+            password: null,
+            mapName: 'Vikendi',
+            roomId: 12
+          }
+        ]
+      },
+      {
+        date: moment('2020-09-09'),
+        name: 'Summer League',
+        roomList: [
+          {
+            startAt: moment('2020-09-09 21:30:00'),
+            number: null,
+            password: null,
+            mapName: 'Sanhok',
+            roomId: 10
+          },
+          {
+            startAt: moment('2020-09-09 22:30:00'),
+            number: null,
+            password: null,
+            mapName: 'Miramar',
+            roomId: 11
+          },
+          {
+            startAt: moment('2020-09-09 23:30:00'),
+            number: null,
+            password: null,
+            mapName: 'Vikendi',
+            roomId: 12
+          }
+        ]
+      },
+      {
+        date: moment('2020-09-16'),
+        name: 'Summer League',
+        roomList: [
+          {
+            startAt: moment('2020-09-16 21:30:00'),
+            number: null,
+            password: null,
+            mapName: 'Sanhok',
+            roomId: 10
+          },
+          {
+            startAt: moment('2020-09-16 22:30:00'),
+            number: null,
+            password: null,
+            mapName: 'Miramar',
+            roomId: 11
+          },
+          {
+            startAt: moment('2020-09-16 23:30:00'),
+            number: null,
+            password: null,
+            mapName: 'Vikendi',
+            roomId: 12
+          },
+          {
+            startAt: moment('2020-09-16 00:00:00'),
             number: null,
             password: null,
             mapName: 'Vikendi',

@@ -19,13 +19,21 @@
         border-radius: $border-radius;
         padding: 5px;
 
-        &__text {
+        &__text,
+        &__name {
           position: absolute;
-          left: 5px;
           top: -10px;
           padding: 0 14px;
           background: $def-background;
           @include pubg-font(16, bold);
+        }
+
+        &__text {
+          left: 5px;
+        }
+
+        &__name {
+          right: 5px;
         }
 
         &__rooms {
@@ -35,6 +43,9 @@
           flex-direction: column;
 
           &__room {
+            @include pubg-font(16, regular);
+            text-shadow: -1px 0 3px $def-background, 0 1px 3px $def-background, 1px 0 3px $def-background,
+              0 -1px 3px $def-background;
             padding: 10px 0;
           }
         }
