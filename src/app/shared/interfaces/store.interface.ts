@@ -9,7 +9,7 @@ export interface IUser {
   pubgName?: string;
   facebookURL?: string;
   squad?: string | null;
-  isAdmin?: boolean;
+  admin?: boolean;
 }
 
 export interface ISquad {

@@ -14,9 +14,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppGuard } from './shared/gurads/app.guard';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './core/login/login.component';
-import { appReducer } from './store/reducers/app.reducer';
-import { AppEffects } from './store/effects/app.effects';
 import { AuthInterceptor } from './store/interceptors/authconfig.interceptor';
+import { reducers, metaReducers } from './store';
+import { UserEffects } from './store/effects/user.effects';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -27,9 +27,15 @@ import { AuthInterceptor } from './store/interceptors/authconfig.interceptor';
     HttpClientModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([AppEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([UserEffects]),
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    })
   ],
   providers: [
     AppGuard,

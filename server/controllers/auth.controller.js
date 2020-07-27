@@ -17,6 +17,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     pubgID: req.body.pubgID,
     pubgName: req.body.pubgName,
     facebookURL: req.body.facebookURL,
+    admin: false,
     squad: req.body.squad || null
   });
 
@@ -31,6 +32,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     pubgID: newUser.pubgID,
     pubgName: newUser.pubgName,
     facebookURL: newUser.facebookURL,
+    admin: newUser.admin,
     squad: newUser.squad
   };
 
@@ -51,7 +53,6 @@ exports.login = catchAsync(async (req, res, next) => {
   }
 
   const token = generateToken({ email: user.email, id: user._id });
-
   res.status(200).json({
     fullName: user.fullName,
     password: token,
@@ -59,6 +60,7 @@ exports.login = catchAsync(async (req, res, next) => {
     id: user._id,
     pubgName: user.pubgName,
     pubgID: user.pubgID,
+    admin: user.admin,
     facebookURL: user.facebookURL,
     squad: user.squad
   });

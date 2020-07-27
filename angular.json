@@ -2,6 +2,7 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
+    "defaultCollection": "@ngrx/schematics",
     "packageManager": "npm",
     "analytics": "8ee8a936-f162-418a-b353-2731627f419e"
   },

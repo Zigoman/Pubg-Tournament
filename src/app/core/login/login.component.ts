@@ -4,7 +4,7 @@ import { Validators } from '@angular/forms';
 import { IFieldOptions, IFieldType } from '../../shared/interfaces/field.interface';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Login, SignUp } from '../../store/actions/app.actions';
+// import { Login, SignUp } from '../../store/actions/app.actions';
 import { IUser } from '../../shared/interfaces/store.interface';
 import { FormComponent } from '../../shared/components/form-elements/form.component';
 
@@ -152,9 +152,9 @@ export class LoginComponent implements OnInit {
   public submit(user: IUser): void {
     if (this.form && this.form.valid) {
       if (this.selectedTab.action === 'signUp') {
-        this.store.dispatch(SignUp({ payload: user }));
+        // this.store.dispatch(SignUp({ payload: user }));
       } else if (this.selectedTab.action === 'login') {
-        this.store.dispatch(Login({ payload: user }));
+        // this.store.dispatch(Login({ payload: user }));
       }
     }
   }

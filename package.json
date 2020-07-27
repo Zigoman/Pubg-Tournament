@@ -10,8 +10,8 @@
   "scripts": {
     "ng": "ng",
     "start": "node server",
-    "server": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\" \"ng build --watch\" \"nodemon server\"",
-    "dev": "ng serve --proxy-config proxy.conf.json --open",
+    "devfront": "ng serve --proxy-config proxy.conf.json --open",
+    "serverbuild": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\" \"ng build --watch\" \"nodemon server\"",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -38,7 +38,9 @@
     "@angular/service-worker": "~10.0.3",
     "@fullcalendar/core": "^5.1.0",
     "@ngrx/effects": "^9.2.0",
-    "@ngrx/store": "^9.2.0",
+    "@ngrx/entity": "^9.2.0",
+    "@ngrx/schematics": "^9.2.0",
+    "@ngrx/store": "^9.0.0",
     "@ngrx/store-devtools": "^9.2.0",
     "@types/bcryptjs": "^2.4.2",
     "@types/moment": "^2.13.0",
@@ -104,10 +106,6 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "~3.9.5",
-    "vusion-webfonts-generator": "^0.4.1",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-spritesmith": "^1.1.0"
+    "typescript": "~3.9.5"
   }
 }
