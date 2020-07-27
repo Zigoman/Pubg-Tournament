@@ -3,6 +3,18 @@ import * as moment from 'moment';
 export interface IUser {
   fullName?: string;
   email?: string;
+  password: string;
+  isSquadLeader?: boolean;
+  pubgID?: string;
+  pubgName?: string;
+  facebookURL?: string;
+  squad?: string | null;
+  admin?: boolean;
+}
+
+export interface IPlayer {
+  fullName?: string;
+  email?: string;
   password?: string;
   isSquadLeader?: boolean;
   pubgID?: string;
@@ -15,7 +27,7 @@ export interface IUser {
 export interface ISquad {
   name: string;
   password: string;
-  members: IUser[];
+  members: IPlayer[];
   roomNumber: number;
   protected: boolean;
   updated: string;
@@ -26,8 +38,8 @@ export interface ITeam {
   teamSquadID: number;
   squadLogo: string;
   squadName: string;
-  squadActivePlayers: IUser[];
-  squadSubPlayers: IUser[];
+  squadActivePlayers: IPlayer[];
+  squadSubPlayers: IPlayer[];
 }
 
 export interface IRoom {

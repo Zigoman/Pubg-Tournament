@@ -103,6 +103,10 @@ html body {
     border-bottom: 1px solid $pubg-main;
     transition: border-color 0.2s, box-shadow 0.2s;
 
+    &.ui-state-disabled {
+      opacity: 0.3;
+    }
+
     &:not(.ui-state-disabled).ui-state-focus {
       box-shadow: none;
       border-color: $pubg-main;

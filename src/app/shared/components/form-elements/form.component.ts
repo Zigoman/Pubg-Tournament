@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { IFieldType, IFieldOptions } from '../../interfaces/field.interface';
+import { IFieldType, IFieldOptions, IFormObject } from '../../interfaces/field.interface';
 
 @Component({
   selector: 'pubg-form',
@@ -32,7 +32,7 @@ export class FormComponent implements OnInit {
   }
 
   @Output()
-  formSubmit: EventEmitter<object> = new EventEmitter<object>();
+  formSubmit: EventEmitter<IFormObject> = new EventEmitter<IFormObject>();
 
   @Output()
   formValueChanges: EventEmitter<IFieldOptions> = new EventEmitter<IFieldOptions>();
@@ -45,7 +45,7 @@ export class FormComponent implements OnInit {
     return this.form.valid;
   }
 
-  public get value(): object {
+  public get value(): IFormObject {
     return this.form ? this.form.value : null;
   }
 
