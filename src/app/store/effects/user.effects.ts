@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as fromUsersActions from '../actions/user.actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { ApiHttpService } from '../services/app.httpservice';
-import { catchError, map, mergeMap, tap } from 'rxjs/operators';
+import { catchError, concatMap, map, mergeMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
@@ -46,6 +46,15 @@ export class UserEffects {
       ),
       tap(() => this.router.navigate(['']))
     )
+  );
+
+  checkUser$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fromUsersActions.checkUser),
+        concatMap(action => this.apiService.checkUser(action.token))
+      ),
+    { dispatch: false }
   );
 
   loadPlayers$ = createEffect(() =>

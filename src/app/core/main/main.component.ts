@@ -5,6 +5,7 @@ import { AuthService } from '../../shared/services/auth.service';
 import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { IUser } from '../../shared/interfaces/store.interface';
+import { selectedUserAdmin } from '../../store/selectors/user.selectors';
 
 @Component({
   selector: 'pubg-main',
@@ -13,11 +14,11 @@ import { IUser } from '../../shared/interfaces/store.interface';
 })
 export class MainComponent implements OnInit {
   public tabs: ITab[];
-  public admin$: Observable<IUser>;
+  public admin$: Observable<boolean> | null;
 
   constructor(private AuthSrv: AuthService, private router: Router, private store: Store<{ user: IUser }>) {
     this.tabs = [];
-    this.admin$ = store.pipe(select('user'));
+    this.admin$ = null;
   }
 
   ngOnInit(): void {
@@ -25,8 +26,10 @@ export class MainComponent implements OnInit {
       { action: 'schedules', text: 'Games Schedules' },
       { action: 'squad', text: 'My Squad' }
     ];
-    this.admin$.subscribe(x => {
-      console.log('x', x);
+    this.store.pipe(select(selectedUserAdmin)).subscribe(isAdmin => {
+      if (isAdmin) {
+        this.tabs.push({ action: 'admin', text: 'Admin' });
+      }
     });
   }
 

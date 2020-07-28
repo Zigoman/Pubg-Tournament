@@ -5,7 +5,7 @@ import { IPlayer, IUser } from '../../shared/interfaces/store.interface';
 
 export const usersFeatureKey = 'users';
 
-export interface AppState extends EntityState<IPlayer> {
+export interface UserState extends EntityState<IPlayer> {
   // additional entities state properties
   error: string | null;
   user: IUser | null;
@@ -13,7 +13,7 @@ export interface AppState extends EntityState<IPlayer> {
 
 export const adapter: EntityAdapter<IUser> = createEntityAdapter<IUser>();
 
-export const initialState: AppState = adapter.getInitialState({
+export const initialState: UserState = adapter.getInitialState({
   // additional entity state properties
   error: null,
   user: null

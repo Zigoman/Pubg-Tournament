@@ -4,8 +4,6 @@ import { Validators } from '@angular/forms';
 import { IFieldOptions, IFieldType, IFormObject } from '../../shared/interfaces/field.interface';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-// import { Login, SignUp } from '../../store/actions/app.actions';
-import { IUser } from '../../shared/interfaces/store.interface';
 import { FormComponent } from '../../shared/components/form-elements/form.component';
 import { addUser, loadUser } from '../../store/actions/user.actions';
 

@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
+import { checkUser, loadUser } from '../../store/actions/user.actions';
+import { Store } from '@ngrx/store';
+import { ApiHttpService } from '../../store/services/app.httpservice';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +10,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class AuthService {
   private headers: HttpHeaders;
 
-  constructor() {
+  constructor(private apiService: ApiHttpService) {
     this.headers = new HttpHeaders().set('Content-Type', 'application/json');
   }
 
@@ -20,6 +23,15 @@ export class AuthService {
   }
 
   public isLoggedIn(): boolean {
+    const token = localStorage.getItem('access_token');
+    if (token) {
+      const test = this.apiService.checkUser(token).subscribe(x => {
+        if (x) {
+          console.log('test', x);
+          // return true;
+        }
+      });
+    }
     return localStorage.getItem('access_token') !== null;
   }
 
