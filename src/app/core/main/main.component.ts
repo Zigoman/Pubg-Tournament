@@ -3,9 +3,8 @@ import { Router } from '@angular/router';
 import { ITab } from '../../shared/interfaces/actions.interface';
 import { AuthService } from '../../shared/services/auth.service';
 import { Observable } from 'rxjs';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { IUser } from '../../shared/interfaces/store.interface';
-import { selectedUserAdmin } from '../../store/selectors/user.selectors';
 
 @Component({
   selector: 'pubg-main',
@@ -26,11 +25,11 @@ export class MainComponent implements OnInit {
       { action: 'schedules', text: 'Games Schedules' },
       { action: 'squad', text: 'My Squad' }
     ];
-    this.store.pipe(select(selectedUserAdmin)).subscribe(isAdmin => {
-      if (isAdmin) {
-        this.tabs.push({ action: 'admin', text: 'Admin' });
-      }
-    });
+    // this.store.pipe(select(selectedUserAdmin)).subscribe(isAdmin => {
+    //   if (isAdmin) {
+    //     this.tabs.push({ action: 'admin', text: 'Admin' });
+    //   }
+    // });
   }
 
   public changeMain(event: ITab): void {

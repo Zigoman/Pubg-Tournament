@@ -10,7 +10,7 @@ import { ApiHttpService } from '../../store/services/app.httpservice';
 export class AuthService {
   private headers: HttpHeaders;
 
-  constructor(private apiService: ApiHttpService) {
+  constructor() {
     this.headers = new HttpHeaders().set('Content-Type', 'application/json');
   }
 
@@ -20,19 +20,6 @@ export class AuthService {
 
   public setToken(token: string): void {
     localStorage.setItem('access_token', token);
-  }
-
-  public isLoggedIn(): boolean {
-    const token = localStorage.getItem('access_token');
-    if (token) {
-      const test = this.apiService.checkUser(token).subscribe(x => {
-        if (x) {
-          console.log('test', x);
-          // return true;
-        }
-      });
-    }
-    return localStorage.getItem('access_token') !== null;
   }
 
   public removeToken(): void {

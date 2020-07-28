@@ -27,8 +27,7 @@ export class UserEffects {
           }),
           catchError(error => of(fromUsersActions.addUserFailure({ error })))
         )
-      ),
-      tap(() => this.router.navigate(['']))
+      )
     )
   );
 
@@ -43,18 +42,37 @@ export class UserEffects {
           }),
           catchError(error => of(fromUsersActions.loadUserFailure({ error })))
         )
-      ),
-      tap(() => this.router.navigate(['']))
+      )
     )
   );
 
-  checkUser$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(fromUsersActions.checkUser),
-        concatMap(action => this.apiService.checkUser(action.token))
-      ),
-    { dispatch: false }
+  loadUserSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromUsersActions.loadUserSuccess)
+      // tap(() => this.router.navigate(['']))
+    )
+  );
+
+  loadUserFailure$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromUsersActions.loadUserFailure)
+      // tap(() => this.router.navigate(['/login']))
+    )
+  );
+
+  checkUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fromUsersActions.checkUser),
+      mergeMap(action =>
+        this.apiService.checkUser(action.token).pipe(
+          map(user => {
+            this.AuthSrv.setToken(user.password);
+            return fromUsersActions.loadUserSuccess({ user });
+          }),
+          catchError(error => of(fromUsersActions.loadUserFailure({ error })))
+        )
+      )
+    )
   );
 
   loadPlayers$ = createEffect(() =>

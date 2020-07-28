@@ -45,10 +45,6 @@ const UserSchema = new mongoose.Schema(
       default: true,
       select: false
     },
-    admin: {
-      type: Boolean,
-      default: false
-    },
     isSquadLeader: {
       type: Boolean,
       default: false
