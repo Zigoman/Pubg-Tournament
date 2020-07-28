@@ -112,6 +112,14 @@ html body {
       border-color: $pubg-main;
     }
 
+    &.ui-state-disabled {
+      .ui-dropdown-label {
+        &.ui-placeholder {
+          opacity: 0.5;
+        }
+      }
+    }
+
     .ui-dropdown-trigger {
       background-color: transparent;
       color: $pubg-main;
