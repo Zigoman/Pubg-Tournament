@@ -15,7 +15,7 @@ import { AppGuard } from './shared/gurads/app.guard';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './core/login/login.component';
 import { AuthInterceptor } from './store/interceptors/authconfig.interceptor';
-import { reducers, metaReducers } from './store';
+import { metaReducers, reducers } from './store';
 import { UserEffects } from './store/effects/user.effects';
 
 @NgModule({

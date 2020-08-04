@@ -5,7 +5,8 @@ import { IFieldOptions, IFieldType, IFormObject } from '../../shared/interfaces/
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { FormComponent } from '../../shared/components/form-elements/form.component';
-import { addUser, loadUser } from '../../store/actions/user.actions';
+import { loadUser } from '../../store/actions/user.actions';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'pubg-login',
@@ -28,8 +29,8 @@ export class LoginComponent implements OnInit {
     const maxValid = 12;
 
     this.tabs = [
-      { text: 'Login', icon: 'login', action: 'login' },
-      { text: 'Sign Up', icon: 'sign-up', action: 'signUp' }
+      { text: 'Login', action: 'login' },
+      { text: 'Sign Up', action: 'signUp' }
     ];
     this.selectedTab = this.tabs[0];
 

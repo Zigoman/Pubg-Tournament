@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../shared/services/auth.service';
 
@@ -9,11 +9,15 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const authToken = this.authSrv.getToken();
-    const req = request.clone({
-      setHeaders: {
-        Authorization: 'Bearer ' + authToken
-      }
-    });
-    return next.handle(req);
+    let req = null;
+    if (authToken) {
+      req = request.clone({
+        setHeaders: {
+          Authorization: 'Bearer ' + authToken
+        }
+      });
+    }
+
+    return next.handle(req ? req : request);
   }
 }

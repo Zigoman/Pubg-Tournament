@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
-import { checkUser, loadUser } from '../../store/actions/user.actions';
-import { Store } from '@ngrx/store';
-import { ApiHttpService } from '../../store/services/app.httpservice';
 
 @Injectable({
   providedIn: 'root'

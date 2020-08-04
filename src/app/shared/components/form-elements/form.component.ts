@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { IFieldType, IFieldOptions, IFormObject } from '../../interfaces/field.interface';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { IFieldOptions, IFieldType, IFormObject } from '../../interfaces/field.interface';
 
 @Component({
   selector: 'pubg-form',

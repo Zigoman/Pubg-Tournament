@@ -50,6 +50,7 @@
       &__tabs {
         font-family: 'Headline One', sans-serif;
         letter-spacing: 1px;
+        @include pubg-font(50, regular);
       }
 
       &__container {

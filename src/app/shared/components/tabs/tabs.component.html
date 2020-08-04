@@ -5,7 +5,6 @@
     (click)="changeTab(tab)"
     [ngClass]="{ 'tabs__tab--active': tab.action === currentTab?.action }"
   >
-    <i *ngIf="tab.icon" class="ui-icons-{{ tab.icon }}"></i>
     <div class="tabs__tab__text">
       {{ tab.text }}
     </div>

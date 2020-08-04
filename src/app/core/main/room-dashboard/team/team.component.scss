@@ -36,6 +36,7 @@
         &__title {
           padding-right: 5px;
         }
+
         &::after {
           left: 100%;
           border-left: 0 solid transparent;
@@ -74,6 +75,7 @@
       height: 80px;
       background: $pubg-grey-trans;
       border-radius: 0 0 $border-radius $border-radius;
+
       &__players {
         display: flex;
         justify-content: space-around;

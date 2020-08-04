@@ -3,8 +3,9 @@ import { Router } from '@angular/router';
 import { ITab } from '../../shared/interfaces/actions.interface';
 import { AuthService } from '../../shared/services/auth.service';
 import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { IUser } from '../../shared/interfaces/store.interface';
+import { selectUser } from '../../store/selectors/user.selectors';
 
 @Component({
   selector: 'pubg-main',
@@ -25,19 +26,18 @@ export class MainComponent implements OnInit {
       { action: 'schedules', text: 'Games Schedules' },
       { action: 'squad', text: 'My Squad' }
     ];
-    // this.store.pipe(select(selectedUserAdmin)).subscribe(isAdmin => {
-    //   if (isAdmin) {
-    //     this.tabs.push({ action: 'admin', text: 'Admin' });
-    //   }
-    // });
+    this.store.pipe(select(selectUser)).subscribe(User => {
+      if (User?.admin) {
+        this.tabs.push({ action: 'admin', text: 'Admin' });
+      }
+    });
   }
-
   public changeMain(event: ITab): void {
-    this.router.navigate([event.action]).then();
+    this.router.navigateByUrl(event.action).then();
   }
 
   public logOut(): void {
     this.AuthSrv.removeToken();
-    this.router.navigate(['/login']).then();
+    this.router.navigateByUrl('/login').then();
   }
 }

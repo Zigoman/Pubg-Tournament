@@ -13,6 +13,5 @@ module.exports = {
   requirePragma: false,
   insertPragma: false,
   proseWrap: 'preserve',
-  lintStaged: true,
   endOfLine: 'crlf'
 };

@@ -1,16 +1,24 @@
+@import 'config';
+
 :host {
   display: flex;
   justify-content: center;
   height: 100%;
   width: 100%;
 
-  .main {
+  .admin {
     overflow: hidden;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+
+    &__tabs {
+      letter-spacing: 1px;
+      @include pubg-font(25, regular);
+      width: 100%;
+    }
 
     &__container {
       flex: 1;

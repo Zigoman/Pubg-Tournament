@@ -18,8 +18,8 @@ export class ApiHttpService {
     return this.http$.post<IUser>(`${environment.api}/auth/login`, payload);
   }
 
-  public checkUser(token: string): Observable<IUser> {
-    return this.http$.post<IUser>(`${environment.api}/auth/check_token`, { token });
+  public checkUser(): Observable<IUser> {
+    return this.http$.get<IUser>(`${environment.api}/auth`);
   }
 
   public getPlayers(): Observable<IPlayer[]> {

@@ -1,0 +1,8 @@
+<div class="admin">
+  <div class="admin__tabs">
+    <pubg-tabs [tabsData]="tabs" [large]="true" (selectedTab)="changeRoute($event)"></pubg-tabs>
+  </div>
+  <div class="admin__container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

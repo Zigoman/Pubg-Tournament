@@ -15,7 +15,8 @@ export const mainRoutes: Routes = [
           { path: '', redirectTo: 'schedules', pathMatch: 'full' },
           { path: 'schedules', component: SchedulesComponent },
           { path: 'schedules/:roomId', component: RoomDashboardComponent },
-          { path: 'squad', component: SquadComponent }
+          { path: 'squad', component: SquadComponent },
+          { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
         ]
       }
     ]
