@@ -47,14 +47,26 @@ export interface IRoom {
   number: number | null;
   password: number | null;
   mapName: mapNames;
-  roomId: number;
+  roomId?: number;
   teams?: ITeam[];
 }
 
 export interface ISchedule {
   date: moment.Moment;
   name: string;
+  color: string;
   roomList: IRoom[];
 }
+
+export interface ITournament {
+  name: string;
+  tournamentId: string;
+  color: string;
+  roomList: IRoom[];
+}
+
+export declare type ITournaments = ITournament[];
+
+export declare type ISchedules = ISchedule[];
 
 type mapNames = 'Miramar' | 'Sanhok' | 'Vikendi' | 'Erangel';

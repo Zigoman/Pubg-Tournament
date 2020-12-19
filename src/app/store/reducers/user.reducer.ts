@@ -20,8 +20,5 @@ export const initialState: UserState = {
 
 export const reducer = createReducer(
   initialState,
-  on(UserActions.loadUserSuccess, (state, action) => ({ ...state, user: action.user })),
-  on(UserActions.loadUserFailure, (state, action) => ({ ...state, error: action.error }))
-  // on(UserActions.loadPlayersSuccess, (state, action) => adapter.setAll(action.players, state)),
-  // on(UserActions.loadPlayersFailure, (state, action) => ({ ...state, error: action.error }))
+  on(UserActions.loadUserSuccess, (state, action) => ({ ...state, user: action.user }))
 );

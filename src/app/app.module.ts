@@ -17,6 +17,8 @@ import { LoginComponent } from './core/login/login.component';
 import { AuthInterceptor } from './store/interceptors/authconfig.interceptor';
 import { metaReducers, reducers } from './store';
 import { UserEffects } from './store/effects/user.effects';
+import { TournamentsEffects } from './store/effects/tournaments.effects';
+import { DataParserService } from './store/services/data-parser.service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -35,7 +37,7 @@ import { UserEffects } from './store/effects/user.effects';
       }
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([UserEffects])
+    EffectsModule.forRoot([UserEffects, TournamentsEffects])
   ],
   providers: [
     AppGuard,
@@ -43,7 +45,8 @@ import { UserEffects } from './store/effects/user.effects';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    DataParserService
   ],
   bootstrap: [AppComponent]
 })

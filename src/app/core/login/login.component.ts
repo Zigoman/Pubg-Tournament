@@ -5,8 +5,7 @@ import { IFieldOptions, IFieldType, IFormObject } from '../../shared/interfaces/
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { FormComponent } from '../../shared/components/form-elements/form.component';
-import { loadUser } from '../../store/actions/user.actions';
-import { AuthService } from '../../shared/services/auth.service';
+import { addUser, loadUser } from '../../store/actions/user.actions';
 
 @Component({
   selector: 'pubg-login',
@@ -135,7 +134,7 @@ export class LoginComponent implements OnInit {
       {
         label: 'Submit',
         name: 'submit',
-        type: 'button',
+        type: 'submit',
         value: 'submit',
         disabled: true
       }
@@ -152,10 +151,9 @@ export class LoginComponent implements OnInit {
   public submit(user: IFormObject): void {
     if (this.form && this.form.valid) {
       if (this.selectedTab.action === 'signUp') {
-        // this.store.dispatch(SignUp({ payload: user }));
+        this.store.dispatch(addUser({ user }));
       } else if (this.selectedTab.action === 'login') {
         this.store.dispatch(loadUser({ user }));
-        // this.store.dispatch(Login({ payload: user }));
       }
     }
   }

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { IUser } from '../../shared/interfaces/store.interface';
 import { selectUser } from '../../store/selectors/user.selectors';
+import { loadTournaments } from '../../store/actions/tournaments.actions';
 
 @Component({
   selector: 'pubg-main',
@@ -31,6 +32,7 @@ export class MainComponent implements OnInit {
         this.tabs.push({ action: 'admin', text: 'Admin' });
       }
     });
+    this.store.dispatch(loadTournaments());
   }
   public changeMain(event: ITab): void {
     this.router.navigateByUrl(event.action).then();

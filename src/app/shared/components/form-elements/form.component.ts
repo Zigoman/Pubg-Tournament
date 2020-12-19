@@ -38,7 +38,7 @@ export class FormComponent implements OnInit {
   formValueChanges: EventEmitter<IFieldOptions> = new EventEmitter<IFieldOptions>();
 
   get controls(): IFieldType[] {
-    return this.config ? this.config.filter(({ type }) => type !== 'button') : [];
+    return this.config ? this.config.filter(({ type }) => type !== 'submit') : [];
   }
 
   get valid(): boolean {
