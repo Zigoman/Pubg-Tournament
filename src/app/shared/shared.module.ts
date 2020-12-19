@@ -1,3 +1,4 @@
+import { LoaderService } from './services/loader.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalComponent } from './components/modal/modal.component';
@@ -27,6 +28,6 @@ const components = [
   imports: [CommonModule, OverlayPanelModule, PubgFormModule, CountdownModule, MomentModule, FullCalendarModule],
   declarations: [components],
   exports: [CommonModule, PubgFormModule, CountdownModule, MomentModule, FullCalendarModule, ...components],
-  providers: [ClickOutsideService, HelpersService]
+  providers: [ClickOutsideService, HelpersService, LoaderService]
 })
 export class SharedModule {}
