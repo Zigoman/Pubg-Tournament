@@ -3,10 +3,10 @@ html body {
     border: none;
   }
 
-  .ui-overlaypanel {
+  .p-overlaypanel {
     margin-top: 30px;
 
-    .ui-overlaypanel-content {
+    .p-overlaypanel-content {
       padding: 0;
     }
 
@@ -17,7 +17,7 @@ html body {
     }
   }
 
-  .ui-inputtext {
+  .p-inputtext {
     color: $pubg-main;
     background: transparent;
     border: none;
@@ -40,7 +40,7 @@ html body {
 
     &:enabled {
       &:hover {
-        &:not(.ui-state-error) {
+        &:not(.p-state-error) {
           box-shadow: none;
           border: none;
           border-bottom: 1px solid $pubg-main;
@@ -53,84 +53,100 @@ html body {
       outline: none;
     }
 
-    &:enabled:focus:not(.ui-state-error) {
+    &:enabled:focus:not(.p-state-error) {
       box-shadow: none;
       border-color: $pubg-main;
     }
   }
 
-  .ui-chkbox {
-    .ui-chkbox-box {
-      border: 1px solid $pubg-main;
-      background-color: $def-background;
-      transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  p-checkbox {
+    .p-checkbox {
+      width: 20px;
+      height: 20px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
-      &.ui-state-focus {
-        box-shadow: none;
-        border-color: $pubg-main;
-      }
-
-      &:not(.ui-state-disabled):hover {
-        border-color: $pubg-main;
-      }
-
-      &.ui-state-active {
-        border-color: $pubg-main;
+      .p-checkbox-box {
+        border: 1px solid $pubg-main;
         background-color: $def-background;
-        color: $pubg-main;
+        transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 
-        &:not(.ui-state-disabled):hover {
+        &.p-highlight {
           border-color: $pubg-main;
-          background-color: $def-background;
+          background: $def-background;
+
+          &:not(.p-disabled):hover {
+            border-color: $pubg-main;
+            background-color: $def-background;
+            color: $pubg-main;
+          }
+        }
+
+        .p-checkbox-icon {
           color: $pubg-main;
+        }
+
+        &:not(.p-disabled) {
+          &:hover {
+            border-color: $pubg-main;
+          }
+
+          &.p-focus {
+            box-shadow: none;
+            border-color: $pubg-main;
+          }
         }
       }
     }
-  }
 
-  .ui-chkbox-label {
-    color: $pubg-main;
+    .p-checkbox-label {
+      color: $pubg-main;
 
-    &.ui-label-disabled {
-      opacity: 0.5;
+      &.p-label-disabled {
+        opacity: 0.5;
+      }
     }
   }
 
-  .ui-dropdown {
+  .p-dropdown {
     width: 100%;
     background: transparent;
     border: none;
     border-bottom: 1px solid $pubg-main;
     transition: border-color 0.2s, box-shadow 0.2s;
 
-    &:not(.ui-state-disabled).ui-state-focus {
+    &.p-state-disabled {
+      opacity: 0.3;
+    }
+
+    &:not(.p-state-disabled).p-state-focus {
       box-shadow: none;
       border-color: $pubg-main;
     }
 
-    &.ui-state-disabled {
-      .ui-dropdown-label {
-        &.ui-placeholder {
+    &.p-state-disabled {
+      .p-dropdown-label {
+        &.p-placeholder {
           opacity: 0.5;
         }
       }
     }
 
-    .ui-dropdown-trigger {
+    .p-dropdown-trigger {
       background-color: transparent;
       color: $pubg-main;
     }
 
-    .ui-dropdown-label-container {
+    .p-dropdown-label-container {
       width: 100%;
 
-      .ui-dropdown-label {
+      .p-dropdown-label {
         padding-left: 15px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
 
-        &.ui-placeholder {
+        &.p-placeholder {
           color: #99c8c9;
           @include pubg-font(16, bold);
         }
@@ -138,26 +154,26 @@ html body {
     }
   }
 
-  .ui-dropdown-panel {
+  .p-dropdown-panel {
     border: 1px solid $pubg-main;
     background-color: $def-background;
 
-    .ui-dropdown-items {
-      .ui-dropdown-item {
+    .p-dropdown-items {
+      .p-dropdown-item {
         color: $def-fonts;
 
-        &:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+        &:not(.p-state-highlight):not(.p-state-disabled):hover {
           background-color: $pubg-main;
         }
 
-        &.ui-state-highlight {
+        &.p-state-highlight {
           background-color: $pubg-main;
         }
       }
     }
   }
 
-  .ui-button {
+  .p-button {
     color: $def-background;
     background-color: $pubg-main;
     border: 1px solid $pubg-main;
@@ -174,4 +190,29 @@ html body {
       }
     }
   }
+
+  .fc-day-grid-event {
+    padding: 5px;
+  }
+
+  .fc-event {
+    color: $def-background;
+    border-color: $def-background;
+    border-radius: $border-radius;
+    @include pubg-font(16, regular);
+  }
+
+  .fc-dragging {
+    border-radius: $border-radius;
+    padding: 5px 10px;
+    color: $def-background;
+    @include pubg-font(16, regular);
+  }
+
+  //.fc-dayGrid-view .fc-body .fc-row {
+  //  max-height: 142px;
+  //}
+  //.fc-view-container *, .fc-view-container :after, .fc-view-container {
+  //  max-height: 850px;
+  //}
 }

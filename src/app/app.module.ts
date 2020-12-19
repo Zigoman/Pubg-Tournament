@@ -14,9 +14,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppGuard } from './shared/gurads/app.guard';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './core/login/login.component';
-import { appReducer } from './store/reducers/app.reducer';
-import { AppEffects } from './store/effects/app.effects';
 import { AuthInterceptor } from './store/interceptors/authconfig.interceptor';
+import { metaReducers, reducers } from './store';
+import { UserEffects } from './store/effects/user.effects';
+import { TournamentsEffects } from './store/effects/tournaments.effects';
+import { DataParserService } from './store/services/data-parser.service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -27,9 +29,15 @@ import { AuthInterceptor } from './store/interceptors/authconfig.interceptor';
     HttpClientModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([AppEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([UserEffects, TournamentsEffects])
   ],
   providers: [
     AppGuard,
@@ -37,7 +45,8 @@ import { AuthInterceptor } from './store/interceptors/authconfig.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    DataParserService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,17 @@
 export interface ITab {
   action: string;
-  icon?: string;
   text: string;
+}
+
+export interface ISideMenu {
+  title: string | null;
+  sections: ISideMenuSection[];
+}
+
+export interface ISideMenuSection {
+  title: string;
+  color: string;
+  items: ITabs;
 }
 
 export declare type ITabs = ITab[];

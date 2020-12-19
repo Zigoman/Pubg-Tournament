@@ -1,0 +1,30 @@
+@import 'config';
+
+:host {
+  .side-menu {
+    overflow: hidden;
+    height: 100%;
+    &__title {
+      @include pubg-font(21, semi-bold);
+      padding: 10px 0;
+    }
+    &__sections {
+      overflow: auto;
+      height: 100%;
+      &__section {
+        padding: 10px 0;
+
+        &__title {
+          @include pubg-font(18, bold);
+        }
+        &__items {
+          padding-top: 5px;
+          @include pubg-font(16, regular);
+          &__item {
+            padding: 5px 0;
+          }
+        }
+      }
+    }
+  }
+}

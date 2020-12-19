@@ -1,0 +1,20 @@
+<div class="side-menu" *ngIf="sideMenuOptions">
+  <div class="side-menu__title">{{ sideMenuOptions.title }}</div>
+  <div class="side-menu__sections">
+    <div class="side-menu__sections__section" *ngFor="let section of sideMenuOptions.sections">
+      <div
+        class="side-menu__sections__section__title"
+        [ngStyle]="{
+          color: section.color
+        }"
+      >
+        {{ section.title }}
+      </div>
+      <div class="side-menu__sections__section__items">
+        <div class="side-menu__sections__section__items__item" *ngFor="let item of section.items">
+          <pubg-side-menu-item [itemInfo]="item" [color]="section.color"></pubg-side-menu-item>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

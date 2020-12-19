@@ -16,6 +16,7 @@ import { Field, IFieldType } from '../interfaces/field.interface';
 
 const components: { [type: string]: Type<Field> } = {
   button: ButtonComponent,
+  submit: ButtonComponent,
   input: InputComponent,
   select: SelectComponent,
   checkbox: CheckboxComponent

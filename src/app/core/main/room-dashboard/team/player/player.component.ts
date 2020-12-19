@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IUser } from '../../../../../shared/interfaces/store.interface';
+import { IPlayer } from '../../../../../shared/interfaces/store.interface';
 
 @Component({
   selector: 'pubg-player',
@@ -7,7 +7,7 @@ import { IUser } from '../../../../../shared/interfaces/store.interface';
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit {
-  @Input() playerInfo?: IUser;
+  @Input() playerInfo?: IPlayer;
 
   constructor() {}
 

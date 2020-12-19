@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './core/login/login.component';
 import { AppGuard } from './shared/gurads/app.guard';
 
@@ -15,8 +15,7 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent
-      },
-      { path: '**', component: LoginComponent }
+      }
     ]
   }
 ];

@@ -1,0 +1,8 @@
+<div class="tournament-builder">
+  <div class="tournament-builder__menu">
+    <pubg-side-menu *ngIf="sideMenu" [sideMenuOptions]="sideMenu"></pubg-side-menu>
+  </div>
+  <div class="tournament-builder__calendar">
+    <p-fullCalendar [events]="currentEvents" [options]="options"></p-fullCalendar>
+  </div>
+</div>

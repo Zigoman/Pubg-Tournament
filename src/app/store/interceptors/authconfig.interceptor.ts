@@ -1,6 +1,6 @@
 import { LoaderService } from './../../shared/services/loader.service';
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../shared/services/auth.service';
 import { finalize } from 'rxjs/operators';
@@ -11,12 +11,16 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const authToken = this.authSrv.getToken();
-    const req = request.clone({
-      setHeaders: {
-        Authorization: 'Bearer ' + authToken
-      }
-    });
+    let req = null;
+    if (authToken) {
+      req = request.clone({
+        setHeaders: {
+          Authorization: 'Bearer ' + authToken
+        }
+      });
+    }
+
     this.lodaerSrv.increaseCounter();
-    return next.handle(req).pipe(finalize(() => this.lodaerSrv.decreaseCounter()));
+    return next.handle(req ? req : request).pipe(finalize(() => this.lodaerSrv.decreaseCounter()));
   }
 }

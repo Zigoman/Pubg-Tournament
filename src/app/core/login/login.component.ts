@@ -1,12 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ITab, ITabs } from '../../shared/interfaces/actions.interface';
 import { Validators } from '@angular/forms';
-import { IFieldOptions, IFieldType } from '../../shared/interfaces/field.interface';
+import { IFieldOptions, IFieldType, IFormObject } from '../../shared/interfaces/field.interface';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Login, SignUp } from '../../store/actions/app.actions';
-import { IUser } from '../../shared/interfaces/store.interface';
 import { FormComponent } from '../../shared/components/form-elements/form.component';
+import { addUser, loadUser } from '../../store/actions/user.actions';
 
 @Component({
   selector: 'pubg-login',
@@ -29,8 +28,8 @@ export class LoginComponent implements OnInit {
     const maxValid = 12;
 
     this.tabs = [
-      { text: 'Login', icon: 'login', action: 'login' },
-      { text: 'Sign Up', icon: 'sign-up', action: 'signUp' }
+      { text: 'Login', action: 'login' },
+      { text: 'Sign Up', action: 'signUp' }
     ];
     this.selectedTab = this.tabs[0];
 
@@ -135,7 +134,7 @@ export class LoginComponent implements OnInit {
       {
         label: 'Submit',
         name: 'submit',
-        type: 'button',
+        type: 'submit',
         value: 'submit',
         disabled: true
       }
@@ -149,12 +148,12 @@ export class LoginComponent implements OnInit {
     this.selectedTab = $event;
   }
 
-  public submit(user: IUser): void {
+  public submit(user: IFormObject): void {
     if (this.form && this.form.valid) {
       if (this.selectedTab.action === 'signUp') {
-        this.store.dispatch(SignUp({ payload: user }));
+        this.store.dispatch(addUser({ user }));
       } else if (this.selectedTab.action === 'login') {
-        this.store.dispatch(Login({ payload: user }));
+        this.store.dispatch(loadUser({ user }));
       }
     }
   }

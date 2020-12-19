@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { IUser } from '../../shared/interfaces/store.interface';
+import { IPlayer, IUser } from '../../shared/interfaces/store.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,15 @@ export class ApiHttpService {
     return this.http$.post<IUser>(`${environment.api}/auth/signup`, payload);
   }
 
-  public userLogin(payload: IUser): Observable<IUser> {
+  public loadUser(payload: IUser): Observable<IUser> {
     return this.http$.post<IUser>(`${environment.api}/auth/login`, payload);
+  }
+
+  public checkUser(): Observable<IUser> {
+    return this.http$.get<IUser>(`${environment.api}/auth`);
+  }
+
+  public getPlayers(): Observable<IPlayer[]> {
+    return this.http$.get<IPlayer[]>(`${environment.api}/users`);
   }
 }

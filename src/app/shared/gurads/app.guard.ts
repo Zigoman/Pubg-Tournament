@@ -1,20 +1,34 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
+import { select, Store } from '@ngrx/store';
+import { AppState } from '../../store';
+import { map } from 'rxjs/operators';
+import { selectUser } from '../../store/selectors/user.selectors';
+import { CheckLogin } from '../../store/actions/user.actions';
 
 @Injectable()
 export class AppGuard implements CanActivate {
-  constructor(private router: Router, private authSrv: AuthService) {}
+  constructor(private router: Router, private authSrv: AuthService, private store: Store<AppState>) {}
 
-  public canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this.authSrv.isLoggedIn()) {
-      this.router.navigate(['/login']).then();
-      return false;
-    }
-    return true;
+  public canActivate(): Observable<boolean> | Promise<boolean> | boolean {
+    return this.checkStoreAuthentication().pipe(
+      map(authed => {
+        if (!authed) {
+          const token = this.authSrv.getToken();
+          if (token) {
+            this.store.dispatch(CheckLogin({ token }));
+          }
+          this.router.navigate(['/login']).then();
+          return false;
+        }
+        return true;
+      })
+    );
+  }
+
+  private checkStoreAuthentication(): Observable<boolean> {
+    return this.store.pipe(select(selectUser)).pipe(map(res => !!res));
   }
 }

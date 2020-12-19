@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { mainRoutes } from './main.routes';
 import { RouterModule } from '@angular/router';
 import { MainComponent } from './main.component';
@@ -18,7 +17,6 @@ import { PlayerComponent } from './room-dashboard/team/player/player.component';
   providers: [],
   declarations: [
     MainComponent,
-    DashboardComponent,
     NavBarComponent,
     SchedulesComponent,
     SquadComponent,

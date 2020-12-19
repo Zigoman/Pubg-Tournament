@@ -1,6 +1,9 @@
 <div class="schedules">
   <div class="schedules__dates" *ngFor="let dates of schedules">
-    <div class="schedules__dates__date">
+    <div
+      class="schedules__dates__date"
+      [ngStyle]="{ 'border-color': dates.color, 'box-shadow': 'inset 0 -7px 6px 0 ' + dates.color }"
+    >
       <div class="schedules__dates__date__text">{{ dates.date | amCalendar: HelperSrv.amCalendarConf }}</div>
       <div class="schedules__dates__date__name">{{ dates.name }}</div>
       <div class="schedules__dates__date__rooms">
