@@ -4,6 +4,7 @@ import daygrid from '@fullcalendar/daygrid';
 import timegrid from '@fullcalendar/timegrid';
 import list from '@fullcalendar/list';
 import interaction from '@fullcalendar/interaction';
+import moment from '@fullcalendar/moment';
 import { select, Store } from '@ngrx/store';
 import { selectAllTournaments } from '../../../../store/selectors/tournaments.selectors';
 import { AppState } from '../../../../store';
@@ -23,12 +24,14 @@ export class TournamentBuilderComponent implements OnInit {
       sections: []
     };
     this.options = {
-      plugins: [daygrid, timegrid, list, interaction],
+      plugins: [daygrid, timegrid, list, interaction, moment],
       header: {
         left: 'prev,next',
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
       },
+      expandRows: false,
+      contentHeight: 815,
       editable: true,
       droppable: true, // this allows things to be dropped onto the calendar
       drop: (info: string) => {
@@ -42,13 +45,7 @@ export class TournamentBuilderComponent implements OnInit {
         console.log(e);
       }
     };
-    this.currentEvents = [
-      {
-        id: 1,
-        title: 'Start Tournament',
-        start: '2020-10-25T20:30:0'
-      }
-    ];
+    this.currentEvents = [];
   }
 
   ngOnInit(): void {
@@ -58,30 +55,39 @@ export class TournamentBuilderComponent implements OnInit {
         {
           title: 'Create Tournament',
           color: '#ffffff',
-          items: [{ text: 'Add Full Tournament', action: 'singleDayOne' }]
+          items: [{ text: 'Add Full Tournament', action: 'singleDayOne', title: 'Tournament' }]
         },
         {
           title: 'Create Single Day Tournament',
           color: '#ffffff',
           items: [
-            { text: 'One Match', action: 'singleDayOne' },
-            { text: 'Two Matches', action: 'singleDayTwo' },
-            { text: 'Three Matches', action: 'singleDayThree' }
+            { text: 'One Match', action: 'singleDayOne', title: 'Single Day' },
+            { text: 'Two Matches', action: 'singleDayTwo', title: 'Single Day' },
+            { text: 'Three Matches', action: 'singleDayThree', title: 'Single Day' }
           ]
         }
       ]
     };
 
     this.store.pipe(select(selectAllTournaments)).subscribe(tournaments => {
+      this.currentEvents = [];
       tournaments.forEach(tournament => {
         this.sideMenu.sections.push({
           title: tournament.name,
           color: tournament.color,
           items: [
-            { text: 'Add One Match', action: 'singleDayOne' },
-            { text: 'Add Two Matches', action: 'singleDayTwo' },
-            { text: 'Add Three Matches', action: 'singleDayThree' }
+            { text: 'Add One Match', action: 'singleDayOne', title: tournament.name },
+            { text: 'Add Two Matches', action: 'singleDayTwo', title: tournament.name },
+            { text: 'Add Three Matches', action: 'singleDayThree', title: tournament.name }
           ]
+        });
+        tournament.roomList.forEach((room, i) => {
+          this.currentEvents.push({
+            id: i,
+            title: tournament.name,
+            start: room.startAt,
+            backgroundColor: tournament.color
+          });
         });
       });
     });

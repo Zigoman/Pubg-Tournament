@@ -56,5 +56,15 @@ body {
     background: transparent;
   }
 
+  // side-menu-item when drugged
+  .side-menu-item {
+    color: $def-background;
+    border-radius: $border-radius;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include pubg-font(14, bold);
+  }
+
   /* --------------------------------*/
 }

@@ -191,24 +191,31 @@ html body {
     }
   }
 
-  .fc-day-grid-event {
-    padding: 5px;
-  }
+  // fullCalender
+  .fc {
+    .fc-day-grid-event {
+      padding: 5px;
+    }
 
-  .fc-event {
-    color: $def-background;
-    border-color: $def-background;
-    border-radius: $border-radius;
-    @include pubg-font(16, regular);
+    .fc-event {
+      color: $def-background;
+      border-color: $def-background;
+      border-radius: $border-radius;
+      @include pubg-font(12, regular);
+    }
+    td.fc-today {
+      background-color: $pubg-dark-grey;
+    }
+    .fc-dragging {
+      border-radius: $border-radius;
+      padding: 5px 10px;
+      color: $def-background;
+      @include pubg-font(16, regular);
+    }
   }
-
-  .fc-dragging {
-    border-radius: $border-radius;
-    padding: 5px 10px;
-    color: $def-background;
-    @include pubg-font(16, regular);
-  }
-
+  //.fc-unthemed td.fc-today {
+  //  background: #000000;
+  //}
   //.fc-dayGrid-view .fc-body .fc-row {
   //  max-height: 142px;
   //}
