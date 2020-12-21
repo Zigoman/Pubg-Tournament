@@ -44,6 +44,7 @@
     "@fullcalendar/interaction": "^4.1.0",
     "@fullcalendar/list": "^4.1.0",
     "@fullcalendar/timegrid": "^4.1.0",
+    "@fullcalendar/moment": "^4.1.0",
     "@ngrx/effects": "^10.1.1",
     "@ngrx/entity": "^10.1.1",
     "@ngrx/schematics": "^10.1.1",

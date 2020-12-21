@@ -1,6 +1,7 @@
 export interface ITab {
   action: string;
   text: string;
+  title?: string;
 }
 
 export interface ISideMenu {
