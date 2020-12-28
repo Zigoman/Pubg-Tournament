@@ -9,11 +9,12 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { CountdownModule } from 'ngx-countdown';
 import { MomentModule } from 'ngx-moment';
-import { PubgFormModule } from './components/form-elements/form.module';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { SideMenuItemComponent } from './components/side-menu/side-menu-item/side-menu-item.component';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { FullCalendarModule } from 'primeng/fullcalendar';
+import { DynamicFormsPrimeNGUIModule } from '@ng-dynamic-forms/ui-primeng';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const components = [
   ModalComponent,
@@ -25,9 +26,24 @@ const components = [
 ];
 
 @NgModule({
-  imports: [CommonModule, OverlayPanelModule, PubgFormModule, CountdownModule, MomentModule, FullCalendarModule],
+  imports: [
+    CommonModule,
+    OverlayPanelModule,
+    ReactiveFormsModule,
+    DynamicFormsPrimeNGUIModule,
+    CountdownModule,
+    MomentModule,
+    FullCalendarModule
+  ],
   declarations: [components],
-  exports: [CommonModule, PubgFormModule, CountdownModule, MomentModule, FullCalendarModule, ...components],
+  exports: [
+    CommonModule,
+    CountdownModule,
+    MomentModule,
+    DynamicFormsPrimeNGUIModule,
+    FullCalendarModule,
+    ...components
+  ],
   providers: [ClickOutsideService, HelpersService, LoaderService]
 })
 export class SharedModule {}

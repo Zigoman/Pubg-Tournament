@@ -1,0 +1,31 @@
+html body {
+  dynamic-primeng-form {
+    dynamic-primeng-form-control {
+      .ng-dynamic-forms-input {
+        padding: 10px 0;
+        position: relative;
+        .ng-invalid {
+          &::before {
+            font-weight: 900;
+            content: 'test';
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            display: block;
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+
+      .ng-dynamic-forms-checkbox {
+        padding: 10px 0;
+      }
+
+      .control-label {
+        padding: 5px 0;
+        color: $pubg-grey;
+      }
+    }
+  }
+}

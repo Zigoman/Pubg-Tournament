@@ -25,7 +25,11 @@ html body {
     transition: border-color 0.2s, box-shadow 0.2s;
     appearance: none;
     border-radius: 0;
-
+    width: 100%;
+    padding: 0 35px 0 10px;
+    height: 25px;
+    flex: 1;
+    position: relative;
     &.ng-valid {
       border-bottom: 1px solid $success;
       color: $success;
@@ -40,7 +44,7 @@ html body {
 
     &:enabled {
       &:hover {
-        &:not(.p-state-error) {
+        &:not(.p-state-error) &:not(.ng-valid) {
           box-shadow: none;
           border: none;
           border-bottom: 1px solid $pubg-main;
@@ -53,13 +57,15 @@ html body {
       outline: none;
     }
 
-    &:enabled:focus:not(.p-state-error) {
+    &:enabled:focus:not(.p-state-error) &:not(.ng-valid) {
       box-shadow: none;
       border-color: $pubg-main;
     }
   }
 
   p-checkbox {
+    padding: 0 12px;
+
     .p-checkbox {
       width: 20px;
       height: 20px;
@@ -70,6 +76,8 @@ html body {
         border: 1px solid $pubg-main;
         background-color: $def-background;
         transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+        width: 17px;
+        height: 16px;
 
         &.p-highlight {
           border-color: $pubg-main;
@@ -101,6 +109,8 @@ html body {
 
     .p-checkbox-label {
       color: $pubg-main;
+      padding-left: 10px;
+      cursor: pointer;
 
       &.p-label-disabled {
         opacity: 0.5;
@@ -203,9 +213,11 @@ html body {
       border-radius: $border-radius;
       @include pubg-font(12, regular);
     }
+
     td.fc-today {
       background-color: $pubg-dark-grey;
     }
+
     .fc-dragging {
       border-radius: $border-radius;
       padding: 5px 10px;
@@ -213,6 +225,7 @@ html body {
       @include pubg-font(16, regular);
     }
   }
+
   //.fc-unthemed td.fc-today {
   //  background: #000000;
   //}

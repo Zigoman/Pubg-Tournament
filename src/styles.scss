@@ -2,8 +2,8 @@
 @import 'styles/helpers/fonts';
 @import 'config';
 @import 'primNG-override';
+@import 'dynamicForm-override';
 @import 'styles/sprite';
-@import 'styles/svg-icons';
 
 @include sprites($spritesheet-sprites);
 
