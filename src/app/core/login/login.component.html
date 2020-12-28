@@ -9,11 +9,13 @@
     </div>
     <div class="login__main__container">
       <div class="login__main__container__form">
-        <pubg-form
-          [inputConfig]="selectedTab.action === 'login' ? configLogin : configSignUp"
-          (formSubmit)="submit($event)"
-          (formValueChanges)="formValueChanges($event)"
-        ></pubg-form>
+        <form [formGroup]="formGroup">
+          <dynamic-primeng-form [group]="formGroup" [layout]="formLayout" [model]="formModel"></dynamic-primeng-form>
+        </form>
+        <div class="login__main__container__form__footer">
+          <button></button>
+          <button></button>
+        </div>
       </div>
     </div>
   </div>

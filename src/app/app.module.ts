@@ -19,15 +19,17 @@ import { metaReducers, reducers } from './store';
 import { UserEffects } from './store/effects/user.effects';
 import { TournamentsEffects } from './store/effects/tournaments.effects';
 import { DataParserService } from './store/services/data-parser.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    SharedModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    SharedModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     StoreModule.forRoot(reducers, {
       metaReducers,
