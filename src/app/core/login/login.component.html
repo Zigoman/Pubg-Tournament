@@ -13,8 +13,8 @@
           <dynamic-primeng-form [group]="formGroup" [layout]="formLayout" [model]="formModel"></dynamic-primeng-form>
         </form>
         <div class="login__main__container__form__footer">
-          <button></button>
-          <button></button>
+          <p-button label="Submit" (click)="submit(formGroup)"></p-button>
+          <p-button label="clear" styleClass="p-button-link"></p-button>
         </div>
       </div>
     </div>

@@ -30,12 +30,13 @@ html body {
     height: 25px;
     flex: 1;
     position: relative;
+
     &.ng-valid {
       border-bottom: 1px solid $success;
       color: $success;
     }
 
-    &.ng-dirty {
+    &.ng-touched {
       &.ng-invalid {
         border: none;
         border-bottom: 1px solid $error;
@@ -183,20 +184,45 @@ html body {
     }
   }
 
-  .p-button {
-    color: $def-background;
-    background-color: $pubg-main;
-    border: 1px solid $pubg-main;
+  p-button {
+    padding: 5px;
 
-    &:enabled {
-      &:hover {
-        color: $def-background;
-        background-color: $pubg-main;
-        border: 1px solid $pubg-main;
+    .p-button {
+      color: $def-background;
+      background-color: $pubg-main;
+      border: 1px solid $pubg-main;
+      font-size: inherit;
+      font-weight: inherit;
+      padding: 5px;
+
+      &:enabled {
+        &:hover {
+          color: $def-background;
+          background-color: $pubg-main;
+          border: 1px solid $pubg-main;
+        }
+
+        &:focus {
+          box-shadow: none;
+        }
       }
 
-      &:focus {
-        box-shadow: none;
+      &:disabled {
+        opacity: $disabled-op;
+      }
+    }
+
+    .p-button-link {
+      background: transparent;
+      color: $pubg-main;
+      border-radius: $border-radius-elem;
+
+      &:enabled {
+        &:hover {
+          background: transparent;
+          color: $pubg-main;
+          border-radius: $border-radius-elem;
+        }
       }
     }
   }

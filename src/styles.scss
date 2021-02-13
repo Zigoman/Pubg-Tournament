@@ -7,19 +7,6 @@
 
 @include sprites($spritesheet-sprites);
 
-[class*='svg-icons-'] {
-  display: inline-block;
-  font-family: svg-icons, sans-serif;
-  font-style: normal;
-
-  i:before {
-    font-family: svg-icons, sans-serif !important;
-    font-style: normal;
-    font-weight: normal !important;
-    vertical-align: top;
-  }
-}
-
 html,
 body {
   font-size: 12px;
