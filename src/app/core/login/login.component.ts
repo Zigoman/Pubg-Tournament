@@ -3,7 +3,7 @@ import { ITab, ITabs } from '../../shared/interfaces/actions.interface';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { addUser, loadUser } from '../../store/actions/user.actions';
+import { loadUser } from '../../store/actions/user.actions';
 import { DynamicFormControlModel, DynamicFormLayout, DynamicFormService } from '@ng-dynamic-forms/core';
 import { FORMS_LAYOUT } from '../../shared/services/forms.layout';
 import { FormModel } from './login-signup-form.model';
@@ -42,15 +42,16 @@ export class LoginComponent implements OnInit {
     this.initForm(this.selectedTab.action);
   }
 
-  // public submit(user: IFormObject): void {
-  //   // if (this.form && this.form.valid) {
-  //   //   if (this.selectedTab.action === 'signUp') {
-  //   //     this.store.dispatch(addUser({ user }));
-  //   //   } else if (this.selectedTab.action === 'login') {
-  //   //     this.store.dispatch(loadUser({ user }));
-  //   //   }
-  //   // }
-  // }
+  public submit(form: FormGroup): void {
+    console.log('form.value', form.value);
+    if (form && form.valid) {
+      if (this.selectedTab.action === 'signUp') {
+        // this.store.dispatch(addUser({ user }));
+      } else if (this.selectedTab.action === 'login') {
+        this.store.dispatch(loadUser({ user: form.value }));
+      }
+    }
+  }
 
   // public formValueChanges(event: IFieldOptions): void {
   //   if (this.form) {
@@ -66,8 +67,4 @@ export class LoginComponent implements OnInit {
     this.formModel = tab === 'login' ? formLoginModel.LOGIN_FORM_MODEL : formLoginModel.SIGNUP_FORM_MODEL;
     this.formGroup = this.formService.createFormGroup(this.formModel);
   }
-
-  // private initSignUpForm() {
-  //
-  // }
 }

@@ -70,6 +70,13 @@
           height: 100%;
           max-width: 750px;
           width: 100%;
+
+          &__footer {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            @include pubg-font(16, bold);
+          }
         }
       }
     }

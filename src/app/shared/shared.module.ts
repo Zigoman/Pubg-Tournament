@@ -15,6 +15,7 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { FullCalendarModule } from 'primeng/fullcalendar';
 import { DynamicFormsPrimeNGUIModule } from '@ng-dynamic-forms/ui-primeng';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
 
 const components = [
   ModalComponent,
@@ -33,7 +34,8 @@ const components = [
     DynamicFormsPrimeNGUIModule,
     CountdownModule,
     MomentModule,
-    FullCalendarModule
+    FullCalendarModule,
+    ButtonModule
   ],
   declarations: [components],
   exports: [
@@ -42,6 +44,7 @@ const components = [
     MomentModule,
     DynamicFormsPrimeNGUIModule,
     FullCalendarModule,
+    ButtonModule,
     ...components
   ],
   providers: [ClickOutsideService, HelpersService, LoaderService]

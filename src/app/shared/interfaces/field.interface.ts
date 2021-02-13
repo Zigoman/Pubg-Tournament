@@ -41,14 +41,3 @@ export interface ISelectFieldConfig extends IFieldConfig {
   options: IFieldOptions[];
   selectWithFilter?: boolean;
 }
-
-export interface IFormObject {
-  email: string;
-  facebookURL?: string;
-  fullName?: string;
-  haveTeam?: boolean;
-  password: string;
-  pubgID?: string;
-  pubgName?: string;
-  team?: string;
-}

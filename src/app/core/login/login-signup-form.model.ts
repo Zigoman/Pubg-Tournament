@@ -12,27 +12,31 @@ export class FormModel {
   constructor() {
     const minValid = 5;
     const maxValid = 5 + 5 + 2;
-    const emailReg =
-      '^(([^<>()[]\\.,;:s@"]+(.[^<>()[]\\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$';
-    const onlyNumbersReg = '^[0-9]*$';
-    const faceBookValidReg = '/^(https?://)?((w{3}.)?)facebook.com/.*/i';
+    const emailReg = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    const onlyNumbersReg = /^[0-9]*$/;
+    const faceBookValidReg = /^(https?:\/\/)?(www\.)?facebook.com\/[a-zA-Z0-9(.?)]/;
 
     this.SIGNUP_FORM_MODEL = [
       new DynamicInputModel({
         id: 'fullNameSignUp',
         label: 'Full name',
         placeholder: 'Enter Full name',
-        validators: {
-          required: null
+        required: true,
+        errorMessages: {
+          required: ''
         }
       }),
       new DynamicInputModel({
         id: 'EmailSignUp',
         label: 'Email',
         placeholder: 'Enter Email',
-        pattern: emailReg,
         validators: {
+          pattern: emailReg,
           required: null
+        },
+        errorMessages: {
+          required: '',
+          pattern: ''
         }
       }),
       new DynamicInputModel({
@@ -43,17 +47,28 @@ export class FormModel {
         minLength: minValid,
         validators: {
           required: null
+        },
+        errorMessages: {
+          required: '',
+          maxLength: '',
+          minLength: ''
         }
       }),
       new DynamicInputModel({
         id: 'pubgIDSignUp',
         label: 'PUBG ID',
         placeholder: 'Enter PUBG ID',
-        pattern: onlyNumbersReg,
         maxLength: maxValid,
         minLength: minValid,
         validators: {
+          pattern: onlyNumbersReg,
           required: null
+        },
+        errorMessages: {
+          pattern: '',
+          required: '',
+          maxLength: '',
+          minLength: ''
         }
       }),
       new DynamicInputModel({
@@ -64,16 +79,20 @@ export class FormModel {
           required: null
         },
         errorMessages: {
-          required: '{{label}} is required'
+          required: ''
         }
       }),
       new DynamicInputModel({
         id: 'facebookURLSignUp',
         label: 'Facebook URL',
         placeholder: 'Enter Facebook URL',
-        pattern: faceBookValidReg,
         validators: {
-          required: null
+          required: null,
+          pattern: faceBookValidReg
+        },
+        errorMessages: {
+          pattern: '',
+          required: ''
         }
       }),
       new DynamicCheckboxModel({
@@ -91,22 +110,31 @@ export class FormModel {
 
     this.LOGIN_FORM_MODEL = [
       new DynamicInputModel({
-        id: 'emailLogin',
+        id: 'email',
         label: 'Email',
         placeholder: 'Enter Email',
-        pattern: emailReg,
         validators: {
+          pattern: emailReg,
           required: null
+        },
+        errorMessages: {
+          pattern: '',
+          required: ''
         }
       }),
       new DynamicInputModel({
-        id: 'passwordLogin',
+        id: 'password',
         label: 'Password',
         placeholder: 'Enter Password',
         maxLength: maxValid,
         minLength: minValid,
         validators: {
           required: null
+        },
+        errorMessages: {
+          required: '',
+          maxLength: '',
+          minLength: ''
         }
       })
     ];

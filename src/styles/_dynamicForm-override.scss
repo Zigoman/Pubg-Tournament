@@ -1,25 +1,42 @@
 html body {
   dynamic-primeng-form {
     dynamic-primeng-form-control {
-      .ng-dynamic-forms-input {
-        padding: 10px 0;
+      .ng-dynamic-forms-input,
+      .ng-dynamic-forms-checkbox {
         position: relative;
-        .ng-invalid {
-          &::before {
-            font-weight: 900;
-            content: 'test';
-            height: 100px;
-            width: 100px;
-            position: absolute;
-            display: block;
-            top: 0;
-            right: 0;
+        padding: 10px 0;
+
+        dynamic-primeng-input {
+          & > div.ng-valid {
+            position: relative;
+            &:before {
+              font-family: 'primeicons', serif;
+              content: '\e909';
+              color: $success;
+              position: absolute;
+              right: 0;
+              top: 0;
+            }
           }
         }
-      }
+        .error-icon {
+          font-family: 'primeicons', serif;
+          color: $error;
 
-      .ng-dynamic-forms-checkbox {
-        padding: 10px 0;
+          li {
+            display: none;
+          }
+
+          &::after {
+            font-weight: 900;
+            content: '\e90b';
+            position: absolute;
+            display: block;
+            right: 0;
+            bottom: 15px;
+            @include pubg-font(14, extra-bold);
+          }
+        }
       }
 
       .control-label {
