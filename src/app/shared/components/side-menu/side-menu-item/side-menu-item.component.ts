@@ -21,7 +21,6 @@ export class SideMenuItemComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     if (this.item) {
-      console.log('this.itemInfo', this.itemInfo);
       const item = new Draggable(this.item.nativeElement, {
         eventData: () => ({
           title: this.itemInfo?.title ? this.itemInfo?.title : this.itemInfo?.text,

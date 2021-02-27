@@ -8,6 +8,7 @@ import moment from '@fullcalendar/moment';
 import { select, Store } from '@ngrx/store';
 import { selectAllTournaments } from '../../../../store/selectors/tournaments.selectors';
 import { AppState } from '../../../../store';
+import { DialogService } from 'primeng/dynamicdialog';
 
 @Component({
   templateUrl: './tournament-builder.component.html',
@@ -39,6 +40,13 @@ export class TournamentBuilderComponent implements OnInit {
         console.log('info', info);
       },
       dateClick: (e: object) => {
+        // const ref = this.dialogService.open(
+        //   {},
+        //   {
+        //     header: 'Choose a Car',
+        //     width: '70%'
+        //   }
+        // );
         console.log(e);
       },
       eventClick: (e: object) => {
