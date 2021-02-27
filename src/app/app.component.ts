@@ -1,6 +1,6 @@
 import { LoaderService } from './shared/services/loader.service';
 import { Component } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'pubg-root',

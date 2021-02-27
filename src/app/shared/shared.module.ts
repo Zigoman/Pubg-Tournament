@@ -16,6 +16,7 @@ import { FullCalendarModule } from 'primeng/fullcalendar';
 import { DynamicFormsPrimeNGUIModule } from '@ng-dynamic-forms/ui-primeng';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 
 const components = [
   ModalComponent,
@@ -35,7 +36,8 @@ const components = [
     CountdownModule,
     MomentModule,
     FullCalendarModule,
-    ButtonModule
+    ButtonModule,
+    DynamicDialogModule
   ],
   declarations: [components],
   exports: [
@@ -45,8 +47,9 @@ const components = [
     DynamicFormsPrimeNGUIModule,
     FullCalendarModule,
     ButtonModule,
+    DynamicDialogModule,
     ...components
   ],
-  providers: [ClickOutsideService, HelpersService, LoaderService]
+  providers: [ClickOutsideService, HelpersService, LoaderService, DialogService]
 })
 export class SharedModule {}
