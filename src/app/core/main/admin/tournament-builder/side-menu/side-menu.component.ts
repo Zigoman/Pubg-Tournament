@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ISideMenu } from '../../interfaces/actions.interface';
+import { ISideMenu } from '../../../../../shared/interfaces/actions.interface';
 
 @Component({
   selector: 'pubg-side-menu',

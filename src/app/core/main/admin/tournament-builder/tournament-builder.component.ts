@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ISideMenu } from '../../../../shared/interfaces/actions.interface';
 import daygrid from '@fullcalendar/daygrid';
 import timegrid from '@fullcalendar/timegrid';
@@ -8,18 +8,21 @@ import moment from '@fullcalendar/moment';
 import { select, Store } from '@ngrx/store';
 import { selectAllTournaments } from '../../../../store/selectors/tournaments.selectors';
 import { AppState } from '../../../../store';
-import { DialogService } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { TournamentFormComponent } from './tournament-form/tournament-form.component';
 
 @Component({
   templateUrl: './tournament-builder.component.html',
   styleUrls: ['./tournament-builder.component.scss']
 })
-export class TournamentBuilderComponent implements OnInit {
+export class TournamentBuilderComponent implements OnInit, OnDestroy {
   public sideMenu: ISideMenu;
   public currentEvents: object[];
   public options: object;
+  public dialogRef: DynamicDialogRef | null;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private dialogSrv: DialogService) {
+    this.dialogRef = null;
     this.sideMenu = {
       title: null,
       sections: []
@@ -35,18 +38,18 @@ export class TournamentBuilderComponent implements OnInit {
       contentHeight: 815,
       editable: true,
       droppable: true, // this allows things to be dropped onto the calendar
-      drop: (info: string) => {
-        // is the "remove after drop" checkbox checked?
-        console.log('info', info);
+      drop: () => {
+        // this.dialogRef = this.dialogSrv.open(TournamentFormComponent, {
+        //   header: 'Choose a Car',
+        //   width: '500px',
+        //   footer: ' '
+        // });
+        // console.log('drop', info.jsEvent.target.attributes['data-event']);
+      },
+      eventReceive: () => {
+        console.log('eventReceive');
       },
       dateClick: (e: object) => {
-        // const ref = this.dialogService.open(
-        //   {},
-        //   {
-        //     header: 'Choose a Car',
-        //     width: '70%'
-        //   }
-        // );
         console.log(e);
       },
       eventClick: (e: object) => {
@@ -84,9 +87,9 @@ export class TournamentBuilderComponent implements OnInit {
           title: tournament.name,
           color: tournament.color,
           items: [
-            { text: 'Add One Match', action: 'singleDayOne', title: tournament.name },
-            { text: 'Add Two Matches', action: 'singleDayTwo', title: tournament.name },
-            { text: 'Add Three Matches', action: 'singleDayThree', title: tournament.name }
+            { text: 'Add One Match', action: 1, title: tournament.name },
+            { text: 'Add Two Matches', action: 2, title: tournament.name },
+            { text: 'Add Three Matches', action: 3, title: tournament.name }
           ]
         });
         tournament.roomList.forEach((room, i) => {
@@ -99,5 +102,11 @@ export class TournamentBuilderComponent implements OnInit {
         });
       });
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.dialogRef) {
+      this.dialogRef.close();
+    }
   }
 }

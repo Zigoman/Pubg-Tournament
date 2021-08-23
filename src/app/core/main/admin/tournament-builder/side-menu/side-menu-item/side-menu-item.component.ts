@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { ITab } from '../../../interfaces/actions.interface';
+import { ISideMenuItem, ITab } from '../../../../../../shared/interfaces/actions.interface';
 import { Draggable } from '@fullcalendar/interaction';
 
 @Component({
@@ -8,7 +8,7 @@ import { Draggable } from '@fullcalendar/interaction';
   styleUrls: ['./side-menu-item.component.scss']
 })
 export class SideMenuItemComponent implements OnInit, AfterViewInit {
-  @Input() public itemInfo: ITab | null;
+  @Input() public itemInfo: ISideMenuItem | null;
   @Input() public color: string;
   @ViewChild('item') item: ElementRef | undefined;
 
@@ -24,7 +24,8 @@ export class SideMenuItemComponent implements OnInit, AfterViewInit {
       const item = new Draggable(this.item.nativeElement, {
         eventData: () => ({
           title: this.itemInfo?.title ? this.itemInfo?.title : this.itemInfo?.text,
-          backgroundColor: this.color
+          backgroundColor: this.color,
+          action: this.itemInfo?.action
         })
       });
     }

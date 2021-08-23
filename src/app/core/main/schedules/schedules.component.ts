@@ -32,7 +32,6 @@ export class SchedulesComponent implements OnInit {
   }
 
   public routeToRoom(roomID: number = 45435): void {
-    console.log('roomID', roomID);
     this.router.navigate([roomID], { relativeTo: this.route }).then();
   }
 }

@@ -7,9 +7,20 @@ import { RouterModule } from '@angular/router';
 import { adminRoutes } from './admin.routes';
 import { UsersManagementComponent } from './users-management/users-management.component';
 import { SquadsManagementComponent } from './squads-management/squads-management.component';
+import { TournamentFormComponent } from './tournament-builder/tournament-form/tournament-form.component';
+import { SideMenuComponent } from './tournament-builder/side-menu/side-menu.component';
+import { SideMenuItemComponent } from './tournament-builder/side-menu/side-menu-item/side-menu-item.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(adminRoutes), SharedModule],
-  declarations: [AdminComponent, TournamentBuilderComponent, UsersManagementComponent, SquadsManagementComponent]
+  declarations: [
+    AdminComponent,
+    SideMenuComponent,
+    SideMenuItemComponent,
+    TournamentBuilderComponent,
+    UsersManagementComponent,
+    SquadsManagementComponent,
+    TournamentFormComponent
+  ]
 })
 export class AdminModule {}
