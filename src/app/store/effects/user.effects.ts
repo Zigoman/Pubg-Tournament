@@ -60,7 +60,7 @@ export class UserEffects {
         ofType(fromUsersActions.loadUserSuccess),
         tap(user => {
           this.AuthSrv.setToken(user.user.password);
-          this.router.navigateByUrl('').then();
+          this.router.navigateByUrl('');
         })
       ),
     { dispatch: false }
