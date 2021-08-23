@@ -21,7 +21,7 @@ export class UserEffects {
       ofType(fromUsersActions.addUser),
       mergeMap(action =>
         this.apiService.addUser(action.user).pipe(
-          map(user => fromUsersActions.loadUserSuccess({ user })),
+          map(user => fromUsersActions.loadUserSuccess({ user, redirect: true })),
           catchError(error => of(fromUsersActions.loadUserFailure({ error })))
         )
       )
@@ -33,7 +33,7 @@ export class UserEffects {
       ofType(fromUsersActions.CheckLogin),
       mergeMap(() =>
         this.apiService.checkUser().pipe(
-          map(user => fromUsersActions.loadUserSuccess({ user })),
+          map(user => fromUsersActions.loadUserSuccess({ user, redirect: false })),
           catchError(error => of(fromUsersActions.loadUserFailure({ error })))
         )
       )
@@ -46,7 +46,7 @@ export class UserEffects {
       mergeMap(action =>
         this.apiService.loadUser(action.user).pipe(
           map(
-            user => fromUsersActions.loadUserSuccess({ user }),
+            user => fromUsersActions.loadUserSuccess({ user, redirect: true }),
             catchError(error => of(fromUsersActions.loadUserFailure({ error })))
           )
         )
@@ -58,9 +58,11 @@ export class UserEffects {
     () =>
       this.actions$.pipe(
         ofType(fromUsersActions.loadUserSuccess),
-        tap(user => {
-          this.AuthSrv.setToken(user.user.password);
-          this.router.navigateByUrl('').then();
+        tap(({ user, redirect }) => {
+          this.AuthSrv.setToken(user.password);
+          if (redirect) {
+            this.router.navigateByUrl('').then();
+          }
         })
       ),
     { dispatch: false }

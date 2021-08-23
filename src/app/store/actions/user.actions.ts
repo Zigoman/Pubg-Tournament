@@ -10,8 +10,12 @@ export const loadPlayersFailure = createAction('[Users List Effect] Load Users F
 
 export const addUser = createAction('[Login Component] Add User', props<{ user: IUser }>());
 export const CheckLogin = createAction('[Login Component] Check User', props<{ token: string }>());
+export const NoLogin = createAction('[Login Component] No Stored User');
 export const loadUser = createAction('[Login Component] load User', props<{ user: IUser }>());
-export const loadUserSuccess = createAction('[User Effect] load User Success', props<{ user: IUser }>());
+export const loadUserSuccess = createAction(
+  '[User Effect] load User Success',
+  props<{ user: IUser; redirect: boolean }>()
+);
 export const loadUserFailure = createAction('[User Effect] load User Failure', props<{ error: string }>());
 
 export const deleteUser = createAction('[Admin Component] Delete User', props<{ id: string }>());
