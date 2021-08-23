@@ -14,7 +14,7 @@ export class AppComponent {
     this.loaderSub = 0;
 
     this.loaderSrv.counterValue.subscribe(val => {
-      console.log(val);
+      // console.log(val);
 
       this.loaderSub = val;
     });

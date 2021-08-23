@@ -9,8 +9,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { CountdownModule } from 'ngx-countdown';
 import { MomentModule } from 'ngx-moment';
-import { SideMenuComponent } from './components/side-menu/side-menu.component';
-import { SideMenuItemComponent } from './components/side-menu/side-menu-item/side-menu-item.component';
+import { SideMenuItemComponent } from '../core/main/admin/tournament-builder/side-menu/side-menu-item/side-menu-item.component';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { FullCalendarModule } from 'primeng/fullcalendar';
 import { DynamicFormsPrimeNGUIModule } from '@ng-dynamic-forms/ui-primeng';
@@ -18,14 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 
-const components = [
-  ModalComponent,
-  IconButtonComponent,
-  LoaderComponent,
-  TabsComponent,
-  SideMenuComponent,
-  SideMenuItemComponent
-];
+const components = [ModalComponent, IconButtonComponent, LoaderComponent, TabsComponent];
 
 @NgModule({
   imports: [
@@ -43,6 +35,7 @@ const components = [
   exports: [
     CommonModule,
     CountdownModule,
+    ReactiveFormsModule,
     MomentModule,
     DynamicFormsPrimeNGUIModule,
     FullCalendarModule,

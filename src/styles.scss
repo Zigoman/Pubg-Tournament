@@ -51,6 +51,7 @@ body {
     justify-content: center;
     align-items: center;
     @include pubg-font(14, bold);
+    cursor: grabbing;
   }
 
   /* --------------------------------*/
