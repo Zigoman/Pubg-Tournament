@@ -22,6 +22,6 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {}
 
   public changeRoute(event: ITab): void {
-    this.router.navigate([event.action], { relativeTo: this.route }).then();
+    this.router.navigate([event.action], { relativeTo: this.route });
   }
 }

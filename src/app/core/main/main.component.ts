@@ -35,11 +35,11 @@ export class MainComponent implements OnInit {
     this.store.dispatch(loadTournaments());
   }
   public changeMain(event: ITab): void {
-    this.router.navigateByUrl(event.action).then();
+    this.router.navigateByUrl(event.action);
   }
 
   public logOut(): void {
     this.AuthSrv.removeToken();
-    this.router.navigateByUrl('/login').then();
+    this.router.navigateByUrl('/login');
   }
 }

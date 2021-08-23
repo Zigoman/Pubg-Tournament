@@ -20,7 +20,7 @@ export class AppGuard implements CanActivate {
           if (token) {
             this.store.dispatch(CheckLogin({ token }));
           }
-          this.router.navigate(['/login']).then();
+          this.router.navigate(['/login']);
           return false;
         }
         return true;
