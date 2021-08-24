@@ -5,9 +5,7 @@ import * as tournamentsActions from '../actions/tournaments.actions';
 
 export const tournamentsFeatureKey = 'tournaments';
 
-export function selectTournamentId(tournament: ITournament): string {
-  return tournament.tournamentId;
-}
+export const selectTournamentId = (tournament: ITournament): string => tournament.tournamentId;
 
 export interface TournamentsState extends EntityState<ITournament> {
   selectedTournamentId: number | null;

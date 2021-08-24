@@ -18,6 +18,6 @@ export class HelpersService {
   public randomID(): string {
     const max = 9;
     const min = 2;
-    return '_' + Math.random().toString(5).substr(min, max);
+    return `_${Math.random().toString(5).substr(min, max)}`;
   }
 }
