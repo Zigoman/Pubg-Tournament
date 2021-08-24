@@ -12,7 +12,8 @@ export class FormModel {
   constructor() {
     const minValid = 5;
     const maxValid = 5 + 5 + 2;
-    const emailReg = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    const emailReg =
+      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
     const onlyNumbersReg = /^[0-9]*$/;
     const faceBookValidReg = /^(https?:\/\/)?(www\.)?facebook.com\/[a-zA-Z0-9(.?)]/;
 

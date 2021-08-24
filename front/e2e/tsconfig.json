@@ -1,0 +1,27 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "../out-tsc/e2e",
+    "module": "commonjs",
+    "target": "es2018",
+    "types": ["jasmine", "jasminewd2", "node"],
+    "baseUrl": "./",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "lib": ["es2018", "dom"],
+    "allowSyntheticDefaultImports": true
+  },
+  "angularCompilerOptions": {
+    "strictInjectionParameters": true,
+    "strictTemplates": true
+  }
+}

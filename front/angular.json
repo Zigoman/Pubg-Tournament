@@ -1,5 +1,5 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "../node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
     "defaultCollection": "@ngrx/schematics",
@@ -53,15 +53,15 @@
             "assets": ["src/favicon.ico", "src/assets", "src/manifest.webmanifest"],
             "styles": [
               "src/styles.scss",
-              "node_modules/primeflex/primeflex.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeng/resources/themes/saga-blue/theme.css",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/font-awesome/css/font-awesome.css",
-              "node_modules/quill/dist/quill.snow.css",
-              "node_modules/@fullcalendar/core/main.min.css",
-              "node_modules/@fullcalendar/daygrid/main.min.css",
-              "node_modules/@fullcalendar/timegrid/main.min.css"
+              "../node_modules/primeflex/primeflex.css",
+              "../node_modules/primeng/resources/primeng.min.css",
+              "../node_modules/primeng/resources/themes/saga-blue/theme.css",
+              "../node_modules/primeicons/primeicons.css",
+              "../node_modules/font-awesome/css/font-awesome.css",
+              "../node_modules/quill/dist/quill.snow.css",
+              "../node_modules/@fullcalendar/core/main.min.css",
+              "../node_modules/@fullcalendar/daygrid/main.min.css",
+              "../node_modules/@fullcalendar/timegrid/main.min.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles"]
