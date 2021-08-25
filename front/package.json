@@ -9,8 +9,8 @@
     "devfrontmock": "ng serve --proxy-config proxy.mock.conf.json --open --no-live-reload",
     "build": "ng build --configuration production",
     "test": "ng test",
-    "lint": "ng lint",
-    "lintfix": "ng lint --fix",
+    "lint": "eslint --parser-options={tsconfigRootDir:null} **/*.ts **/*.html",
+    "lintfix": "eslint --fix --parser-options={tsconfigRootDir:null} **/*.ts **/*.html",
     "e2e": "ng e2e",
     "icons": "node webfontGenerator.js && webpack"
   },
