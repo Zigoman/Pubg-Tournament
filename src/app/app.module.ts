@@ -5,7 +5,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
+import { Store, StoreModule } from '@ngrx/store';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
@@ -19,6 +19,8 @@ import { metaReducers, reducers } from './store';
 import { UserEffects } from './store/effects/user.effects';
 import { TournamentsEffects } from './store/effects/tournaments.effects';
 import { DataParserService } from './store/services/data-parser.service';
+import { CheckLogin, NoLogin } from './store/actions/user.actions';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -50,4 +52,13 @@ import { DataParserService } from './store/services/data-parser.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(store: Store, authSrv: AuthService) {
+    const token = authSrv.getToken();
+    if (token) {
+      store.dispatch(CheckLogin({ token }));
+    } else {
+      store.dispatch(NoLogin());
+    }
+  }
+}

@@ -1,34 +1,29 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
-import { map } from 'rxjs/operators';
-import { AuthService } from '../services/auth.service';
+import { firstValueFrom } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { AppState } from '../../store';
-import { selectUser } from '../../store/selectors/user.selectors';
-import { CheckLogin } from '../../store/actions/user.actions';
+import { AuthService } from '../services/auth.service';
+import { selectUser, selectUserChecked } from '../../store/selectors/user.selectors';
 
 @Injectable()
 export class AppGuard implements CanActivate {
   constructor(private router: Router, private authSrv: AuthService, private store: Store<AppState>) {}
 
-  public canActivate(): Observable<boolean> | Promise<boolean> | boolean {
-    return this.checkStoreAuthentication().pipe(
-      map(authed => {
-        if (!authed) {
-          const token = this.authSrv.getToken();
-          if (token) {
-            this.store.dispatch(CheckLogin({ token }));
-          }
-          this.router.navigate(['/login']).then();
-          return false;
-        }
-        return true;
-      })
-    );
+  public async canActivate(): Promise<boolean> {
+    // If this is the first page load, wait for app to query user
+    await firstValueFrom(this.store.select(selectUserChecked).pipe(filter(r => r)));
+
+    const authed = await this.checkStoreAuthentication();
+    if (!authed) {
+      this.router.navigate(['/login']).then();
+      return false;
+    }
+    return true;
   }
 
-  private checkStoreAuthentication(): Observable<boolean> {
-    return this.store.pipe(select(selectUser)).pipe(map(res => !!res));
+  private async checkStoreAuthentication(): Promise<boolean> {
+    return firstValueFrom(this.store.pipe(select(selectUser)).pipe(map(user => !!user)));
   }
 }
