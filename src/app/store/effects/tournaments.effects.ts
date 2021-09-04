@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import * as fromTournamentsActions from '../actions/tournaments.actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import * as fromTournamentsActions from '../actions/tournaments.actions';
 import { TournamentsApiService } from '../services/tournaments.httpservice';
 
 @Injectable()

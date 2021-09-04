@@ -10,11 +10,15 @@ import { IRoom } from '../../../../shared/interfaces/store.interface';
 })
 export class RoomComponent implements OnInit {
   public config: CountdownConfig;
+
   private readonly now: moment.Moment;
+
   public bgURL: string;
+
   public lessThenDay: boolean;
 
   @Input() roomInfo?: IRoom;
+
   @Output() clickRoomID: EventEmitter<number> = new EventEmitter<number>();
 
   @ViewChild('countDown', { static: false }) private countdown: CountdownComponent | undefined;

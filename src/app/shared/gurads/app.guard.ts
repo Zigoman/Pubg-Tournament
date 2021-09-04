@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthService } from '../services/auth.service';
 import { select, Store } from '@ngrx/store';
-import { AppState } from '../../store';
 import { map } from 'rxjs/operators';
+import { AuthService } from '../services/auth.service';
+import { AppState } from '../../store';
 import { selectUser } from '../../store/selectors/user.selectors';
 import { CheckLogin } from '../../store/actions/user.actions';
 

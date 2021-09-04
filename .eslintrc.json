@@ -1,0 +1,109 @@
+{
+  "root": true,
+  "ignorePatterns": ["projects/**/*", "back/**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.json"],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "airbnb-base",
+        "airbnb-typescript/base",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "prettier"
+      ],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "pubg",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "pubg",
+            "style": "camelCase"
+          }
+        ],
+        "@typescript-eslint/consistent-type-definitions": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/no-this-alias": "error",
+        "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
+        "@typescript-eslint/no-unnecessary-type-arguments": "error",
+        "@typescript-eslint/promise-function-async": "error",
+        "id-blacklist": "off",
+        "@typescript-eslint/member-ordering": "off",
+        "@typescript-eslint/ban-types": ["off"],
+        "@typescript-eslint/naming-convention": [
+          "warn",
+          {
+            "selector": "classProperty",
+            "format": ["camelCase", "UPPER_CASE"]
+          }
+        ],
+        "prefer-destructuring": "off",
+        "arrow-parens": ["off", "always"],
+        "brace-style": ["off", "off"],
+        "import/no-default-export": "error",
+        "import/no-extraneous-dependencies": "error",
+        "import/no-internal-modules": "off",
+        "linebreak-style": "off",
+        "new-parens": "off",
+        "newline-per-chained-call": "off",
+        "no-constant-condition": "error",
+        "no-control-regex": "error",
+        "no-duplicate-case": "error",
+        "no-duplicate-imports": "error",
+        "no-extra-bind": "error",
+        "class-methods-use-this": "off",
+        "no-extra-semi": "off",
+        "no-invalid-regexp": "error",
+        "no-irregular-whitespace": "off",
+        "no-magic-numbers": [
+          "error",
+          {
+            "ignore": [0, 1, 2, 3, 4, 5, -1, -2, 100]
+          }
+        ],
+        "no-new-func": "error",
+        "no-param-reassign": "error",
+        "no-redeclare": "error",
+        "no-regex-spaces": "error",
+        "no-return-await": "error",
+        "no-sequences": "error",
+        "no-sparse-arrays": "error",
+        "no-template-curly-in-string": "error",
+        "no-trailing-spaces": "off",
+        "prefer-object-spread": "error",
+        "prefer-template": "error",
+        "react/jsx-curly-spacing": "off",
+        "react/jsx-equals-spacing": "off",
+        "react/jsx-tag-spacing": [
+          "off",
+          {
+            "afterOpening": "allow",
+            "closingSlash": "allow"
+          }
+        ],
+        "react/jsx-wrap-multilines": "off",
+        "space-in-parens": ["off", "never"],
+        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "import/prefer-default-export": "off",
+        "comma-dangle": ["error", "never"],
+        "@typescript-eslint/comma-dangle": ["error", "never"]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended", "prettier"],
+      "rules": {}
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { mainRoutes } from './main.routes';
 import { RouterModule } from '@angular/router';
+import { mainRoutes } from './main.routes';
 import { MainComponent } from './main.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SharedModule } from '../../shared/shared.module';

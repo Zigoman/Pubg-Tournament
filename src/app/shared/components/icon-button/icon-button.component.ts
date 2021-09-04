@@ -9,6 +9,7 @@ export class IconButtonComponent {
   public disable: boolean;
 
   @Input() icon: string;
+
   @Input() action: string;
 
   @Input()

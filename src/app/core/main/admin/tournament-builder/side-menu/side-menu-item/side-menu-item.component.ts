@@ -1,15 +1,17 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { ITab } from '../../../interfaces/actions.interface';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Draggable } from '@fullcalendar/interaction';
+import { ISideMenuItem } from '@shared/interfaces/actions.interface';
 
 @Component({
   selector: 'pubg-side-menu-item',
   templateUrl: './side-menu-item.component.html',
   styleUrls: ['./side-menu-item.component.scss']
 })
-export class SideMenuItemComponent implements OnInit, AfterViewInit {
-  @Input() public itemInfo: ITab | null;
+export class SideMenuItemComponent implements AfterViewInit {
+  @Input() public itemInfo: ISideMenuItem | null;
+
   @Input() public color: string;
+
   @ViewChild('item') item: ElementRef | undefined;
 
   constructor() {
@@ -17,15 +19,14 @@ export class SideMenuItemComponent implements OnInit, AfterViewInit {
     this.color = 'white';
   }
 
-  ngOnInit(): void {}
-
   ngAfterViewInit(): void {
     if (this.item) {
-      console.log('this.itemInfo', this.itemInfo);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const item = new Draggable(this.item.nativeElement, {
         eventData: () => ({
           title: this.itemInfo?.title ? this.itemInfo?.title : this.itemInfo?.text,
-          backgroundColor: this.color
+          backgroundColor: this.color,
+          action: this.itemInfo?.action
         })
       });
     }

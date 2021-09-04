@@ -10,10 +10,15 @@ import { IRoom } from '../../../shared/interfaces/store.interface';
 })
 export class RoomDashboardComponent implements OnInit {
   public roomInfo: IRoom;
+
   public config: CountdownConfig;
+
   private readonly now: moment.Moment;
+
   public bgURL: string;
+
   public lessThenDay: boolean;
+
   @ViewChild(CountdownComponent) private countdown: CountdownComponent | undefined;
 
   constructor() {

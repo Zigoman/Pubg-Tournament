@@ -1,0 +1,28 @@
+:host {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .tournament-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    &__form {
+      flex: 1;
+      overflow: auto;
+    }
+
+    &__footer {
+      display: flex;
+      flex-direction: row-reverse;
+      padding: 10px 0;
+
+      p-button {
+        padding: 0 10px;
+      }
+    }
+  }
+}

@@ -16,7 +16,7 @@ export const mainRoutes: Routes = [
           { path: 'schedules', component: SchedulesComponent },
           { path: 'schedules/:roomId', component: RoomDashboardComponent },
           { path: 'squad', component: SquadComponent },
-          { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
+          { path: 'admin', loadChildren: async () => import('./admin/admin.module').then(m => m.AdminModule) }
         ]
       }
     ]

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @mixin box-shadow($horizontal, $vertical, $blur, $spread, $color, $inset: null) {
   $InOut: null;
 
@@ -11,7 +13,7 @@
 }
 
 @mixin pubg-font($sizeValue, $weightValue) {
-  font-size: ($sizeValue / 12) + rem;
+  font-size: math.div($sizeValue, 12) + rem;
   @if $weightValue == 'light' {
     font-weight: 300;
   } @else if $weightValue == 'bold' {

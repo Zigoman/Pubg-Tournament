@@ -185,12 +185,10 @@ html body {
   }
 
   p-button {
-    padding: 5px;
-
     .p-button {
       color: $def-background;
       background-color: $pubg-main;
-      border: 1px solid $pubg-main;
+      border: none;
       font-size: inherit;
       font-weight: inherit;
       padding: 5px;
@@ -199,7 +197,7 @@ html body {
         &:hover {
           color: $def-background;
           background-color: $pubg-main;
-          border: 1px solid $pubg-main;
+          border: none;
         }
 
         &:focus {
@@ -210,38 +208,65 @@ html body {
       &:disabled {
         opacity: $disabled-op;
       }
-    }
 
-    .p-button-link {
-      background: transparent;
-      color: $pubg-main;
-      border-radius: $border-radius-elem;
+      &.p-button-link {
+        background: transparent;
+        color: $pubg-main;
+        border-radius: $border-radius-elem;
 
-      &:enabled {
-        &:hover {
-          background: transparent;
-          color: $pubg-main;
-          border-radius: $border-radius-elem;
+        &:enabled {
+          &:hover {
+            background: transparent;
+            color: $pubg-main;
+            border-radius: $border-radius-elem;
+          }
+
+          &:focus {
+            box-shadow: none;
+          }
         }
       }
     }
   }
 
+  .p-dialog-mask.p-component-overlay {
+    background-color: rgba($def-background, 0.6);
+
+    .p-dialog {
+      .p-dialog-header {
+        background: $pubg-main;
+        color: $def-background;
+        padding: 15px;
+        border-top-right-radius: $border-radius-elem;
+        border-top-left-radius: $border-radius-elem;
+      }
+
+      .p-dialog-content {
+        background: $def-background;
+        color: $def-fonts;
+        padding: 15px;
+        border: 3px solid $pubg-main;
+        border-bottom: none;
+        border-top: none;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .p-dialog-footer {
+        height: 3px;
+        background: $pubg-main;
+        padding: 0;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+      }
+    }
+  }
+
   // fullCalender
-  .fc {
+  .fc.fc-unthemed {
     .fc-day-grid-event {
       padding: 5px;
-    }
-
-    .fc-event {
-      color: $def-background;
-      border-color: $def-background;
-      border-radius: $border-radius;
-      @include pubg-font(12, regular);
-    }
-
-    td.fc-today {
-      background-color: $pubg-dark-grey;
     }
 
     .fc-dragging {
@@ -250,15 +275,117 @@ html body {
       color: $def-background;
       @include pubg-font(16, regular);
     }
-  }
 
-  //.fc-unthemed td.fc-today {
-  //  background: #000000;
-  //}
-  //.fc-dayGrid-view .fc-body .fc-row {
-  //  max-height: 142px;
-  //}
-  //.fc-view-container *, .fc-view-container :after, .fc-view-container {
-  //  max-height: 850px;
-  //}
+    .fc-view-container {
+      th {
+        background: $pubg-main;
+        border-color: $pubg-main;
+        color: $def-background;
+      }
+
+      td {
+        &.fc-widget-content {
+          background: inherit;
+          border-color: $pubg-main;
+
+          &.fc-today {
+            background: $pubg-dark-grey;
+          }
+        }
+
+        &.fc-head-container {
+          border-color: $pubg-main;
+
+          .fc-widget-header {
+            thead {
+              border-color: $pubg-main;
+            }
+          }
+        }
+      }
+
+      .fc-event {
+        color: $def-background;
+        border-color: $def-background;
+        border-radius: $border-radius;
+        @include pubg-font(12, regular);
+
+        &.fc-not-start {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          padding-left: 5px;
+        }
+
+        &.fc-not-end {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+    }
+
+    .fc-dayGrid-view {
+      .fc-day-top {
+        position: relative;
+        padding: 10px;
+
+        .fc-day-number {
+          color: $def-fonts;
+          @include pubg-font(20, regular);
+          position: absolute;
+          right: 2px;
+          z-index: 1;
+          top: 2px;
+          padding: 0;
+        }
+      }
+    }
+
+    .fc-toolbar {
+      .fc-button {
+        background: $pubg-main;
+        border-color: $pubg-main;
+        color: $def-background;
+        @include pubg-font(14, bold);
+
+        &:enabled {
+          &:active {
+            background: $pubg-main;
+            border-color: $pubg-main;
+            color: $def-background;
+          }
+
+          &:hover {
+            background: darken($pubg-main, 10);
+            border-color: $pubg-main;
+            color: $def-background;
+          }
+        }
+
+        &.fc-dayGridMonth-button,
+        &.fc-timeGridWeek-button,
+        &.fc-timeGridDay-button,
+        &.fc-listMonth-button {
+          background: $def-background;
+          border-color: $pubg-main;
+          color: $pubg-main;
+
+          &.fc-button-active {
+            background: $pubg-main;
+            border-color: $pubg-main;
+            color: $def-background;
+
+            &:hover {
+              background: darken($pubg-main, 10);
+              border-color: $pubg-main;
+              color: $def-background;
+            }
+
+            &:focus {
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
+  }
 }

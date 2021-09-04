@@ -1,12 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'pubg-users-management',
   templateUrl: './users-management.component.html',
   styleUrls: ['./users-management.component.scss']
 })
-export class UsersManagementComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class UsersManagementComponent {}

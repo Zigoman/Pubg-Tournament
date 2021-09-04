@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ITab } from '../../shared/interfaces/actions.interface';
-import { AuthService } from '../../shared/services/auth.service';
 import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
+import { ITab } from '../../shared/interfaces/actions.interface';
+import { AuthService } from '../../shared/services/auth.service';
 import { IUser } from '../../shared/interfaces/store.interface';
 import { selectUser } from '../../store/selectors/user.selectors';
 import { loadTournaments } from '../../store/actions/tournaments.actions';
@@ -15,6 +15,7 @@ import { loadTournaments } from '../../store/actions/tournaments.actions';
 })
 export class MainComponent implements OnInit {
   public tabs: ITab[];
+
   public admin$: Observable<boolean> | null;
 
   constructor(private AuthSrv: AuthService, private router: Router, private store: Store<{ user: IUser }>) {
@@ -34,6 +35,7 @@ export class MainComponent implements OnInit {
     });
     this.store.dispatch(loadTournaments());
   }
+
   public changeMain(event: ITab): void {
     this.router.navigateByUrl(event.action).then();
   }
