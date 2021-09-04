@@ -9,7 +9,6 @@ import { select, Store } from '@ngrx/store';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { selectAllTournaments } from '../../../../store/selectors/tournaments.selectors';
 import { AppState } from '../../../../store';
-import { TournamentFormComponent } from './tournament-form/tournament-form.component';
 
 @Component({
   templateUrl: './tournament-builder.component.html',
