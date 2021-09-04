@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { HelpersService } from '../../../shared/services/helpers.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ISchedules } from '../../../shared/interfaces/store.interface';
+import { select, Store } from '@ngrx/store';
+import { HelpersService } from '@shared/services/helpers.service';
+import { ISchedules } from '@shared/interfaces/store.interface';
 import { selectAllTournaments } from '../../../store/selectors/tournaments.selectors';
 import { AppState } from '../../../store';
-import { select, Store } from '@ngrx/store';
 import { DataParserService } from '../../../store/services/data-parser.service';
 
 @Component({
@@ -31,7 +31,7 @@ export class SchedulesComponent implements OnInit {
     });
   }
 
-  public routeToRoom(roomID: number = 45435): void {
+  public routeToRoom(roomID: number): void {
     this.router.navigate([roomID], { relativeTo: this.route }).then();
   }
 }

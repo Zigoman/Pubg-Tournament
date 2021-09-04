@@ -14,10 +14,4 @@ export class HelpersService {
       sameElse: 'L'
     };
   }
-
-  public randomID(): string {
-    const max = 9;
-    const min = 2;
-    return '_' + Math.random().toString(5).substr(min, max);
-  }
 }

@@ -1,13 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
-import { ITournament } from '../../shared/interfaces/store.interface';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { ITournament } from '../../shared/interfaces/store.interface';
 import * as tournamentsActions from '../actions/tournaments.actions';
 
 export const tournamentsFeatureKey = 'tournaments';
 
-export function selectTournamentId(tournament: ITournament): string {
-  return tournament.tournamentId;
-}
+export const selectTournamentId = (tournament: ITournament): string => tournament.tournamentId;
 
 export interface TournamentsState extends EntityState<ITournament> {
   selectedTournamentId: number | null;

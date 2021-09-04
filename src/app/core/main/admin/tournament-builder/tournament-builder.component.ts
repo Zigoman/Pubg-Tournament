@@ -1,14 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ISideMenu } from '../../../../shared/interfaces/actions.interface';
+import { ISideMenu } from '@shared/interfaces/actions.interface';
 import daygrid from '@fullcalendar/daygrid';
 import timegrid from '@fullcalendar/timegrid';
 import list from '@fullcalendar/list';
 import interaction from '@fullcalendar/interaction';
 import moment from '@fullcalendar/moment';
 import { select, Store } from '@ngrx/store';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { selectAllTournaments } from '../../../../store/selectors/tournaments.selectors';
 import { AppState } from '../../../../store';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { TournamentFormComponent } from './tournament-form/tournament-form.component';
 
 @Component({
@@ -17,8 +17,11 @@ import { TournamentFormComponent } from './tournament-form/tournament-form.compo
 })
 export class TournamentBuilderComponent implements OnInit, OnDestroy {
   public sideMenu: ISideMenu;
+
   public currentEvents: object[];
+
   public options: object;
+
   public dialogRef: DynamicDialogRef | null;
 
   constructor(private store: Store<AppState>, private dialogSrv: DialogService) {
@@ -47,14 +50,14 @@ export class TournamentBuilderComponent implements OnInit, OnDestroy {
         // console.log('drop', info.jsEvent.target.attributes['data-event']);
       },
       eventReceive: () => {
-        console.log('eventReceive');
-      },
-      dateClick: (e: object) => {
-        console.log(e);
-      },
-      eventClick: (e: object) => {
-        console.log(e);
+        // console.log('eventReceive');
       }
+      // dateClick: (e: object) => {
+      //   // console.log(e);
+      // },
+      // eventClick: (e: object) => {
+      //   // console.log(e);
+      // }
     };
     this.currentEvents = [];
   }

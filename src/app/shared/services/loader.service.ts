@@ -10,6 +10,7 @@ export class LoaderService {
 
   // private loadCounter: number;
   public loadCounter: number;
+
   public counterValue$: Observable<number>;
   // public handlerWithoutDelay: Subject<any> = new Subject();
 

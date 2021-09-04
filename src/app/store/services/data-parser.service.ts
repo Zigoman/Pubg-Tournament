@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { ISchedules, ITournaments } from '../../shared/interfaces/store.interface';
 import * as moment from 'moment';
+import { ISchedules, ITournaments } from '@shared/interfaces/store.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataParserService {
-  constructor() {}
-
   public tournamentToSchedules(tournaments: ITournaments): ISchedules {
     const schedules: ISchedules = [];
     tournaments.forEach(tournament => {

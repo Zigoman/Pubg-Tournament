@@ -1,7 +1,7 @@
-import { LoaderService } from './shared/services/loader.service';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { LoaderService } from '@shared/services/loader.service';
 
 @Component({
   selector: 'pubg-root',
@@ -13,7 +13,7 @@ export class AppComponent {
 
   constructor(private loaderSrv: LoaderService) {
     this.loaderSub$ = this.loaderSrv.counterValue$.pipe(
-      tap(console.log),
+      tap(),
       map(r => r > 0)
     );
   }

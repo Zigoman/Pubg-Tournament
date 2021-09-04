@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ITab, ITabs } from '../../shared/interfaces/actions.interface';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { loadUser } from '../../store/actions/user.actions';
 import { DynamicFormControlModel, DynamicFormLayout, DynamicFormService } from '@ng-dynamic-forms/core';
+import { loadUser } from '../../store/actions/user.actions';
+import { ITab, ITabs } from '../../shared/interfaces/actions.interface';
 import { FORMS_LAYOUT } from '../../shared/services/forms.layout';
 import { FormModel } from './login-signup-form.model';
 
@@ -15,10 +15,13 @@ import { FormModel } from './login-signup-form.model';
 })
 export class LoginComponent implements OnInit {
   public tabs: ITabs;
+
   public selectedTab: ITab;
 
   public formGroup: FormGroup;
+
   public formLayout: DynamicFormLayout;
+
   public formModel: DynamicFormControlModel[];
 
   constructor(private router: Router, private store: Store, private formService: DynamicFormService) {
@@ -43,7 +46,6 @@ export class LoginComponent implements OnInit {
   }
 
   public submit(form: FormGroup): void {
-    console.log('form.value', form.value);
     if (form && form.valid) {
       if (this.selectedTab.action === 'signUp') {
         // this.store.dispatch(addUser({ user }));

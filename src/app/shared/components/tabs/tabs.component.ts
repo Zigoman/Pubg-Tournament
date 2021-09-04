@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ITab, ITabs } from '../../interfaces/actions.interface';
 
 @Component({
@@ -6,10 +6,13 @@ import { ITab, ITabs } from '../../interfaces/actions.interface';
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.scss']
 })
-export class TabsComponent implements OnInit {
+export class TabsComponent {
   public tabs: ITabs;
+
   @Input() currentTab: ITab | null;
+
   @Input() large: boolean;
+
   @Output() selectedTab: EventEmitter<ITab> = new EventEmitter<ITab>();
 
   @Input()
@@ -25,8 +28,6 @@ export class TabsComponent implements OnInit {
     this.currentTab = null;
     this.large = false;
   }
-
-  ngOnInit(): void {}
 
   public changeTab(tab: ITab): void {
     this.currentTab = tab;

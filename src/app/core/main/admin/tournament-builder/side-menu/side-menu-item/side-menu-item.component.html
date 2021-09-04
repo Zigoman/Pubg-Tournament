@@ -1,11 +1,4 @@
-<div
-  #item
-  class="side-menu-item"
-  *ngIf="itemInfo"
-  [ngStyle]="{
-    backgroundColor: color
-  }"
->
+<div #item class="side-menu-item" *ngIf="itemInfo" [ngStyle]="{ backgroundColor: color }">
   <div class="side-menu-item__text">
     {{ itemInfo.text }}
   </div>

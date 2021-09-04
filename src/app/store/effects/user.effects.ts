@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import * as fromUsersActions from '../actions/user.actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { ApiHttpService } from '../services/app.httpservice';
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
+import { ApiHttpService } from '../services/app.httpservice';
+import * as fromUsersActions from '../actions/user.actions';
 import { AuthService } from '../../shared/services/auth.service';
 
 @Injectable()

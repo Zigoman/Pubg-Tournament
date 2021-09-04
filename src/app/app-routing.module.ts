@@ -10,7 +10,7 @@ const routes: Routes = [
       {
         path: '',
         canActivate: [AppGuard],
-        loadChildren: () => import('./core/main/main.module').then(m => m.MainModule)
+        loadChildren: async () => import('./core/main/main.module').then(m => m.MainModule)
       },
       {
         path: 'login',
