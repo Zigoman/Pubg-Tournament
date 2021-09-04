@@ -7,6 +7,7 @@ import { ISideMenuItem } from '@shared/interfaces/actions.interface';
   templateUrl: './side-menu-item.component.html',
   styleUrls: ['./side-menu-item.component.scss']
 })
+
 export class SideMenuItemComponent implements AfterViewInit {
   @Input() public itemInfo: ISideMenuItem | null;
 

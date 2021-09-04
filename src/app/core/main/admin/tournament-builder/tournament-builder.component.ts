@@ -42,11 +42,11 @@ export class TournamentBuilderComponent implements OnInit, OnDestroy {
       editable: true,
       droppable: true, // this allows things to be dropped onto the calendar
       drop: () => {
-        this.dialogRef = this.dialogSrv.open(TournamentFormComponent, {
-          header: 'Choose a Car',
-          width: '500px',
-          footer: ' '
-        });
+        // this.dialogRef = this.dialogSrv.open(TournamentFormComponent, {
+        //   header: 'Choose a Car',
+        //   width: '500px',
+        //   footer: ' '
+        // });
         // console.log('drop', info.jsEvent.target.attributes['data-event']);
       },
       eventReceive: () => {
