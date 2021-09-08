@@ -4,7 +4,8 @@
   "author": "Nir Zigdon",
   "description": "Pubg Mobile group of friends, project built using Angular 10, Express, Mongoose and Node.",
   "scripts": {
-    "start": "node server",
+    "start": "nodemon server",
+    "start:mongo": "pushd mongo & docker compose up -d",
     "serverbuild": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\" \"ng build --watch\" \"nodemon server\"",
     "mock": "json-server -p 5000 --watch mock/db.json --middlewares mock/middlewares.ts"
   },

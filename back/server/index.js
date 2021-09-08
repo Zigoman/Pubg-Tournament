@@ -18,7 +18,7 @@ const port = process.env.PORT || 3000;
 // src: https://github.com/mochajs/mocha/issues/1912
 let server;
 app.set('port', port);
-if (!module.parent) {
+if (require.main === module) {
   server = app.listen(port, () => {
     console.info(`server started on port ${port} (${process.env})`);
   });

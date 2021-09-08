@@ -6,6 +6,7 @@ require('dotenv').config();
 
 // connect to mongo db
 const connectionString = process.env.MONGO_HOST.replace('<password>', process.env.MONGO_PASSWORD);
+console.log(connectionString);
 
 // if connection fails -> replace connectionString with process.env.MONGO_HOST_LOCAL
 mongoose
