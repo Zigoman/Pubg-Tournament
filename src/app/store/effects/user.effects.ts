@@ -45,10 +45,8 @@ export class UserEffects {
       ofType(fromUsersActions.loadUser),
       mergeMap(action =>
         this.apiService.loadUser(action.user).pipe(
-          map(
-            user => fromUsersActions.loadUserSuccess({ user }),
-            catchError(error => of(fromUsersActions.loadUserFailure({ error })))
-          )
+          map(user => fromUsersActions.loadUserSuccess({ user })),
+          catchError(error => of(fromUsersActions.loadUserFailure({ error })))
         )
       )
     )
