@@ -35,7 +35,7 @@
     "passport-local": "^1.0.0",
     "protractor": "~7.0.0",
     "rxjs": "^6.6.3",
-    "validator": "^13.5.2"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@types/jasminewd2": "~2.0.8",
